@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { databases } from './api/appwrite'
+import { databases } from '@/pages/api/appwrite'
 
-function ListTask() {
+function Todos() {
     const [todos, setTodos] = useState()
     const [loader, setLoader] = useState(false)
 
@@ -35,10 +35,10 @@ function ListTask() {
     }
 
     return (
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto text-white">
             <p className="text-xl font-bold mb-2">Todo List</p>
             {loader ? (
-                <p>Loading ...</p>
+                <p className='text-white'>Loading ...</p>
             ) : (
                 <div>
                     {todos && todos.map(item => (
@@ -67,4 +67,4 @@ function ListTask() {
     )
 }
 
-export default ListTask
+export default Todos
