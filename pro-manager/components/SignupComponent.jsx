@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { account } from '@/pages/api/appwrite'
 import { v4 as uuidv4 } from 'uuid'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 function SignupComponent() {
     const router = useRouter()
@@ -33,15 +34,15 @@ function SignupComponent() {
     }
 
     return (
-        <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-            <div className="text-center text-2xl font-bold">Sign up</div>
+        <section className="text-gray-900 min-h-full flex flex-col justify-center items-center py-12 sm:px-6 lg:px-8">
+            <div className="text-center text-2xl font-bold text-white">Sign up</div>
             <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-                <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+                <div className="bg-gray-200 py-8 px-4 shadow sm:rounded-lg sm:px-10">
                     <form className="space-y-6" action="#" method="POST">
                         <div>
                             <label
                                 htmlFor="name"
-                                className="block text-sm font-medium text-gray-700"
+                                className="block text-sm font-medium"
                             >
                                 Name
                             </label>
@@ -52,7 +53,8 @@ function SignupComponent() {
                                     type="text"
                                     autoComplete="name"
                                     required
-                                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 focus:outline-none focus:ring-pink-500 focus:border-pink-500 sm:text-sm"
+                                    placeholder='John Doe'
                                     onChange={(e) => {
                                         setUser({
                                             ...user,
@@ -65,7 +67,7 @@ function SignupComponent() {
                         <div>
                             <label
                                 htmlFor="email"
-                                className="block text-sm font-medium text-gray-700"
+                                className="block text-sm font-medium"
                             >
                                 Email address
                             </label>
@@ -74,7 +76,8 @@ function SignupComponent() {
                                     id="email"
                                     name="email"
                                     type="email"
-                                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 focus:outline-none focus:ring-pink-500 focus:border-pink-500 sm:text-sm"
+                                    placeholder='example@gmail.com'
                                     onChange={(e) => {
                                         setUser({
                                             ...user,
@@ -88,7 +91,7 @@ function SignupComponent() {
                         <div>
                             <label
                                 htmlFor="password"
-                                className="block text-sm font-medium text-gray-700"
+                                className="block text-sm font-medium"
                             >
                                 Password
                             </label>
@@ -99,7 +102,8 @@ function SignupComponent() {
                                     type="password"
                                     autoComplete="current-password"
                                     required
-                                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 focus:outline-none focus:ring-pink-500 focus:border-pink-500 sm:text-sm"
+                                    placeholder='abc@123#'
                                     onChange={(e) => {
                                         setUser({
                                             ...user,
@@ -110,18 +114,31 @@ function SignupComponent() {
                             </div>
                         </div>
 
+
+
                         <div>
                             <button
                                 type="submit"
-                                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-lg font-medium bg-pink-600 hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 text-white"
                                 onClick={signupUser}
                             >
                                 Create account
                             </button>
                         </div>
+                        <div className="flex items-center justify-center">
+                            <div className="text-sm">
+                                <Link
+                                    href="/login"
+                                    className="font-medium text-pink-600 hover:text-pink-800 hover:underline hover:underline-offset-4"
+                                >
+                                    Already have an account, Log In
+                                </Link>
+                            </div>
+                        </div>
+
                     </form>
 
-                    <div className="mt-6">
+                    {/* <div className="mt-6">
                         <div className="relative">
                             <div className="absolute inset-0 flex items-center">
                                 <div className="w-full border-t border-gray-300" />
@@ -132,10 +149,10 @@ function SignupComponent() {
                                 </span>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 

@@ -1,31 +1,30 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Custom404() {
     return (
         <div className="text-white flex flex-col mx-auto my-10 justify-center items-center">
-            {/* <Image
-        className="mb-6"
-        src="/404 error.gif"
-        alt="error"
-        width="250rem"
-        height="250rem"
-        // layout="fill"
-        onError={({ currentTarget }) => {
-          currentTarget.onerror = null; // prevents looping
-          currentTarget.src = "/error2.svg";
-        }}
-      /> */}
-            <h1>404 - Page Not Found</h1>
+            <Image
+                className="mb-6"
+                src="/error-404-1.gif"
+                alt="error"
+                width={250}
+                height={250}
+                onError={({ currentTarget }) => {
+                    currentTarget.onerror = null; // prevents looping
+                    currentTarget.src = "/next.svg";
+                }}
+            />
+            <h2 className="text-center font-medium text-lg">404 - Page Not Found</h2>
             <p className="text-center py-4">
-                If you're trying to head over to some other page from the blog page,
-                kindly go back home first and then choose that path.
+                Oops!! You're in the wrong path. Kindly go back home safely.
                 <br /> Happy Routing! 🎃
             </p>
-            <a href="/">
-                <button className="bg-blue-900 text-white p-4 rounded-lg">
+            <Link href="/">
+                <button className="bg-pink-900 text-white p-4 rounded-lg">
                     Go back Home
                 </button>
-            </a>
+            </Link>
         </div>
     );
 }

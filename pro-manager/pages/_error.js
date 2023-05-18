@@ -1,34 +1,34 @@
 import Image from "next/image";
+import Link from "next/link";
 
 function Error({ statusCode }) {
     return (
         <div className="text-white flex flex-col mx-auto my-8 justify-center items-center">
-            {/* <Image
-        className="mb-4"
-        src="/404 error.gif"
-        alt="error"
-        width="250rem"
-        height="250rem"
-        onError={({ currentTarget }) => {
-          currentTarget.onerror = null; // prevents looping
-          currentTarget.src = "/error3.svg";
-        }}
-      /> */}
+            <Image
+                className="mb-6"
+                src="/error-404-1.gif"
+                alt="error"
+                width={250}
+                height={250}
+                onError={({ currentTarget }) => {
+                    currentTarget.onerror = null; // prevents looping
+                    currentTarget.src = "/next.svg";
+                }}
+            />
             <h2>
                 {statusCode
                     ? `An error ${statusCode} occurred on server`
                     : "An error occurred on client"}
             </h2>
             <p className="text-center py-2">
-                If you're trying to head over to some other page from the blog page,
-                kindly go back home first and then choose that path.
+                Oops!! You're in the wrong path. Kindly go back home safely.
                 <br /> Happy Routing! 🎃
             </p>
-            <a href="/">
-                <button className="bg-blue-900 text-white p-2 rounded-lg">
+            <Link href="/">
+                <button className="bg-pink-900 text-white p-2 rounded-lg">
                     Go back Home
                 </button>
-            </a>
+            </Link>
         </div>
     );
 }

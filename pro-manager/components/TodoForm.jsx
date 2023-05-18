@@ -27,7 +27,7 @@ function TodoForm() {
 
 
     return (
-        <div className="max-w-7xl mx-auto mt-10">
+        <div className="max-w-7xl mx-auto mt-10 text-white">
             <form
                 action=""
                 onSubmit={handleSubmit}
@@ -38,13 +38,13 @@ function TodoForm() {
                     name=""
                     id=""
                     placeholder="Enter Todo"
-                    className="border p-2 w-2/3 rounded-md"
+                    className="border p-2 w-2/3 rounded-md text-black placeholder-gray-600"
                     onChange={(e) => {
                         setTodoItem(e.target.value)
                     }}
                 />
                 <button
-                    className="bg-purple-500 p-2 text-white ml-2 rounded-md"
+                    className="bg-pink-600 hover:bg-pink-700 p-2 text-white ml-2 rounded-md"
                     type="submit"
                 >
                     Add Todo

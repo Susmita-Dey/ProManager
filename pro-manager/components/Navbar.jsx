@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 
 function NavLink({ to, children }) {
-    return <Link href={to} className={`mx-4 py-2`}>
+    return <Link href={to} className={`mx-4 py-2 hover:underline hover:underline-offset-4`}>
         {children}
     </Link>
 }
@@ -29,7 +29,7 @@ function MobileNav({ open, setOpen }) {
                 <Link className="text-xl font-normal my-4" href="/contact" onClick={() => setTimeout(() => { setOpen(!open) }, 100)}>
                     Contact
                 </Link>
-                <Link className="text-xl font-normal my-4 w-full text-center py-2 rounded-md bg-pink-800" href="/signup" onClick={() => setTimeout(() => { setOpen(!open) }, 100)}>
+                <Link className="text-xl font-medium my-4 w-full text-center py-2 rounded-md bg-pink-600 hover:bg-pink-700" href="/signup" onClick={() => setTimeout(() => { setOpen(!open) }, 100)}>
                     Sign Up
                 </Link>
             </ div>
@@ -73,11 +73,11 @@ export default function Navbar() {
                     <NavLink to="/contact">
                         Contact
                     </NavLink>
-                    <button className='p-2 rounded-md bg-pink-800'>
-                        <NavLink to="/signup">
+                    <Link href={"/signup"}>
+                        <button className='px-4 py-2 rounded-md font-medium bg-pink-600 hover:bg-pink-700'>
                             Sign Up
-                        </NavLink>
-                    </button>
+                        </button>
+                    </Link>
                 </div>
             </div>
         </nav>
