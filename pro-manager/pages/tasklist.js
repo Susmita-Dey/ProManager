@@ -1,13 +1,11 @@
 import TodoForm from '@/components/TodoForm'
 import Todos from '@/components/Todos'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
-import { account } from './api/appwrite'
+import { account } from '@/appwrite/appwrite'
 
 
 function TaskList() {
-    const router = useRouter()
     const [userDetails, setUserDetails] = useState()
 
     useEffect(() => {

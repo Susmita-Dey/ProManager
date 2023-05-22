@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { account } from '@/pages/api/appwrite'
+import { account } from '@/appwrite/appwrite'
 import { useRouter } from 'next/router'
 
 function LoginComponent() {

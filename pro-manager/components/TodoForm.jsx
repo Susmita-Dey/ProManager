@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
-import { databases } from '@/pages/api/appwrite'
+import { databases } from '@/appwrite/appwrite'
 
 function TodoForm() {
     const [todoItem, setTodoItem] = useState("")
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const promise = databases.createDocument("6466055dd831efd150ef", uuidv4(), {
+        const promise = databases.createDocument("646605464de2f5cb7435", "6466055dd831efd150ef", uuidv4(), {
             todo: todoItem
         })
 

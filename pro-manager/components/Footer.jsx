@@ -6,7 +6,7 @@ export default function Footer() {
             <p className="text-sm text-slate-100">
                 <span>Built with 💖 using NextJS and Appwrite</span>
                 <br />
-                &copy; 2022{" "}
+                &copy; 2023{" "}
                 <b>
                     <Link
                         href="https://bio.link/susmitadey"

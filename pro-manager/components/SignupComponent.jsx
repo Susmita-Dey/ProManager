@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { account } from '@/pages/api/appwrite'
+import { account } from '@/appwrite/appwrite'
 import { v4 as uuidv4 } from 'uuid'
 import { useRouter } from 'next/router'
 import Link from 'next/link'

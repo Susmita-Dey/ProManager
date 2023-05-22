@@ -2,7 +2,7 @@ import React from 'react'
 
 function Dashboard() {
     return (
-        <div>Dashboard</div>
+        <div>Dashboard of {user.$id}</div>
     )
 }
 
