@@ -3,6 +3,7 @@ import Todos from '@/components/Todos'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { account } from '@/appwrite/appwrite'
+import NotLoggedIn from '@/components/NotLoggedIn'
 
 
 function TaskList() {
@@ -31,14 +32,7 @@ function TaskList() {
                     </div>
                 </>
             ) : (
-                <p className="mt-4">
-                    Please Login To see Profile{" "}
-                    <Link href="/login">
-                        <span className="bg-pink-300 p-2 cursor-pointer text-white rounded-md">
-                            Login
-                        </span>
-                    </Link>
-                </p>
+                <NotLoggedIn />
             )}
         </>
     )

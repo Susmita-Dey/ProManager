@@ -4,25 +4,26 @@ import { databases } from '@/appwrite/appwrite'
 
 function TodoForm() {
     const [todoItem, setTodoItem] = useState("")
+    const data = { todoitem: todoItem };
+    console.log(data);
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const promise = databases.createDocument("646605464de2f5cb7435", "6466055dd831efd150ef", uuidv4(), {
-            todo: todoItem
-        })
+        const promise = databases.createDocument("646605464de2f5cb7435", "6466055dd831efd150ef", uuidv4(), data)
 
         console.log(promise);
         promise.then(
             function (response) {
                 console.log(response);
-                window.location.reload()
+                // window.location.reload()
             },
             function (error) {
                 console.log(error);
-                window.location.reload()
+                // window.location.reload()
             },
         );
-        // e.target.reset()
+        e.target.reset()
     }
 
 

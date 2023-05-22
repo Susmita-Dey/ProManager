@@ -1,0 +1,21 @@
+{
+    "projectId": "646603e71af4ea9f598a",
+    "projectName": "ProManager",
+    "functions": [
+        {
+            "$id": "646b801508edd4a42aba",
+            "name": "User Account Delete",
+            "runtime": "node-16.0",
+            "path": "functions/User Account Delete",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [],
+            "events": [],
+            "schedule": "",
+            "timeout": 15
+        }
+    ]
+}

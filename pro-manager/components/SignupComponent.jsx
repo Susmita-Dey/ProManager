@@ -112,6 +112,7 @@ function SignupComponent() {
                                     }}
                                 />
                             </div>
+                            <span className='text-sm font-medium text-pink-950 mt-1'>* Password must be atleast 8 characters long</span>
                         </div>
 
 
