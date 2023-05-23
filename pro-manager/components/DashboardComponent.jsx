@@ -72,8 +72,8 @@ function DashboardComponent({ username }) {
                     </Link>
                     <Link href={'/'}>
                         <div className='flex flex-col border-b border-gray-300 bg-gradient-to-b from-zinc-200 px-4 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 gap-2'>
-                            <p className='text-xl hover:underline hover:underline-offset-4'>Productivity Tips</p>
-                            <p className='text-base'>Productivity Tips</p>
+                            <p className='text-xl hover:underline hover:underline-offset-4'>Your Diary</p>
+                            <p className='text-base'>Track Your Progress</p>
                         </div>
                     </Link>
                     <Link href={'/'}>
@@ -84,7 +84,7 @@ function DashboardComponent({ username }) {
                     </Link>
                     <Link href={'/'}>
                         <div className='flex flex-col border-b border-gray-300 bg-gradient-to-b from-zinc-200 px-4 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 gap-2'>
-                            <p className='text-xl hover:underline hover:underline-offset-4'>Productivity Tips</p>
+                            <p className='text-xl hover:underline hover:underline-offset-4'>Project Ideas</p>
                             <p className='text-base'>Productivity Tips</p>
                         </div>
                     </Link>
