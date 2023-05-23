@@ -40,9 +40,9 @@ function DashboardComponent({ username }) {
         <section className="min-h-full flex flex-col px-5 py-12 sm:px-6 lg:px-8">
             <div className='flex flex-row justify-between md:px-20 items-center gap-5'>
                 <div className='flex flex-col gap-4'>
-                    <h2 className='font-bold text-2xl md:text-6xl text-white'>Hello <span className='text-pink-600'>{showFirstName(username)}</span>
-                        <span className='inset-0 animate-bounce text-2xl md:text-6xl'>👋</span>
-                    </h2>
+                    <div className='flex flex-row font-bold text-2xl md:text-6xl text-white'>Hello <span className='ml-4 text-pink-600'>{showFirstName(username)}</span>
+                        <span className='animate-waving-hand text-2xl md:text-6xl'>👋</span>
+                    </div>
                     <p className='font-normal text-base md:text-xl text-white'>{wishUser}</p>
                 </div>
                 <div className='flex flex-col gap-4'>
