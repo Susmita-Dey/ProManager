@@ -24,7 +24,7 @@ export default function FaqComponent() {
         },
     ];
     return (
-        <div className="container mx-auto my-10 flex flex-col">
+        <section className="min-h-full flex flex-col py-12 sm:px-6 lg:px-8">
             <div className="flex justify-start items-start text-start px-24">
                 <h1 className="text-4xl mt-20 dont-semibold change-bold">Frequently Asked Questions</h1>
             </div>
@@ -42,6 +42,6 @@ export default function FaqComponent() {
                     );
                 })}
             </div>
-        </div>
+        </section>
     )
 }

@@ -69,8 +69,8 @@ export default function Navbar() {
                 }}>
                     {/* hamburger button */}
                     <span className={`h-1 w-full bg-pink-700 rounded-lg transform transition duration-300 ease-in-out ${open ? "rotate-45 translate-y-1" : ""}`} />
-                    <span className={`h-1 w-full bg-pink-700 rounded-lg transition-all duration-300 ease-in-out ${open ? "w-0" : "w-full"}`} />
-                    <span className={`h-1 w-full bg-pink-700 rounded-lg transform transition duration-300 ease-in-out ${open ? "-rotate-45 -translate-y-3.5" : ""}`} />
+                    <span className={`h-1 w-full bg-pink-700 rounded-lg transition-all duration-300 ease-in-out ${open ? "hidden" : "w-full"}`} />
+                    <span className={`h-1 w-full bg-pink-700 rounded-lg transform transition duration-300 ease-in-out ${open ? "-rotate-45 -translate-y-2" : ""}`} />
                 </div>
 
                 <div className="hidden md:flex">
