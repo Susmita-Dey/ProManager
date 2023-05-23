@@ -49,7 +49,7 @@ function Todos() {
                 <div>
                     {todos && todos.map(item => (
                         <div key={item.$id} >
-                            <div className="p-4 flex items-center justify-between border-b-2 bg-pink-900 rounded-lg my-4">
+                            <div className="p-4 flex items-center justify-between border-b border-gray-300 bg-gradient-to-b from-zinc-200 px-4 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 gap-2 hover:shadow-lg hover:border-pink-500/40 my-4">
                                 <div>
                                     <p className='text-white'>{item.todoitem}</p>
                                 </div>

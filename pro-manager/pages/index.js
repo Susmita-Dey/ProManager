@@ -1,15 +1,41 @@
-import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import Navbar from '@/components/Navbar'
+import { useEffect, useState } from 'react'
+import { account } from '@/appwrite/appwrite'
+import Dashboard from './dashboard'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const [userDetails, setUserDetails] = useState()
+
+  useEffect(() => {
+    const getData = account.get()
+    getData.then(
+      function (response) {
+        setUserDetails(response)
+        console.log(userDetails);
+      },
+      function (error) {
+        console.log(error);
+      }
+    )
+  }, [])
+
   return (
-    <main
-      className={`min-h-screen text-white ${inter.className}`}
-    >
-      Hello World
-    </main>
+    <>
+      {!userDetails ? (
+        <>
+          <main
+            className={`min-h-screen text-white ${inter.className}`}
+          >
+            Hello World
+          </main>
+        </>
+      ) :
+        <>
+          <Dashboard />
+        </>
+      }
+    </>
   )
 }

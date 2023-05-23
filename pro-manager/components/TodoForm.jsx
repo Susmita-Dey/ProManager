@@ -16,11 +16,11 @@ function TodoForm() {
         promise.then(
             function (response) {
                 console.log(response);
-                // window.location.reload()
+                window.location.reload()
             },
             function (error) {
                 console.log(error);
-                // window.location.reload()
+                window.location.reload()
             },
         );
         e.target.reset()

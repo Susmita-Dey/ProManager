@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React, { useContext } from 'react'
+import FlatCard from './FlatCard';
 import QuoteGen from './QuoteGen';
 
 function DashboardComponent({ username }) {
@@ -10,7 +11,7 @@ function DashboardComponent({ username }) {
     let hours = date.getHours()
     let minutes = date.getMinutes()
 
-    let currentDate = `${day}-${month}-${year}`;
+    let currentDate = `${day}/${month}/${year}`;
     let currentTime = `${hours}:${minutes}`;
 
     if (hours < 10 && minutes < 10) {
@@ -37,9 +38,9 @@ function DashboardComponent({ username }) {
 
     return (
         <section className="min-h-full flex flex-col px-5 py-12 sm:px-6 lg:px-8">
-            <div className='flex flex-row justify-evenly items-center gap-5'>
+            <div className='flex flex-row justify-between md:px-20 items-center gap-5'>
                 <div className='flex flex-col gap-4'>
-                    <h2 className='font-bold text-2xl md:text-6xl text-white'>Hello {showFirstName(username)}
+                    <h2 className='font-bold text-2xl md:text-6xl text-white'>Hello <span className='text-pink-600'>{showFirstName(username)}</span>
                         <span className='inset-0 animate-bounce text-2xl md:text-6xl'>👋</span>
                     </h2>
                     <p className='font-normal text-base md:text-xl text-white'>{wishUser}</p>
@@ -49,45 +50,15 @@ function DashboardComponent({ username }) {
                     <p className='font-bold text-base md:text-xl text-white'>Time: {currentTime}</p>
                 </div>
             </div>
-            <div className='flex flex-col justify-center items-center my-10'>
-                <h2 className='text-2xl text-center my-10'>What do you wanna explore today?</h2>
-                <div className='flex flex-row justify-center items-center gap-5 flex-wrap'>
-                    <Link href={'/'}>
-                        <div className='flex flex-col border-b border-gray-300 bg-gradient-to-b from-zinc-200 px-4 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 gap-2'>
-                            <p className='text-xl hover:underline hover:underline-offset-4'>Productivity Tips</p>
-                            <p className='text-base'>Productivity Tips</p>
-                        </div>
-                    </Link>
-                    <Link href={'/'}>
-                        <div className='flex flex-col border-b border-gray-300 bg-gradient-to-b from-zinc-200 px-4 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 gap-2'>
-                            <p className='text-xl hover:underline hover:underline-offset-4'>Kanban</p>
-                            <p className='text-base'>Kanban</p>
-                        </div>
-                    </Link>
-                    <Link href={'/'}>
-                        <div className='flex flex-col border-b border-gray-300 bg-gradient-to-b from-zinc-200 px-4 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 gap-2'>
-                            <p className='text-xl hover:underline hover:underline-offset-4'>Todo</p>
-                            <p className='text-base'>Todo</p>
-                        </div>
-                    </Link>
-                    <Link href={'/'}>
-                        <div className='flex flex-col border-b border-gray-300 bg-gradient-to-b from-zinc-200 px-4 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 gap-2'>
-                            <p className='text-xl hover:underline hover:underline-offset-4'>Your Diary</p>
-                            <p className='text-base'>Track Your Progress</p>
-                        </div>
-                    </Link>
-                    <Link href={'/'}>
-                        <div className='flex flex-col border-b border-gray-300 bg-gradient-to-b from-zinc-200 px-4 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 gap-2'>
-                            <p className='text-xl hover:underline hover:underline-offset-4'>Timer</p>
-                            <p className='text-base'>Timer</p>
-                        </div>
-                    </Link>
-                    <Link href={'/'}>
-                        <div className='flex flex-col border-b border-gray-300 bg-gradient-to-b from-zinc-200 px-4 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 gap-2'>
-                            <p className='text-xl hover:underline hover:underline-offset-4'>Project Ideas</p>
-                            <p className='text-base'>Productivity Tips</p>
-                        </div>
-                    </Link>
+            <h2 className='text-2xl text-start font-bold mt-24 px-5 md:px-20 mb-8'>Explore</h2>
+            <div className='flex flex-col justify-center gap-5 items-center mb-10 px-5'>
+                <div className='flex flex-row justify-center items-center gap-8 flex-wrap'>
+                    <FlatCard path='/productivity-tips' title='Productivity Tips 💁‍♀️' subtitle="Let's increase your productivity with some useful tips and tricks." />
+                    <FlatCard path='/tasklist' title='Tasklist 📃' subtitle="Let's help you in listing out your left-over tasks of the day." />
+                    <FlatCard path='/project' title='Kanban Board 🛹' subtitle="Let's increase your productivity by organizing things in a cool board." />
+                    <FlatCard path='/idealist' title='Idealist 💡' subtitle="Let's help you with some cool project ideas. If you're smarter, add some cool ones." />
+                    <FlatCard path='/progress' title='Your Secret Diary 📔' subtitle="Track your daily progress by documenting your daily moves and achievements." />
+                    <FlatCard path='/stopwatch' title='Tick Tock ⏱️' subtitle="Let's increase your productivity with some useful tips and tricks." />
                 </div>
             </div>
             <div className='flex flex-col justify-center items-center my-10'>

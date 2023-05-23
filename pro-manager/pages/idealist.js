@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Diary() {
+export default function IdeaList() {
     return (
         <div>D</div>
     )
