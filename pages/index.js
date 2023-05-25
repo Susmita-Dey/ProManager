@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { account } from '@/appwrite/appwrite'
 import DashboardComponent from '@/components/DashboardComponent'
 import HeroSection from '@/components/HeroSection'
+import Head from 'next/head'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,6 +25,9 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <title>ProManager</title>
+      </Head>
       {!userDetails ? (
         <>
           <main
