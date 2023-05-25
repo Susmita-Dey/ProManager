@@ -17,7 +17,7 @@ export default function Custom404() {
             />
             <h2 className="text-center font-medium text-lg">404 - Page Not Found</h2>
             <p className="text-center py-4">
-                Oops!! You're in the wrong path. Kindly go back home safely.
+                Oops!! You&apos;re in the wrong path. Kindly go back home safely.
                 <br /> Happy Routing! 🎃
             </p>
             <Link href="/">

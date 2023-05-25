@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { account } from '@/appwrite/appwrite'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 function LoginComponent() {
     const router = useRouter()
@@ -88,12 +89,12 @@ function LoginComponent() {
                         </div>
                         <div className="flex items-center justify-center">
                             <div className="text-sm">
-                                <a
+                                <Link
                                     href="/signup"
                                     className="font-medium text-pink-600 hover:text-pink-800 hover:underline hover:underline-offset-4"
                                 >
-                                    Don't have Account, Sign Up
-                                </a>
+                                    Don&apos;t have Account, Sign Up
+                                </Link>
                             </div>
                         </div>
                     </form>

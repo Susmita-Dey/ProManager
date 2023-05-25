@@ -21,7 +21,7 @@ function Error({ statusCode }) {
                     : "An error occurred on client"}
             </h2>
             <p className="text-center py-2">
-                Oops!! You're in the wrong path. Kindly go back home safely.
+                Oops!! You&apos;re in the wrong path. Kindly go back home safely.
                 <br /> Happy Routing! 🎃
             </p>
             <Link href="/">
