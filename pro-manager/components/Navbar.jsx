@@ -1,7 +1,8 @@
+import { account } from '@/appwrite/appwrite'
 import { UserContext } from '@/context/ContextProvider'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 
 function NavLink({ to, children }) {
     return <Link href={to} className={`mx-4 py-2 hover:underline hover:underline-offset-4`}>
@@ -43,18 +44,35 @@ export default function Navbar() {
 
     const [open, setOpen] = useState(false)
 
-    const { user, setUser } = useContext(UserContext)
+    // const { user, setUser } = useContext(UserContext)
+    const [userDetails, setUserDetails] = useState()
+
+    useEffect(() => {
+        const getData = account.get()
+        getData.then(
+            function (response) {
+                setUserDetails(response)
+                console.log(userDetails);
+            },
+            function (error) {
+                console.log(error);
+            }
+        )
+    }, [])
+
     const router = useRouter();
     const [navbar, setNavbar] = useState(false);
     async function handleSignOut() {
         try {
             const res = await account.deleteSessions();
-            setUser();
+            setUserDetails();
             router.push("/")
+            window.location.reload()
         } catch (err) {
             console.log(err)
         }
     }
+
 
     return (
         <nav className="flex filter drop-shadow-md bg-gray-950 px-24 h-20 items-center border-b-2 border-gray-400">
@@ -89,12 +107,12 @@ export default function Navbar() {
                     <NavLink to="/contact">
                         Contact
                     </NavLink>
-                    {user ? (
-                        <Link href={"/"}>
-                            <button onClick={handleSignOut} className='px-4 py-2 rounded-md font-medium bg-pink-600 hover:bg-pink-700'>
-                                Sign Out
-                            </button>
-                        </Link>
+                    {userDetails ? (
+                        // <Link href={"/"}>
+                        <button onClick={handleSignOut} className='px-4 py-2 rounded-md font-medium bg-pink-600 hover:bg-pink-700'>
+                            Logout
+                        </button>
+                        // </Link>
                     ) : (
                         <Link href="/signup">
                             <button className='px-4 py-2 rounded-md font-medium bg-pink-600 hover:bg-pink-700'>

@@ -26,6 +26,7 @@ function SignupComponent() {
             function (response) {
                 console.log(response);
                 router.push("/dashboard") //success
+                // window.location.reload()
             },
             function (error) {
                 console.log(error); //failure

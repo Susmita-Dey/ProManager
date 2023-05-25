@@ -13,7 +13,7 @@ function LoginComponent() {
         e.preventDefault()
         try {
             await account.createEmailSession(user.email, user.password)
-            router.push("/dashboard")
+            router.push("/")
         } catch (error) {
             console.log(error);
         }

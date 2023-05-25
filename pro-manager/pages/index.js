@@ -1,7 +1,7 @@
 import { Inter } from 'next/font/google'
 import { useEffect, useState } from 'react'
 import { account } from '@/appwrite/appwrite'
-import Dashboard from './dashboard'
+import DashboardComponent from '@/components/DashboardComponent'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -33,7 +33,9 @@ export default function Home() {
         </>
       ) :
         <>
-          <Dashboard />
+          <div>
+            <DashboardComponent username={userDetails.name} />
+          </div>
         </>
       }
     </>
