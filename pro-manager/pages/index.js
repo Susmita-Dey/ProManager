@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google'
 import { useEffect, useState } from 'react'
 import { account } from '@/appwrite/appwrite'
 import DashboardComponent from '@/components/DashboardComponent'
+import HeroSection from '@/components/HeroSection'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -28,7 +29,7 @@ export default function Home() {
           <main
             className={`min-h-screen text-white ${inter.className}`}
           >
-            Hello World
+            <HeroSection />
           </main>
         </>
       ) :
