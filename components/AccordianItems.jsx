@@ -4,7 +4,7 @@ import { SlArrowRight, SlArrowDown } from "react-icons/sl";
 import { Collapse } from "react-collapse";
 import { FaQuestion, FaQuestionCircle } from "react-icons/fa";
 
-const AccordionItems = ({ open, toggle, title, desc1, desc2 }) => {
+const AccordionItems = ({ open, toggle, title, desc }) => {
     return (
         <div className="pt-10 px-5">
             <div
@@ -20,8 +20,7 @@ const AccordionItems = ({ open, toggle, title, desc1, desc2 }) => {
                 </div>
             </div>
             <Collapse isOpened={open}>
-                <p className="text-base md:text-lg px-2 md:px-3 mt-4">{desc1}</p>
-                <p className="text-base md:text-lg px-2 md:px-3 mt-4">{desc2}</p>
+                <p className="text-base md:text-lg px-2 md:px-3 mt-4">{desc}</p>
             </Collapse>
         </div>
     );

@@ -4,22 +4,34 @@ import { MdArrowUpward } from 'react-icons/md'
 
 const features = [
     {
-        name: 'Push to deploy',
+        name: 'Productivity tips and ideas',
         description:
-            'Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio urna massa nunc massa.',
+            'Access a wealth of tips, ideas, and strategies to improve your productivity and work smarter.',
         icon: FaCloud,
     },
     {
-        name: 'SSL certificates',
+        name: 'Progress tracking',
         description:
-            'Sit quis amet rutrum tellus ullamcorper ultricies libero dolor eget. Sem sodales gravida quam turpis enim lacus amet.',
+            "Monitor your progress and see how far you've come with our visual tracking tools.",
         icon: FaLock,
     },
     {
-        name: 'Simple queues',
+        name: 'Cross-platform synchronization',
         description:
-            'Quisque est vel vulputate cursus. Risus proin diam nunc commodo. Lobortis auctor congue commodo diam neque.',
+            'Seamlessly access your tasks and data across multiple devices.',
         icon: MdArrowUpward,
+    },
+    {
+        name: 'Prioritization and deadlines',
+        description:
+            ' Set priorities, assign deadlines, and stay focused on what matters most.',
+        icon: FaFingerprint,
+    },
+    {
+        name: 'Task and to-do management',
+        description:
+            'Stay organized and on top of your responsibilities with our intuitive task management features.',
+        icon: FaFingerprint,
     },
     {
         name: 'Advanced security',
@@ -31,26 +43,25 @@ const features = [
 
 export default function About() {
     return (
-        <div className="text-white py-24 sm:py-32">
+        <section className="min-h-full flex flex-col py-12 sm:px-6 lg:px-8" id='about'>
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-2xl lg:text-center">
-                    <h2 className="text-base font-semibold leading-7 text-indigo-600">Deploy faster</h2>
-                    <p className="mt-2 text-3xl font-bold tracking-tight text-pink-900 sm:text-4xl">
-                        Everything you need to deploy your app
+                    <h2 className="text-base font-semibold leading-7 text-cyan-400">Achieve your goals faster</h2>
+                    <p className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
+                        Everything you need to <span className='text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500'>increase</span> your level of <span className='text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500'>productivity</span>
                     </p>
-                    <p className="mt-6 text-lg leading-8 text-pink-600">
-                        Quis tellus eget adipiscing convallis sit sit eget aliquet quis. Suspendisse eget egestas a elementum
-                        pulvinar et feugiat blandit at. In mi viverra elit nunc.
+                    <p className="mt-6 text-lg leading-8">
+                        Streamline tasks, boost efficiency, and unlock your full potential. Organize, prioritize, and track tasks while accessing productivity tips for peak performance. Join us today!
                     </p>
                 </div>
-                <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+                <div className="mx-auto mt-10 max-w-2xl sm:mt-16 lg:mt-20 lg:max-w-4xl">
                     <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
                         {features.map((feature) => (
-                            <div key={feature.name} className="relative pl-16 bg-white">
+                            <div key={feature.name} className="relative pl-16 pr-5 py-5 rounded-lg bg-white">
+                                <div className="absolute ml-2 mr-2 my-5 left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-pink-600">
+                                    <feature.icon className="h-6 w-6 text-white" aria-hidden="true" />
+                                </div>
                                 <dt className=" text-base font-semibold leading-7 text-pink-900">
-                                    <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
-                                        <feature.icon className="h-6 w-6 text-white" aria-hidden="true" />
-                                    </div>
                                     {feature.name}
                                 </dt>
                                 <dd className="mt-2 text-base leading-7 text-pink-600">{feature.description}</dd>
@@ -59,6 +70,6 @@ export default function About() {
                     </dl>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }

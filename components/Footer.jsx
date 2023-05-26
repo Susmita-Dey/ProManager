@@ -2,22 +2,30 @@ import Link from "next/link";
 
 export default function Footer() {
     return (
-        <footer className="bg-gray-950 container mx-auto flex flex-col justify-center items-center py-5 gap-5">
-            <p className="text-sm text-slate-100">
-                <span>Built with 💖 using NextJS and Appwrite</span>
-                <br />
-                &copy; 2023{" "}
-                <b>
-                    <Link
-                        href="https://bio.link/susmitadey"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Susmita Dey
-                    </Link>
-                </b>
-                . All rights reserved.
-            </p>
+        <footer className="bg-gray-950 container mx-auto">
+            <div className="px-20 flex flex-col md:flex-row justify-between items-center py-5 gap-5">
+                <Link href={'/policy'} className='font-medium hover:underline hover:underline-offset-4'>Terms {'&'} Services</Link>
+                <p className="text-sm text-slate-100 flex flex-col justify-center items-center">
+                    <span>Built with 💖 using
+                        <Link href={'https://nextjs.org/'} target="_blank" rel="noopener noreferrer" className="text-blue-500 mx-1 font-medium">NextJS</Link>
+                        and
+                        <Link href={'https://appwrite.io/'} target="_blank" rel="noopener noreferrer" className="font-medium text-rose-500 mx-1">Appwrite</Link>
+                    </span>
+                    <span className="flex flex-row space-x-2">
+                        &copy; 2023{" "}
+                        <Link
+                            href="https://susmita-dey.vercel.app/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="ml-1 font-medium"
+                        >
+                            Susmita Dey
+                        </Link>
+                        . All rights reserved.
+                    </span>
+                </p>
+                <Link href={'/open-source'} className='font-medium hover:underline hover:underline-offset-4'>Contribute</Link>
+            </div>
         </footer>
     );
 }
