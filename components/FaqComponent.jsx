@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AccordionItems from "./AccordionItems";
+import AccordionItems from "./AccordianItems";
 
 export default function FaqComponent() {
     const [open, setOpen] = useState(false);
