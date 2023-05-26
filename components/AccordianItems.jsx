@@ -1,8 +1,8 @@
 import React from "react";
 
 import { SlArrowRight, SlArrowDown } from "react-icons/sl";
-import { TbCircleFilled } from "react-icons/tb";
 import { Collapse } from "react-collapse";
+import { FaQuestion, FaQuestionCircle } from "react-icons/fa";
 
 const AccordionItems = ({ open, toggle, title, desc1, desc2 }) => {
     return (
@@ -12,16 +12,16 @@ const AccordionItems = ({ open, toggle, title, desc1, desc2 }) => {
                 className="px-2 flex justify-between cursor-pointer border-t-2 border-gray-400 pt-4"
             >
                 <div className="flex flex-row gap-2">
-                    {open ? <TbCircleFilled className="text-blue-900 font-bold text-lg mt-2" /> : <TbCircleFilled className="text-blue-500 font-bold text-lg mt-2" />}
+                    {open ? <FaQuestion className="text-pink-900 font-bold text-lg mt-1" /> : <FaQuestionCircle className="text-pink-600 font-bold text-lg mt-1" />}
                     <p className="text-lg md:text-xl max-w-[39ch] md:max-w-full text-start dont-semibold change-bold">{title}</p>
                 </div>
                 <div className="text-sm md:text-xl">
-                    {open ? <SlArrowDown className="text-blue-900 font-bold mt-2" /> : <SlArrowRight className="text-blue-500 font-bold mt-2" />}
+                    {open ? <SlArrowDown className="text-pink-900 font-bold mt-2" /> : <SlArrowRight className="text-pink-600 font-bold mt-2" />}
                 </div>
             </div>
             <Collapse isOpened={open}>
-                <div className="text-base md:text-lg px-2 md:px-3 mt-4">{desc1}</div>
-                <div className="text-base md:text-lg px-2 md:px-3 mt-4">{desc2}</div>
+                <p className="text-base md:text-lg px-2 md:px-3 mt-4">{desc1}</p>
+                <p className="text-base md:text-lg px-2 md:px-3 mt-4">{desc2}</p>
             </Collapse>
         </div>
     );

@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function ContactPage() {
   return (
     <>
-      <section className="bg-gray-900 text-black px-6 py-12" id="contact">
+      <section className="container mx-auto px-6 py-12" id="contact">
         <div className="max-w-6xl mx-auto">
           <div
             className="flex flex-col md:flex-row"

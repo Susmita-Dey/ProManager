@@ -8,6 +8,7 @@ import Newsletter from '@/components/Newsletter'
 import About from '@/components/About'
 import Testimonials from '@/components/Testimonials'
 import FaqComponent from '@/components/FaqComponent'
+import UseCaseComponent from '@/components/UseCaseComponent'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -39,9 +40,10 @@ export default function Home() {
           >
             <HeroSection />
             <About />
-            <Newsletter />
+            <UseCaseComponent />
             <Testimonials />
             <FaqComponent />
+            <Newsletter />
           </main>
         </>
       ) :
