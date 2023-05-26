@@ -4,23 +4,6 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useContext, useEffect, useState } from 'react'
 import React from 'react';
-import {
-    NovuProvider,
-    PopoverNotificationCenter,
-    NotificationBell,
-} from '@novu/notification-center';
-
-const Header = () => {
-    return (
-        <div className='py-2 mr-4'>
-            <NovuProvider subscriberId={'on-boarding-subscriber-id-123'} applicationIdentifier={'n_LoiNVoSG4K'}>
-                <PopoverNotificationCenter colorScheme={'dark' || 'light'}>
-                    {({ unseenCount }) => <NotificationBell unseenCount={unseenCount} />}
-                </PopoverNotificationCenter>
-            </NovuProvider>
-        </div>
-    );
-};
 
 function NavLink({ to, children }) {
     return <Link href={to} className={`mx-4 py-2 hover:underline hover:underline-offset-4`}>
@@ -86,7 +69,7 @@ export default function Navbar() {
     async function handleSignOut() {
         try {
             const res = await account.deleteSessions();
-            setUserDetails();
+            setUserDetails('');
             router.push("/")
             window.location.reload()
         } catch (err) {
@@ -131,7 +114,6 @@ export default function Navbar() {
                     <NavLink to="/contact">
                         Contact
                     </NavLink>
-                    <Header />
                     {userDetails ? (
                         // <Link href={"/"}>
                         <button onClick={handleSignOut} className='px-4 py-2 rounded-md font-medium bg-pink-600 hover:bg-pink-700'>
