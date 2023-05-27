@@ -48,7 +48,7 @@ export default function UseCaseComponent() {
     })
 
     return (
-        <section className='container mx-auto md:px-16 py-12 sm:px-6 lg:px-8'>
+        <section className='container mx-auto md:px-16 py-12 lg:mt-32 sm:px-6 lg:px-8' id='use-case'>
             <div className='flex flex-col justify-center items-center gap-5'>
                 <h2 className='text-3xl font-semibold'>Real-Life
                     <span className='ml-2 text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500'>Applications</span>

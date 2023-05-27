@@ -18,12 +18,16 @@ function Testimonials() {
                 <h2 className='text-3xl font-semibold'>Hear What Our Users Have to Say</h2>
                 <p className='text-lg mb-12'>Discover how ProManager has transformed the productivity and success of our valued users.</p>
                 <Swiper
-                    slidesPerView={3}
-                    spaceBetween={20}
                     centeredSlides={true}
                     autoplay={{
                         delay: 2500,
                         disableOnInteraction: false,
+                    }}
+                    breakpoints={{
+                        320: { slidesPerView: 1, spaceBetween: 10 },
+                        480: { slidesPerView: 2, spaceBetween: 20 },
+                        768: { slidesPerView: 3, spaceBetween: 30 },
+                        1024: { slidesPerView: 4, spaceBetween: 40 },
                     }}
                     // pagination={{
                     //     clickable: true,
@@ -35,7 +39,7 @@ function Testimonials() {
                     {testimonialsData.map((item, index) => {
                         return (
                             <SwiperSlide key={index}>
-                                <div className='w-full h-48 p-5 text-lg bg-slate-900 border-2 border-white'>
+                                <div className='w-full h-48 lg:h-72 p-5 md:text-lg text-base bg-slate-900 border-2 border-white'>
                                     <p className='italic'>&apos;&apos;{item.feedback}&apos;&apos;</p>
                                     <p className='font-medium text-pink-400 mt-2'>- {item.user}</p>
                                 </div>

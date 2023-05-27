@@ -1,43 +1,44 @@
 import React from 'react'
-import { FaCloud, FaFingerprint, FaLock } from 'react-icons/fa'
-import { MdArrowUpward } from 'react-icons/md'
+import { AiFillBulb } from 'react-icons/ai'
+import { FaCloud, FaCreativeCommonsSamplingPlus, FaFingerprint, FaLock, FaProjectDiagram, FaStopwatch, FaTasks } from 'react-icons/fa'
+import { MdArrowUpward, MdPriorityHigh } from 'react-icons/md'
 
 const features = [
     {
         name: 'Productivity tips and ideas',
         description:
             'Access a wealth of tips, ideas, and strategies to improve your productivity and work smarter.',
-        icon: FaCloud,
+        icon: AiFillBulb,
     },
     {
         name: 'Progress tracking',
         description:
             "Monitor your progress and see how far you've come with our visual tracking tools.",
-        icon: FaLock,
+        icon: FaProjectDiagram,
     },
     {
         name: 'Cross-platform synchronization',
         description:
             'Seamlessly access your tasks and data across multiple devices.',
-        icon: MdArrowUpward,
+        icon: FaCreativeCommonsSamplingPlus,
     },
     {
         name: 'Prioritization and deadlines',
         description:
             ' Set priorities, assign deadlines, and stay focused on what matters most.',
-        icon: FaFingerprint,
+        icon: MdPriorityHigh,
     },
     {
         name: 'Task and to-do management',
         description:
             'Stay organized and on top of your responsibilities with our intuitive task management features.',
-        icon: FaFingerprint,
+        icon: FaTasks,
     },
     {
-        name: 'Advanced security',
+        name: 'Speed Up Productivity with Stopwatch',
         description:
-            'Arcu egestas dolor vel iaculis in ipsum mauris. Tincidunt mattis aliquet hac quis. Id hac maecenas ac donec pharetra eget.',
-        icon: FaFingerprint,
+            'Discover how our Stopwatch feature in ProManager helps you track time, improve focus, and supercharge your productivity.',
+        icon: FaStopwatch,
     },
 ]
 
@@ -55,7 +56,7 @@ export default function About() {
                     </p>
                 </div>
                 <div className="mx-auto mt-10 max-w-2xl sm:mt-16 lg:mt-20 lg:max-w-4xl">
-                    <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+                    <dl className="grid max-w-xl md:grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
                         {features.map((feature) => (
                             <div key={feature.name} className="relative pl-16 pr-5 py-5 rounded-lg bg-white">
                                 <div className="absolute ml-2 mr-2 my-5 left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-pink-600">
