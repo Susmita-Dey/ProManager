@@ -5,7 +5,7 @@ export default function ProductivityTips() {
         <div>
             productivity-tips<br /><br />
             <div>
-                Hello
+                Hello, showcase 10 productivity tips at a time.
             </div>
         </div>
     )

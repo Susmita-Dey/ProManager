@@ -40,7 +40,7 @@ function Testimonials() {
                         return (
                             <SwiperSlide key={index}>
                                 <div className='w-full h-48 lg:h-72 p-5 md:text-lg text-base bg-slate-900 border-2 border-white'>
-                                    <p className='italic'>&apos;&apos;{item.feedback}&apos;&apos;</p>
+                                    <p className='italic'>&ldquo;{item.feedback}&rdquo;</p>
                                     <p className='font-medium text-pink-400 mt-2'>- {item.user}</p>
                                 </div>
                             </SwiperSlide>
