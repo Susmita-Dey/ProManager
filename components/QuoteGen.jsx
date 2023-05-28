@@ -24,7 +24,7 @@ export default function QuoteGen() {
                 <p className='italic font-mono'>&ldquo;{result.quoteTitle}&rdquo;</p>
                 <p className='italic font-mono font-bold'>- {result.author}</p>
             </div>
-            <Link className="twitter-share-button"
+            <Link
                 href={`https://twitter.com/intent/tweet?text=${result.quoteTitle}%20by%20${result.author}%20%20Credits%20goes%20to%20ProManager%20App%20by%20@its_SusmitaDey`}
                 className='bg-rose-900 text-white flex flex-row gap-1 font-semibold px-3 py-2 mt-4 rounded-lg'>
                 Share on Twitter <FaTwitter className='mt-1 ml-1' />
