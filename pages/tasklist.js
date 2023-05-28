@@ -29,7 +29,7 @@ function TaskList() {
                 <>
                     <div>
                         <TodoForm userId={userDetails.$id} />
-                        <Todos />
+                        <Todos userId={userDetails.$id} />
                     </div>
                 </>
             ) : (

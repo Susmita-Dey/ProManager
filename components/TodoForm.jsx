@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { databases } from '@/appwrite/appwrite'
-import { Permission, Role } from 'appwrite';
 
 function TodoForm(userId) {
-    // console.log(userId);
+    console.log(userId.userId);
     const [todoItem, setTodoItem] = useState("")
-    const data = { todoitem: todoItem };
+    const data = { todoitem: todoItem, created_by: userId.userId };
     console.log(data);
 
 
@@ -17,9 +16,6 @@ function TodoForm(userId) {
             "6466055dd831efd150ef",
             uuidv4(),
             data,
-            // [
-            //     Permission.write(Role.user(userId)), // User can write this document
-            // ]
         )
 
         console.log(promise);

@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { databases } from '@/appwrite/appwrite'
+import { Query } from 'appwrite'
 
-function Todos() {
+function Todos(userId) {
     const [todos, setTodos] = useState()
     const [loader, setLoader] = useState(false)
 
+    // console.log(userId.userId);
     useEffect(() => {
         setLoader(true)
-        const getTodos = databases.listDocuments("646605464de2f5cb7435", "6466055dd831efd150ef")
+        const getTodos = databases.listDocuments("646605464de2f5cb7435", "6466055dd831efd150ef", [
+            Query.equal("created_by", [userId.userId])])
         getTodos.then(
             function (response) {
                 setTodos(response.documents)
