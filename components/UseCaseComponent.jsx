@@ -97,7 +97,7 @@ export default function UseCaseComponent() {
                                                     <p className="text-base font-normal leading-relaxed">{post.desc}</p>
                                                 </div>
                                                 <div className='text-3xl'>
-                                                    <Image src={post.icon} width="100" height="100" className='w-full h-full' />
+                                                    <Image alt="use-case-icon" src={post.icon} width="100" height="100" className='w-full h-full' />
                                                 </div>
                                             </div>
                                         ))}

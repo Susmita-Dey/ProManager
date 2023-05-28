@@ -4,7 +4,7 @@ import KanbanBoard from '@/components/KanbanBoard'
 import NotLoggedIn from '@/components/NotLoggedIn'
 import React, { useEffect, useState } from 'react'
 
-export default function index() {
+export default function Kanban() {
     const [userDetails, setUserDetails] = useState()
 
     useEffect(() => {
