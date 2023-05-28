@@ -1,6 +1,5 @@
 import ideas from '@/data/ideas';
-import React from 'react'
-import { useState } from 'react';
+import React, { useState } from 'react';
 import StudentIdeas from './StudentIdeas';
 
 // Note: If student, show student idea Component, if teacher show teacher idea component 
@@ -19,7 +18,6 @@ const ProjectIdeas = () => {
         setShowDiv(true);
         setSelectedComponent(null);
     };
-
 
     const showStudent = () => {
         return (

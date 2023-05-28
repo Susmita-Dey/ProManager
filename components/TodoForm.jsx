@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { databases } from '@/appwrite/appwrite'
+import { Permission, Role } from 'appwrite';
 
-function TodoForm() {
+function TodoForm(userId) {
+    // console.log(userId);
     const [todoItem, setTodoItem] = useState("")
     const data = { todoitem: todoItem };
     console.log(data);
@@ -10,17 +12,25 @@ function TodoForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const promise = databases.createDocument("646605464de2f5cb7435", "6466055dd831efd150ef", uuidv4(), data)
+        const promise = databases.createDocument(
+            "646605464de2f5cb7435",
+            "6466055dd831efd150ef",
+            uuidv4(),
+            data,
+            // [
+            //     Permission.write(Role.user(userId)), // User can write this document
+            // ]
+        )
 
         console.log(promise);
         promise.then(
             function (response) {
                 console.log(response);
-                window.location.reload()
+                // window.location.reload()
             },
             function (error) {
                 console.log(error);
-                window.location.reload()
+                // window.location.reload()
             },
         );
         e.target.reset()

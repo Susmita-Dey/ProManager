@@ -26,7 +26,7 @@ const KanbanBoard = () => {
                     columns[status] = {
                         id: status,
                         boardtitle: status,
-                        image: image,
+                        image: status,
                         items: [],
                     };
                 }
@@ -109,11 +109,7 @@ const KanbanBoard = () => {
                                         }`}
                                 >
                                     {column.items.map((item, index) => (
-                                        <Draggable
-                                            key={item.id}
-                                            draggableId={item.id}
-                                            index={index}
-                                        >
+                                        <Draggable key={item.$id} draggableId={item.$id.toString()} index={index}>
                                             {(provided, snapshot) => (
                                                 <div
                                                     ref={provided.innerRef}

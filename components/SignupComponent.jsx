@@ -3,6 +3,8 @@ import { account } from '@/appwrite/appwrite'
 import { v4 as uuidv4 } from 'uuid'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import toast from 'react-hot-toast'
+import TailwindToaster from './TailwindToaster'
 
 function SignupComponent() {
     const router = useRouter()
@@ -25,13 +27,23 @@ function SignupComponent() {
         promise.then(
             function (response) {
                 console.log(response);
-                router.push("/dashboard") //success
+                toast.success("Succesfully signed up!");
+                router.push("/") //success
                 // window.location.reload()
             },
             function (error) {
                 console.log(error); //failure
+                toast.error(error.message);
             }
         )
+
+        // if (promise.success) {
+        //     console.log("Succesfully signed up!")
+        //     toast.success("Succesfully signed up!");
+        // } else {
+        //     console.log("Error", promise.error)
+        //     throw new Error(promise?.error || 'Something went wrong, please try again later');
+        // }
     }
 
     return (
@@ -153,6 +165,7 @@ function SignupComponent() {
                         </div>
                     </div> */}
                 </div>
+                <TailwindToaster />
             </div>
         </section>
     )

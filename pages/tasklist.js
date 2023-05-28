@@ -21,13 +21,14 @@ function TaskList() {
             }
         )
     }, [])
+    // console.log(userDetails.$id);
 
     return (
         <>
             {userDetails ? (
                 <>
                     <div>
-                        <TodoForm />
+                        <TodoForm userId={userDetails.$id} />
                         <Todos />
                     </div>
                 </>
