@@ -65,8 +65,8 @@ export default function UseCaseComponent() {
                                             'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-pink-700',
                                             'ring-white ring-opacity-60 ring-offset-2 ring-offset-pink-400 focus:outline-none focus:ring-2',
                                             selected
-                                                ? 'bg-white shadow'
-                                                : 'text-blue-100 hover:bg-white/[0.12] hover:text-white'
+                                                ? 'bg-gray-300 shadow'
+                                                : 'text-blue-100 hover:bg-gray-300/[0.12] hover:text-white'
                                         )
                                     }
                                 >

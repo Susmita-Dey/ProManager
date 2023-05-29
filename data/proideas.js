@@ -1,8 +1,8 @@
-const ideas = [
+const proideas = [
     // Students
     {
         category: 'Students',
-        ideas: [
+        proideas: [
             "Virtual science fair platform for students to showcase their projects.",
             "Educational podcast series covering various subjects.",
             "Online platform for peer-to-peer tutoring and knowledge sharing.",
@@ -18,7 +18,7 @@ const ideas = [
     // Marketers
     {
         category: 'Marketers',
-        ideas: [
+        proideas: [
             "Social media content calendar and scheduling tool.",
             "Influencer marketing campaign management platform.",
             "Marketing analytics dashboard for tracking key metrics.",
@@ -34,7 +34,7 @@ const ideas = [
     // Teachers
     {
         category: 'Teachers',
-        ideas: [
+        proideas: [
             "Digital portfolio platform for students to showcase their work",
             "Collaborative lesson planning and resource-sharing app",
             "Online assessment and grading system",
@@ -50,7 +50,7 @@ const ideas = [
     // For Tech Professionals
     {
         category: "Tech Professionals",
-        ideas: [
+        proideas: [
             "Open-source contribution to a popular software project",
             "Cloud-based project management and collaboration tool",
             "Code review platform for development teams",
@@ -66,7 +66,7 @@ const ideas = [
     // For Designers
     {
         category: "Designers",
-        ideas: [
+        proideas: [
             "User interface (UI) design toolkit or asset library",
             "Mood board and visual inspiration platform",
             "Prototyping tool with interactive components and animations",
@@ -81,7 +81,7 @@ const ideas = [
     }
 ];
 
-// Example usage: Accessing the project ideas for students
-// console.log(projectIdeas.find(category => category.category === 'Students').ideas);
+// Example usage: Accessing the project proideas for students
+// console.log(projectproideas.find(category => category.category === 'Students').proideas);
 
-export default ideas;
+export default proideas;

@@ -105,7 +105,7 @@ const KanbanBoard = () => {
                                 <div
                                     ref={provided.innerRef}
                                     {...provided.droppableProps}
-                                    className={`w-full px-4 py-2 mb-4 ${snapshot.isDraggingOver ? 'bg-blue-200' : 'bg-white'
+                                    className={`w-full px-4 py-2 mb-4 ${snapshot.isDraggingOver ? 'bg-blue-200' : 'bg-gray-300'
                                         }`}
                                 >
                                     {column.items.map((item, index) => (
@@ -115,7 +115,7 @@ const KanbanBoard = () => {
                                                     ref={provided.innerRef}
                                                     {...provided.draggableProps}
                                                     {...provided.dragHandleProps}
-                                                    className={`w-full p-2 mb-2 rounded-lg ${snapshot.isDragging ? 'bg-blue-100' : 'bg-white'
+                                                    className={`w-full p-2 mb-2 rounded-lg ${snapshot.isDragging ? 'bg-blue-100' : 'bg-gray-300'
                                                         }`}
                                                 >
                                                     {item.boardtitle}

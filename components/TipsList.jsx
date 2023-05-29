@@ -3,20 +3,19 @@ import { databases } from '@/appwrite/appwrite'
 import { Query } from 'appwrite'
 import toast from 'react-hot-toast'
 import TailwindToaster from './TailwindToaster'
-import Image from 'next/image'
 
-function Diary(userId) {
-    const [diary, setDiary] = useState()
+function TipsList(userId) {
+    const [tipsList, setTipsList] = useState()
     const [loader, setLoader] = useState(false)
 
     // console.log(userId.userId);
     useEffect(() => {
         setLoader(true)
-        const getDiary = databases.listDocuments("646605464de2f5cb7435", "64660b181c0af1741d29", [
+        const getTipsList = databases.listDocuments("646605464de2f5cb7435", "646605ece1eec67da04a", [
             Query.equal("created_by", [userId.userId])])
-        getDiary.then(
+        getTipsList.then(
             function (response) {
-                setDiary(response.documents)
+                setTipsList(response.documents)
                 console.log(response.documents);
             },
             function (error) {
@@ -27,25 +26,25 @@ function Diary(userId) {
         setLoader(false)
     }, [])
 
-    const deleteNote = (id) => {
-        const promise = databases.deleteDocument("646605464de2f5cb7435", "64660b181c0af1741d29", id)
+    const deleteTodo = (id) => {
+        const promise = databases.deleteDocument("646605464de2f5cb7435", "646605ece1eec67da04a", id)
         promise.then(
             function (response) {
-                toast.success("Note deleted successfully!!")
+                toast.success("Productivity tip deleted successfully!!")
                 console.log(response);
                 window.location.reload()
             },
             function (error) {
                 toast.error(error.message)
                 console.log(error);
-                // window.location.reload()
+                window.location.reload()
             }
         )
     }
 
     return (
         <div className="max-w-7xl mx-auto">
-            <p className="text-xl font-bold mb-2 text-white">Todo List</p>
+            <p className="text-xl font-bold mb-2 text-white">My Productivity Tips</p>
             {loader ? (
                 <div role="status">
                     <svg aria-hidden="true" className="w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-pink-800 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -55,31 +54,18 @@ function Diary(userId) {
                     <span className="sr-only text-white">Loading...</span>
                 </div>
             ) : (
-                <div className='flex flex-col md:flex-row justify-center items-center gap-4'>
-                    {diary && diary.map((item) => (
+                <div>
+                    {tipsList && tipsList.map(item => (
                         <div key={item.$id} >
-                            <div className="p-4 flex flex-col items-center justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 px-4 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 gap-2 hover:shadow-lg hover:border-pink-500/40 my-4">
-                                {item.image ? (
-                                    <div className='flex p-2 border-2 border-white text-white'>
-                                        <Image width={100} height={100} src={item.image} className='w-full h-full' />
-                                    </div>
-                                ) : (
-                                    <div className='flex p-2 border-2 border-white text-white'>
-                                        <Image width={100} height={100} src={"https://cdn.pixabay.com/photo/2016/11/22/23/09/fountain-pen-1851096_1280.jpg"} className='w-full h-full' />
-                                    </div>
-                                )
-                                }
-                                <div className='flex p-2 border-b-2 border-white text-white'>
-                                    <p className='text-xl font-medium'>{item.diarytitle}</p>
+                            <div className="p-4 flex items-center justify-between border-b border-gray-300 bg-gradient-to-b from-zinc-200 px-4 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 gap-2 hover:shadow-lg hover:border-pink-500/40 my-4">
+                                <div>
+                                    <p className='text-lg font-medium text-white'>{item.tips}</p>
                                 </div>
-                                <div className='flex p-2 border-b-2 border-white text-white'>
-                                    <p className='text-base'>{item.diarynote}</p>
-                                </div>
-                                <div className='flex hover:bg-pink-900 hover:rounded-md w-full justify-center items-center'>
+                                <div>
                                     <span
-                                        className="text-white p-2 cursor-pointer"
+                                        className="text-white cursor-pointer"
                                         onClick={() => {
-                                            deleteNote(item.$id)
+                                            deleteTodo(item.$id)
                                         }}
                                     >
                                         Delete
@@ -96,4 +82,4 @@ function Diary(userId) {
     )
 }
 
-export default Diary
+export default TipsList

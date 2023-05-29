@@ -7,10 +7,10 @@ import TailwindToaster from './TailwindToaster';
 import { Query } from 'appwrite';
 import proideas from '@/data/proideas';
 
-function StudentIdeas(userId) {
+function MarketerIdeas(userId) {
     console.info(userId.userId.userId);
     const [ideaItem, setIdeaItem] = useState("")
-    const category = "student";
+    const category = "marketer";
     const data = { proideas: ideaItem, category: category, created_by: userId.userId.userId };
     console.log(data);
     const [ideas, setIdeas] = useState()
@@ -86,7 +86,7 @@ function StudentIdeas(userId) {
                     className="flex flex-col lg:flex-row gap-4 justify-center mb-10"
                 >
                     <div className='flex flex-col gap-4'>
-                        <label className='text-2xl font-semibold'>Got some new project idea to add to your student list? Add them here one by one.</label>
+                        <label className='text-2xl font-semibold'>Got some new project idea to add to your marketer list? Add them here one by one.</label>
                         <input
                             type="text"
                             name=""
@@ -158,4 +158,4 @@ function StudentIdeas(userId) {
     )
 }
 
-export default StudentIdeas
+export default MarketerIdeas

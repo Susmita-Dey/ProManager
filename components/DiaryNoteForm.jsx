@@ -27,7 +27,7 @@ function DiaryNoteForm(userId) {
             function (response) {
                 toast.success("New note added succesfully!!")
                 console.log(response);
-                // window.location.reload()
+                window.location.reload()
             },
             function (error) {
                 toast.error(error.message)
@@ -40,7 +40,7 @@ function DiaryNoteForm(userId) {
 
 
     return (
-        <div className="max-w-7xl mx-auto mt-10 text-white">
+        <div className="max-w-7xl mx-auto container lg:px-8 px-5 mt-10 text-white">
             <form
                 action=""
                 onSubmit={handleSubmit}

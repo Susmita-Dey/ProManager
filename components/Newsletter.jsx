@@ -46,7 +46,7 @@ export default function Newsletter() {
             <div className='flex flex-col justify-center items-center gap-6'>
                 <h2 className='md:text-4xl text-2xl'>Subscribe to our <span className='font-semibold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500'>Newsletter</span></h2>
                 <form className='flex flex-col md:flex-row md:gap-2 gap-4 justify-center items-center p-5' onSubmit={handleFormSubmit}>
-                    <input type="email" name="email" id="email" className='bg-white text-pink-900 rounded-md shadow-lg px-4 py-3 text-lg w-full md:w-80 placeholder-slate-500 focus:ring-2 focus:ring-rose-700' placeholder='youremail@gmail.com' onChange={(e) => {
+                    <input type="email" name="email" id="email" className='bg-gray-300 text-pink-900 rounded-md shadow-lg px-4 py-3 text-lg w-full md:w-80 placeholder-slate-500 focus:ring-2 focus:ring-rose-700' placeholder='youremail@gmail.com' onChange={(e) => {
                         setEmailInput(e.target.value)
                     }} />
                     <button className='px-6 py-3 rounded-md font-semibold text-white bg-pink-600/90 hover:bg-pink-800/90' type='submit'>Subscribe</button>

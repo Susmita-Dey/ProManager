@@ -64,7 +64,7 @@ function ProfilePage() {
             {userDetails &&
                 <section className="relative py-16 bg-gray-300">
                     <div className="container mx-auto px-8">
-                        <div className="relative flex flex-col justify-center min-w-0 break-words bg-pink-100 w-full mb-4 shadow-xl rounded-lg -mt-96 lg:-mt-64 md:-mt-64">
+                        <div className="relative flex flex-col justify-center min-w-0 break-words bg-gray-300 w-full mb-4 shadow-xl rounded-lg -mt-96 lg:-mt-64 md:-mt-64">
                             <div className="px-4">
                                 <div className="w-full px-8 flex justify-center text-center rounded-full">
                                     <div className="px-4 mb-10">
@@ -130,7 +130,7 @@ function ProfilePage() {
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95"
                             >
-                                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-gray-300 p-6 text-left align-middle shadow-xl transition-all">
                                     <Dialog.Title
                                         as="h3"
                                         className="text-lg font-medium leading-6 text-gray-900"

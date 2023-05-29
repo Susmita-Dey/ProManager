@@ -18,7 +18,7 @@ function HeroSection() {
                             </button>
                         </Link>
                         <Link href='#about'>
-                            <button className='flex flex-row gap-1 rounded-md shadow-md font-medium px-4 py-2 bg-pink-100 hover:bg-pink-200 text-pink-700'>
+                            <button className='flex flex-row gap-1 rounded-md shadow-md font-medium px-4 py-2 bg-gray-300 hover:bg-pink-200 text-pink-700'>
                                 Learn More <AiOutlineArrowDown className="text-lg animate-bounce mt-1" />
                             </button>
                         </Link>

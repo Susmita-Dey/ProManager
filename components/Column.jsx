@@ -18,7 +18,7 @@ const Column = ({ id, kanban, index }) => {
                 <div
                   {...provided.droppableProps}
                   ref={provided.innerRef}
-                  className={`p-2 rounded-2xl shadow-sm ${snapshot.isDraggingOver ? "bg-green-200" : "bg-white/50"
+                  className={`p-2 rounded-2xl shadow-sm ${snapshot.isDraggingOver ? "bg-green-200" : "bg-gray-300/50"
                     }`}
                 >
                   <h2>{id}</h2>

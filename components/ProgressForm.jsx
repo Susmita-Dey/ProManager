@@ -1,17 +1,24 @@
-import React from 'react'
+import { databases } from '@/appwrite/appwrite'
+import { v4 as uuidv4 } from 'uuid';
+import React, { useState } from 'react'
+import toast from 'react-hot-toast'
+import TailwindToaster from './TailwindToaster'
 
-function ProgressForm() {
-    // console.log(userId.userId);
-    const [progressItem, setProgressItem] = useState("")
-    const data = { todoitem: todoItem, created_by: userId.userId };
+function ProgressForm(userId) {
+    console.log(userId);
+    const [yesterdayItem, setYesterdayItem] = useState("")
+    const [todayItem, setTodayItem] = useState("")
+    const [achievementItem, setAchievementItem] = useState("")
+    const [learningItem, setLearningItem] = useState("")
+
+    const data = { done_yesterday: yesterdayItem, doing_today: todayItem, achievements: achievementItem, learnings: learningItem, created_by: userId.userId };
     console.log(data);
-
 
     const handleSubmit = (e) => {
         e.preventDefault()
         const promise = databases.createDocument(
             "646605464de2f5cb7435",
-            "64660b181c0af1741d29",
+            "64748145e6b153bf9e4a",
             uuidv4(),
             data,
         )
@@ -19,10 +26,12 @@ function ProgressForm() {
         console.log(promise);
         promise.then(
             function (response) {
+                toast.success("Daily Progress Added!!")
                 console.log(response);
                 window.location.reload()
             },
             function (error) {
+                toast.error(error.message)
                 console.log(error);
                 // window.location.reload()
             },
@@ -32,29 +41,74 @@ function ProgressForm() {
 
 
     return (
-        <div className="max-w-7xl mx-auto mt-10 text-white">
+        <div className="max-w-7xl mx-auto container lg:px-8 px-5 mt-10 text-white">
             <form
                 action=""
                 onSubmit={handleSubmit}
-                className="flex justify-center mb-10"
+                className="flex flex-col justify-center gap-3 mb-10"
             >
-                <input
-                    type="text"
-                    name=""
-                    id=""
-                    placeholder="Enter Todo"
-                    className="border p-2 w-2/3 rounded-md text-black placeholder-gray-600"
-                    onChange={(e) => {
-                        setTodoItem(e.target.value)
-                    }}
-                />
+                <div className='flex flex-col gap-3'>
+                    <label className='text-xl font-semibold'>What tasks/goals did you accomplish yesterday?</label>
+                    <input
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="I was a superhero yesterday saving lots of people...."
+                        className="border p-2 bg-gray-300 rounded-md text-black placeholder-gray-600"
+                        onChange={(e) => {
+                            setYesterdayItem(e.target.value)
+                        }}
+                    />
+                </div>
+                <div className='flex flex-col gap-3'>
+                    <label className='flex flex-col gap-1 text-xl font-semibold'>What do you want to accomplish today or have already accomplished based on your today's goal?
+                        {/* <span className='text-base text-gray-500'>*Character limit is 2000.</span> */}
+                    </label>
+                    <input
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="I wanna/have learn/learnt a new technology..."
+                        className="border p-2 rounded-md bg-gray-300 text-black placeholder-gray-600"
+                        onChange={(e) => {
+                            setTodayItem(e.target.value)
+                        }}
+                    />
+                </div>
+                <div className='flex flex-col gap-3'>
+                    <label className='text-xl font-semibold'>Did you achieved something great today like a new achievement in your life?</label>
+                    <input
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="I got a new job...."
+                        className="border p-2 bg-gray-300 rounded-md text-black placeholder-gray-600"
+                        onChange={(e) => {
+                            setAchievementItem(e.target.value)
+                        }}
+                    />
+                </div>
+                <div className='flex flex-col gap-3'>
+                    <label className='text-xl font-semibold'>Did you faced any challenges or came across a barrier or learnt something new?</label>
+                    <input
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="I faced many challenges and learnt...."
+                        className="border p-2 bg-gray-300 rounded-md text-black placeholder-gray-600"
+                        onChange={(e) => {
+                            setLearningItem(e.target.value)
+                        }}
+                    />
+                </div>
                 <button
-                    className="bg-pink-600 hover:bg-pink-700 p-2 text-white ml-2 rounded-md"
+                    className="bg-pink-600 hover:bg-pink-700 p-2 w-1/6 text-white rounded-md"
                     type="submit"
                 >
-                    Add Todo
+                    Add Progress
                 </button>
             </form>
+            <TailwindToaster />
         </div>
     )
 }
