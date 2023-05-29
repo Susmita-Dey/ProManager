@@ -66,9 +66,12 @@ function DashboardComponent({ username, userId }) {
                     <FlatCard path='/stopwatch' title='Tick Tock ⏱️' subtitle="Let's increase your productivity with some useful tips and tricks." />
                 </div>
             </div>
-            <div className='flex flex-col justify-center items-center my-10'>
+            <div className='flex flex-col justify-center items-center mt-10 mb-4'>
                 <h2 className='text-2xl font-bold'>Quote of the Time</h2>
                 <QuoteGen />
+            </div>
+            <div className='flex flex-col justify-center items-center mb-3'>
+                <Link href={'/profile'} className='text-lg font-semibold text-cyan-500 underline underline-offset-2'>Go To Profile</Link>
             </div>
         </section>
     )
