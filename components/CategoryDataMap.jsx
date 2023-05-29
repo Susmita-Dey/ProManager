@@ -1,5 +1,6 @@
 import proideas from '@/data/proideas'
 import React from 'react'
+import IdeaCard from './IdeaCard'
 
 function CategoryDataMap() {
     return (

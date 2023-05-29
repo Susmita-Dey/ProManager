@@ -61,7 +61,7 @@ function ProgressForm(userId) {
                     />
                 </div>
                 <div className='flex flex-col gap-3'>
-                    <label className='flex flex-col gap-1 text-xl font-semibold'>What do you want to accomplish today or have already accomplished based on your today's goal?
+                    <label className='flex flex-col gap-1 text-xl font-semibold'>What do you want to accomplish today or have already accomplished based on your today&apos;s goal?
                         {/* <span className='text-base text-gray-500'>*Character limit is 2000.</span> */}
                     </label>
                     <input
