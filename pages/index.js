@@ -49,7 +49,7 @@ export default function Home() {
       ) :
         <>
           <div>
-            <DashboardComponent username={userDetails.name} />
+            <DashboardComponent username={userDetails.name} userId={userDetails.$id} />
           </div>
         </>
       }

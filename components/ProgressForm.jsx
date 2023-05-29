@@ -1,12 +1,8 @@
-import React, { useState } from 'react'
-import { v4 as uuidv4 } from 'uuid'
-import { databases } from '@/appwrite/appwrite'
-import toast from 'react-hot-toast';
-import TailwindToaster from './TailwindToaster';
+import React from 'react'
 
-function TodoForm(userId) {
+function ProgressForm() {
     // console.log(userId.userId);
-    const [todoItem, setTodoItem] = useState("")
+    const [progressItem, setProgressItem] = useState("")
     const data = { todoitem: todoItem, created_by: userId.userId };
     console.log(data);
 
@@ -15,7 +11,7 @@ function TodoForm(userId) {
         e.preventDefault()
         const promise = databases.createDocument(
             "646605464de2f5cb7435",
-            "6466055dd831efd150ef",
+            "64660b181c0af1741d29",
             uuidv4(),
             data,
         )
@@ -24,11 +20,9 @@ function TodoForm(userId) {
         promise.then(
             function (response) {
                 console.log(response);
-                toast.success("Successfully added new task!!")
                 window.location.reload()
             },
             function (error) {
-                toast.error(error.message)
                 console.log(error);
                 // window.location.reload()
             },
@@ -61,9 +55,8 @@ function TodoForm(userId) {
                     Add Todo
                 </button>
             </form>
-            <TailwindToaster />
         </div>
     )
 }
 
-export default TodoForm
+export default ProgressForm

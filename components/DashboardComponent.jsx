@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import React, { useContext } from 'react'
 import FlatCard from './FlatCard';
+import ProductivityPercentage from './ProductivityPercentage ';
 import QuoteGen from './QuoteGen';
 
-function DashboardComponent({ username }) {
+function DashboardComponent({ username, userId }) {
     const date = new Date()
     let day = date.getDate();
     let month = date.getMonth() + 1;
@@ -45,9 +46,12 @@ function DashboardComponent({ username }) {
                     </div>
                     <p className='font-normal text-base md:text-xl text-white'>{wishUser}</p>
                 </div>
-                <div className='flex flex-col gap-4'>
-                    <h2 className='font-bold text-base md:text-xl text-white'>Date: {currentDate}</h2>
-                    <p className='font-bold text-base md:text-xl text-white'>Time: {currentTime}</p>
+                <div className='flex flex-col md:flex-col gap-2'>
+                    <div className='flex flex-row gap-3'>
+                        <h2 className='font-bold text-base md:text-xl text-white'>Date: {currentDate}</h2>
+                        <p className='font-bold text-base md:text-xl text-white'>Time: {currentTime}</p>
+                    </div>
+                    <ProductivityPercentage userId={userId} />
                 </div>
             </div>
             <h2 className='text-2xl text-start font-bold mt-24 px-5 md:px-20 mb-8'>Explore</h2>
@@ -57,7 +61,8 @@ function DashboardComponent({ username }) {
                     <FlatCard path='/tasklist' title='Tasklist 📃' subtitle="Let's help you in listing out your left-over tasks of the day." />
                     <FlatCard path='/project' title='Kanban Board 🛹' subtitle="Let's increase your productivity by organizing things in a cool board." />
                     <FlatCard path='/idealist' title='Idealist 💡' subtitle="Let's help you with some cool project ideas. If you're smarter, add some cool ones." />
-                    <FlatCard path='/progress' title='Your Secret Diary 📔' subtitle="Track your daily progress by documenting your daily moves and achievements." />
+                    <FlatCard path='/progress' title='Progress Tracker 🏃' subtitle="Track your daily progress by documenting your daily moves and achievements." />
+                    <FlatCard path='/diarynote' title='Your Secret Diary 📔' subtitle="Make notes and keep it in one place or make the habit of writing your productivity diary." />
                     <FlatCard path='/stopwatch' title='Tick Tock ⏱️' subtitle="Let's increase your productivity with some useful tips and tricks." />
                 </div>
             </div>

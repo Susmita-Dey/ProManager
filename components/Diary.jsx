@@ -3,19 +3,20 @@ import { databases } from '@/appwrite/appwrite'
 import { Query } from 'appwrite'
 import toast from 'react-hot-toast'
 import TailwindToaster from './TailwindToaster'
+import Image from 'next/image'
 
-function Todos(userId) {
-    const [todos, setTodos] = useState()
+function Diary(userId) {
+    const [diary, setDiary] = useState()
     const [loader, setLoader] = useState(false)
 
     // console.log(userId.userId);
     useEffect(() => {
         setLoader(true)
-        const getTodos = databases.listDocuments("646605464de2f5cb7435", "6466055dd831efd150ef", [
+        const getDiary = databases.listDocuments("646605464de2f5cb7435", "64660b181c0af1741d29", [
             Query.equal("created_by", [userId.userId])])
-        getTodos.then(
+        getDiary.then(
             function (response) {
-                setTodos(response.documents)
+                setDiary(response.documents)
                 console.log(response.documents);
             },
             function (error) {
@@ -26,11 +27,11 @@ function Todos(userId) {
         setLoader(false)
     }, [])
 
-    const deleteTodo = (id) => {
-        const promise = databases.deleteDocument("646605464de2f5cb7435", "6466055dd831efd150ef", id)
+    const deleteNote = (id) => {
+        const promise = databases.deleteDocument("646605464de2f5cb7435", "64660b181c0af1741d29", id)
         promise.then(
             function (response) {
-                toast.success("Task deleted successfully!!")
+                toast.success("Note deleted successfully!!")
                 console.log(response);
                 window.location.reload()
             },
@@ -54,18 +55,31 @@ function Todos(userId) {
                     <span className="sr-only text-white">Loading...</span>
                 </div>
             ) : (
-                <div>
-                    {todos && todos.map(item => (
+                <div className='flex flex-col md:flex-row justify-center items-center gap-4'>
+                    {diary && diary.map((item) => (
                         <div key={item.$id} >
-                            <div className="p-4 flex items-center justify-between border-b border-gray-300 bg-gradient-to-b from-zinc-200 px-4 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 gap-2 hover:shadow-lg hover:border-pink-500/40 my-4">
-                                <div>
-                                    <p className='text-white'>{item.todoitem}</p>
+                            <div className="p-4 flex flex-col items-center justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 px-4 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 gap-2 hover:shadow-lg hover:border-pink-500/40 my-4">
+                                {item.image ? (
+                                    <div className='flex p-2 border-2 border-white text-white'>
+                                        <Image width={100} height={100} src={item.image} className='w-full h-full' />
+                                    </div>
+                                ) : (
+                                    <div className='flex p-2 border-2 border-white text-white'>
+                                        <Image width={100} height={100} src={"https://cdn.pixabay.com/photo/2016/11/22/23/09/fountain-pen-1851096_1280.jpg"} className='w-full h-full' />
+                                    </div>
+                                )
+                                }
+                                <div className='flex p-2 border-b-2 border-white text-white'>
+                                    <p className='text-xl font-medium'>{item.diarytitle}</p>
                                 </div>
-                                <div>
+                                <div className='flex p-2 border-b-2 border-white text-white'>
+                                    <p className='text-base'>{item.diarynote}</p>
+                                </div>
+                                <div className='flex hover:bg-pink-900 hover:rounded-md w-full justify-center items-center'>
                                     <span
-                                        className="text-white cursor-pointer"
+                                        className="text-white p-2 cursor-pointer"
                                         onClick={() => {
-                                            deleteTodo(item.$id)
+                                            deleteNote(item.$id)
                                         }}
                                     >
                                         Delete
@@ -82,4 +96,4 @@ function Todos(userId) {
     )
 }
 
-export default Todos
+export default Diary
