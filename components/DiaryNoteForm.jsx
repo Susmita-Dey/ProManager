@@ -87,7 +87,9 @@ function DiaryNoteForm(userId) {
                     </textarea>
                 </div>
                 <div className='flex flex-col gap-3'>
-                    <label className='text-xl font-semibold'>Image Cover:</label>
+                    <label className='flex flex-col gap-1 text-xl font-semibold'>Image Cover:
+                        <span className='text-base text-gray-500'>*Files with extensions *.jpg,*.jpeg,*.png,*.svg and *.gif are supported.</span>
+                    </label>
                     <input type="file" id="imageFile" accept="image/*" onChange={handleImageUpload} />
                 </div>
                 <button

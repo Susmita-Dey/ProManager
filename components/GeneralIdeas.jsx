@@ -86,7 +86,7 @@ function GeneralIdeas(userId) {
                     className="flex flex-col lg:flex-row gap-4 justify-center mb-10"
                 >
                     <div className='flex flex-col gap-4'>
-                        <label className='text-2xl font-semibold'>Got some new project idea to add to your general list? Add them here one by one.</label>
+                        <label className='text-2xl font-semibold'>Got some new project idea to add to your general list? <br />Add them here one by one.</label>
                         <input
                             type="text"
                             name=""

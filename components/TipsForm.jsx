@@ -45,7 +45,7 @@ function TipsForm(userId) {
                 className="flex flex-col lg:flex-row gap-4 justify-center mb-10"
             >
                 <div className='flex flex-col gap-4'>
-                    <label className='text-2xl font-semibold'>Learnt some new productivity tips/tricks? Add them here one by one.</label>
+                    <label className='text-2xl font-semibold'>Learnt some new productivity tips/tricks? <br />Add them here one by one.</label>
                     <input
                         type="text"
                         name=""
@@ -58,7 +58,7 @@ function TipsForm(userId) {
                     />
                 </div>
                 <button
-                    className="bg-pink-600 hover:bg-pink-700 p-3 text-white lg:mt-12 rounded-md"
+                    className="bg-pink-600 hover:bg-pink-700 px-3 py-2 text-white lg:mt-20 rounded-md"
                     type="submit"
                 >
                     Add New Tip
