@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { databases } from '@/appwrite/appwrite'
+import { databases, storage } from '@/appwrite/appwrite'
 import { Query } from 'appwrite'
 import toast from 'react-hot-toast'
 import TailwindToaster from './TailwindToaster'
 import Image from 'next/image'
+import DiaryCard from './DiaryCard'
 
 function Diary(userId) {
-    const [diary, setDiary] = useState()
+    const [diary, setDiary] = useState([])
     const [loader, setLoader] = useState(false)
 
     // console.log(userId.userId);
@@ -33,7 +34,7 @@ function Diary(userId) {
             function (response) {
                 toast.success("Note deleted successfully!!")
                 console.log(response);
-                window.location.reload()
+                // window.location.reload()
             },
             function (error) {
                 toast.error(error.message)
@@ -44,8 +45,8 @@ function Diary(userId) {
     }
 
     return (
-        <div className="max-w-7xl mx-auto">
-            <p className="text-xl font-bold mb-2 text-white">Todo List</p>
+        <div className="max-w-7xl container lg:px-8 px-5 mx-auto">
+            <p className="text-xl font-bold mb-2 text-white">Your Secret Notes</p>
             {loader ? (
                 <div role="status">
                     <svg aria-hidden="true" className="w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-pink-800 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -55,36 +56,19 @@ function Diary(userId) {
                     <span className="sr-only text-white">Loading...</span>
                 </div>
             ) : (
-                <div className='flex flex-col md:flex-row justify-center items-center gap-4'>
+                <div className='flex flex-col md:flex-row lg:w-96 w-full justify-center items-center gap-4'>
                     {diary && diary.map((item) => (
-                        <div key={item.$id} >
-                            <div className="p-4 flex flex-col items-center justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 px-4 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 gap-2 hover:shadow-lg hover:border-pink-500/40 my-4">
-                                {item.image ? (
-                                    <div className='flex p-2 border-2 border-white text-white'>
-                                        <Image width={100} height={100} src={item.image} className='w-full h-full' />
-                                    </div>
-                                ) : (
-                                    <div className='flex p-2 border-2 border-white text-white'>
-                                        <Image width={100} height={100} src={"https://cdn.pixabay.com/photo/2016/11/22/23/09/fountain-pen-1851096_1280.jpg"} className='w-full h-full' />
-                                    </div>
-                                )
-                                }
-                                <div className='flex p-2 border-b-2 border-white text-white'>
-                                    <p className='text-xl font-medium'>{item.diarytitle}</p>
-                                </div>
-                                <div className='flex p-2 border-b-2 border-white text-white'>
-                                    <p className='text-base'>{item.diarynote}</p>
-                                </div>
-                                <div className='flex hover:bg-pink-900 hover:rounded-md w-full justify-center items-center'>
-                                    <span
-                                        className="text-white p-2 cursor-pointer"
-                                        onClick={() => {
-                                            deleteNote(item.$id)
-                                        }}
-                                    >
-                                        Delete
-                                    </span>
-                                </div>
+                        <div key={item.$id} className="p-4 flex flex-col items-center justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 px-4 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 gap-2 hover:shadow-lg hover:border-pink-500/40 my-4">
+                            <DiaryCard key={item.$id} imageFileId={item.image} diaryTitle={item.diarytitle} diaryNote={item.diarynote} />
+                            <div className='flex hover:bg-pink-900 hover:rounded-md w-full justify-center items-center lg:w-1/2'>
+                                <span
+                                    className="text-white p-2 cursor-pointer"
+                                    onClick={() => {
+                                        deleteNote(item.$id)
+                                    }}
+                                >
+                                    Delete
+                                </span>
                             </div>
                         </div>
                     ))

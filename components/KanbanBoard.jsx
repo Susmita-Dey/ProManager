@@ -97,7 +97,7 @@ const KanbanBoard = () => {
                 {Object.values(board.columns).map((column) => (
                     <div
                         key={column.id}
-                        className="flex flex-col text-black items-center w-1/4 m-4 bg-gray-100 rounded-lg"
+                        className="flex flex-col text-black items-center lg:w-1/4 w-full m-4 bg-gray-100 rounded-lg"
                     >
                         <h3 className="text-lg font-semibold m-4">{column.boardtitle}</h3>
                         <Droppable droppableId={column.id}>
@@ -109,7 +109,7 @@ const KanbanBoard = () => {
                                         }`}
                                 >
                                     {column.items.map((item, index) => (
-                                        <Draggable key={item.$id} draggableId={item.$id.toString()} index={index}>
+                                        <Draggable key={item.id} draggableId={item.id.toString()} index={index}>
                                             {(provided, snapshot) => (
                                                 <div
                                                     ref={provided.innerRef}

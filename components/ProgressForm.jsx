@@ -102,7 +102,7 @@ function ProgressForm(userId) {
                     />
                 </div>
                 <button
-                    className="bg-pink-600 hover:bg-pink-700 p-2 w-1/6 text-white rounded-md"
+                    className="bg-pink-600 hover:bg-pink-700 p-2 lg:w-1/6 w-full text-white rounded-md"
                     type="submit"
                 >
                     Add Progress
