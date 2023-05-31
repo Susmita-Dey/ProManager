@@ -30,7 +30,7 @@ const KanbanBoard = () => {
                         items: [],
                     };
                 }
-                columns[status].items.push({ id, boardtitle, image });
+                columns[status].items.push({ id: uuidv4(), boardtitle, image });
             }
 
             setBoard({ columns });
