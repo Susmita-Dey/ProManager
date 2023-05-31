@@ -19,7 +19,7 @@ export default function Profile() {
                 console.log(error);
             }
         )
-    }, [])
+    })
     return (
         <>
             {userDetails ? (

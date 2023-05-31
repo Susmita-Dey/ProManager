@@ -6,10 +6,10 @@ const DiaryCard = ({ imageFileId, diaryTitle, diaryNote }) => {
     const imageUrl = storage.getFilePreview("64660501997e9ab009e4", imageFileId, 150, 150, "center", 100);
 
     return (
-        <div className='flex flex-col justify-center items-center flex-wrap'>
+        <div className='flex flex-col justify-center items-center lg:w-96 w-full h-96 text-center flex-wrap gap-2'>
             {imageUrl ? (
                 <div className='flex p-2 border-2 border-white text-white'>
-                    <img src={imageUrl} alt="Card Image" />
+                    <img src={imageUrl} width={150} height={150} alt="Card Image" />
                 </div>
             ) : (
                 <div className='flex p-2 border-2 border-white text-white'>
@@ -17,12 +17,14 @@ const DiaryCard = ({ imageFileId, diaryTitle, diaryNote }) => {
                 </div>
             )
             }
-            <div className='flex p-2 border-b-2 border-white text-white'>
+            <div className='flex p-2 border-white text-white'>
                 <p className='text-xl font-medium'>{diaryTitle}</p>
             </div>
-            <div className='flex p-2 border-b-2 border-white text-white'>
+            <span className='border-2 border-white w-full'></span>
+            <div className='flex p-2 lg:w-96 w-full border-white text-white'>
                 <p className='text-base'>{diaryNote}</p>
             </div>
+            <span className='border border-white w-full'></span>
 
         </div>
     );

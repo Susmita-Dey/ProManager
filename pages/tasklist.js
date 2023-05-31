@@ -20,8 +20,7 @@ function TaskList() {
                 console.log(error);
             }
         )
-    }, [])
-    // console.log(userDetails.$id);
+    })    // console.log(userDetails.$id);
 
     return (
         <>

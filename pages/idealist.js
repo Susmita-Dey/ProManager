@@ -17,7 +17,7 @@ export default function IdeaList() {
                 console.log(error);
             }
         )
-    }, [])
+    })
     return (
         <>
             {userDetails ? (

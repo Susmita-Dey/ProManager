@@ -62,7 +62,7 @@ export default function Navbar() {
                 console.log(error);
             }
         )
-    }, [])
+    })
 
     const router = useRouter();
     const [navbar, setNavbar] = useState(false);

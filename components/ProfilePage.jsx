@@ -22,8 +22,7 @@ function ProfilePage() {
                 console.log(error);
             }
         )
-    }, [])
-
+    })
     const deleteUser = (id) => {
         console.log(id);
         if (id === undefined) {

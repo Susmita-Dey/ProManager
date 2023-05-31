@@ -56,19 +56,27 @@ function Diary(userId) {
                     <span className="sr-only text-white">Loading...</span>
                 </div>
             ) : (
-                <div className='flex flex-col md:flex-row lg:w-96 w-full justify-center items-center gap-4'>
+                <div className='flex flex-col md:flex-row justify-center items-center gap-4'>
                     {diary && diary.map((item) => (
                         <div key={item.$id} className="p-4 flex flex-col items-center justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 px-4 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 gap-2 hover:shadow-lg hover:border-pink-500/40 my-4">
                             <DiaryCard key={item.$id} imageFileId={item.image} diaryTitle={item.diarytitle} diaryNote={item.diarynote} />
-                            <div className='flex hover:bg-pink-900 hover:rounded-md w-full justify-center items-center lg:w-1/2'>
-                                <span
-                                    className="text-white p-2 cursor-pointer"
+                            <div className='flex justify-between items-center gap-4'>
+                                <button
+                                    className="flex text-white p-2 hover:bg-pink-900 hover:rounded-md w-full"
+                                    onClick={() => {
+                                        deleteNote(item.$id)
+                                    }}
+                                >
+                                    Edit
+                                </button>
+                                <button
+                                    className="flex text-white p-2 hover:bg-pink-900 hover:rounded-md w-full"
                                     onClick={() => {
                                         deleteNote(item.$id)
                                     }}
                                 >
                                     Delete
-                                </span>
+                                </button>
                             </div>
                         </div>
                     ))

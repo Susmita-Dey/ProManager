@@ -18,8 +18,7 @@ export default function Kanban() {
                 console.log(error);
             }
         )
-    }, [])
-
+    })
     return (
         <>
             {userDetails ? (

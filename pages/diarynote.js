@@ -18,8 +18,7 @@ export default function DiaryNote() {
                 console.log(error);
             }
         )
-    }, [])
-    // console.log(userDetails.$id);
+    })    // console.log(userDetails.$id);
     return (
         <>
             {userDetails ? (
