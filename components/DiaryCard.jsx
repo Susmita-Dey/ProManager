@@ -1,4 +1,5 @@
 import { storage } from '@/appwrite/appwrite';
+import Image from 'next/image';
 import React from 'react';
 
 const DiaryCard = ({ imageFileId, diaryTitle, diaryNote }) => {
