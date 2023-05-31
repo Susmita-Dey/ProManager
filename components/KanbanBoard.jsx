@@ -11,10 +11,11 @@ const KanbanBoard = () => {
     }, []);
 
     const collectionId = "6466067e1863a7ff50de"
+    const databaseId = "646605464de2f5cb7435"
 
     const fetchBoardData = async () => {
         try {
-            const response = await databases.listDocuments("646605464de2f5cb7435",
+            const response = await databases.listDocuments(databaseId,
                 collectionId);
             const documents = response.documents;
             console.log(documents);
@@ -81,7 +82,7 @@ const KanbanBoard = () => {
         const newStatus = destination.droppableId;
 
         try {
-            await client.database.updateDocument(collectionId, itemId, {
+            await databases.updateDocument(databaseId, collectionId, itemId, {
                 status: newStatus,
             });
         } catch (error) {
@@ -92,45 +93,52 @@ const KanbanBoard = () => {
     const createNewItem = () => { }
 
     return (
-        <DragDropContext onDragEnd={onDragEnd}>
-            <div className="flex justify-center py-8">
-                {Object.values(board.columns).map((column) => (
-                    <div
-                        key={column.id}
-                        className="flex flex-col text-black items-center lg:w-1/4 w-full m-4 bg-gray-100 rounded-lg"
-                    >
-                        <h3 className="text-lg font-semibold m-4">{column.boardtitle}</h3>
-                        <Droppable droppableId={column.id}>
-                            {(provided, snapshot) => (
-                                <div
-                                    ref={provided.innerRef}
-                                    {...provided.droppableProps}
-                                    className={`w-full px-4 py-2 mb-4 ${snapshot.isDraggingOver ? 'bg-blue-200' : 'bg-gray-300'
-                                        }`}
-                                >
-                                    {column.items.map((item, index) => (
-                                        <Draggable key={item.id} draggableId={item.id.toString()} index={index}>
-                                            {(provided, snapshot) => (
-                                                <div
-                                                    ref={provided.innerRef}
-                                                    {...provided.draggableProps}
-                                                    {...provided.dragHandleProps}
-                                                    className={`w-full p-2 mb-2 rounded-lg ${snapshot.isDragging ? 'bg-blue-100' : 'bg-gray-300'
-                                                        }`}
-                                                >
-                                                    {item.boardtitle}
-                                                </div>
-                                            )}
-                                        </Draggable>
-                                    ))}
-                                    {provided.placeholder}
-                                </div>
-                            )}
-                        </Droppable>
+        <section className="container mx-auto">
+            <div className="flex flex-col justify-center items-center gap-5">
+                <div className="flex my-4">
+                    <h2 className="text-4xl font-bold">Kanban Board</h2>
+                </div>
+                <DragDropContext onDragEnd={onDragEnd}>
+                    <div className="flex justify-center py-8">
+                        {Object.values(board.columns).map((column) => (
+                            <div
+                                key={column.id}
+                                className="flex flex-col text-black items-center lg:w-1/4 w-full m-4 bg-gray-100 rounded-lg"
+                            >
+                                <h3 className="text-lg font-semibold m-4">{column.boardtitle}</h3>
+                                <Droppable droppableId={column.id}>
+                                    {(provided, snapshot) => (
+                                        <div
+                                            ref={provided.innerRef}
+                                            {...provided.droppableProps}
+                                            className={`w-full px-4 py-2 mb-4 ${snapshot.isDraggingOver ? 'bg-blue-200' : 'bg-gray-300'
+                                                }`}
+                                        >
+                                            {column.items.map((item, index) => (
+                                                <Draggable key={item.id} draggableId={item.id.toString()} index={index}>
+                                                    {(provided, snapshot) => (
+                                                        <div
+                                                            ref={provided.innerRef}
+                                                            {...provided.draggableProps}
+                                                            {...provided.dragHandleProps}
+                                                            className={`w-full p-2 mb-2 rounded-lg ${snapshot.isDragging ? 'bg-blue-100' : 'bg-gray-300'
+                                                                }`}
+                                                        >
+                                                            {item.boardtitle}
+                                                        </div>
+                                                    )}
+                                                </Draggable>
+                                            ))}
+                                            {provided.placeholder}
+                                        </div>
+                                    )}
+                                </Droppable>
+                            </div>
+                        ))}
                     </div>
-                ))}
+                </DragDropContext>
             </div>
-        </DragDropContext>
+        </section>
     );
 };
 
