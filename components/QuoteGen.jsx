@@ -17,6 +17,8 @@ export default function QuoteGen() {
     }
     const result = getRandomItem(quotes)
     // alert(result.quoteTitle)
+
+    const deployedLink = 'https://promanager.vercel.app/'
     return (
         <div className='flex flex-col text-center text-xl md:px-20 text-white justify-center items-center my-4'>
             {/* <BlurryBg /> */}
