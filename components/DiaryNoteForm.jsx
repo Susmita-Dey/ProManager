@@ -39,7 +39,7 @@ function DiaryNoteForm(userId) {
                 function (response) {
                     toast.success("New note added succesfully!!")
                     console.log(response);
-                    // window.location.reload()
+                    window.location.reload()
                 },
                 function (error) {
                     toast.error(error.message)

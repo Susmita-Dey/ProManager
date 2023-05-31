@@ -34,7 +34,7 @@ function Diary(userId) {
             function (response) {
                 toast.success("Note deleted successfully!!")
                 console.log(response);
-                // window.location.reload()
+                window.location.reload();
             },
             function (error) {
                 toast.error(error.message)

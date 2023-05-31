@@ -29,7 +29,7 @@ function SignupComponent() {
                 console.log(response);
                 toast.success("Succesfully signed up!");
                 router.push("/") //success
-                // window.location.reload()
+                window.location.reload()
             },
             function (error) {
                 console.log(error); //failure
