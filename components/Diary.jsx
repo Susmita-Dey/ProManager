@@ -78,7 +78,7 @@ function Diary(userId) {
             ) : (
                 <div className='flex flex-col lg:flex-row flex-wrap justify-center items-center gap-4'>
                     {diary && diary.map((item) => (
-                        <div key={item.$id} className="p-4 flex flex-col items-center justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 px-4 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 gap-2 hover:shadow-lg hover:border-pink-500/40 my-4">
+                        <div key={item.$id} className="p-4 flex flex-col items-center justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 px-4 pb-6 pt-8 lg:backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 gap-2 hover:shadow-lg hover:border-pink-500/40 my-4">
                             <button
                                 className="absolute top-2 right-2 flex text-white font-medium p-2 text-center border border-red-500 hover:bg-rose-900 rounded-md"
                                 onClick={() => {

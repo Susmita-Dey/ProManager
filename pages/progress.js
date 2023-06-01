@@ -22,7 +22,7 @@ export default function Progress() {
                 console.log(error);
             }
         )
-    }, [])
+    })
     // console.log(userDetails.$id);
     return (
         <>

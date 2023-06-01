@@ -121,7 +121,7 @@ function StudentIdeas(userId) {
                     <div className='flex flex-col md:flex-row justify-center items-center gap-4'>
                         {ideas && ideas.map((item) => (
                             <div key={item.$id} >
-                                <div className="p-4 flex flex-col items-center justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 px-4 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 gap-2 hover:shadow-lg hover:border-pink-500/40 my-4">
+                                <div className="p-4 flex flex-col items-center justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 px-4 pb-6 pt-8 lg:backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 gap-2 hover:shadow-lg hover:border-pink-500/40 my-4">
                                     <div className='flex p-2 gap-3 border-b-2 border-white text-white'>
                                         <p className='text-xl font-medium'>{item.proideas}</p>
                                     </div>
