@@ -99,7 +99,7 @@ function TeacherIdeas(userId) {
                         />
                     </div>
                     <button
-                        className="bg-pink-600 hover:bg-pink-700 p-3 text-white lg:mt-12 rounded-md"
+                        className="bg-pink-600 hover:bg-pink-700 p-3 text-white lg:mt-20 rounded-md"
                         type="submit"
                     >
                         Add New Idea

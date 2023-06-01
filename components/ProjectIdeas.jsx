@@ -79,9 +79,9 @@ const ProjectIdeas = (userId) => {
                             {selectedComponent === 'Component1' && <StudentIdeas userId={userId} />}
                             {selectedComponent === 'Component2' && <TeacherIdeas userId={userId} />}
                             {selectedComponent === 'Component3' && <MarketerIdeas userId={userId} />}
-                            {selectedComponent === 'Component3' && <TechProfessionalIdeas userId={userId} />}
-                            {selectedComponent === 'Component3' && <DesignerIdeas userId={userId} />}
-                            {selectedComponent === 'Component3' && <GeneralIdeas userId={userId} />}
+                            {selectedComponent === 'Component4' && <TechProfessionalIdeas userId={userId} />}
+                            {selectedComponent === 'Component5' && <DesignerIdeas userId={userId} />}
+                            {selectedComponent === 'Component6' && <GeneralIdeas userId={userId} />}
                         </div>
                     )
                     }

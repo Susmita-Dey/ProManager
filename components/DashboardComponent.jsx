@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React, { useContext } from 'react'
 import FlatCard from './FlatCard';
+import PageSnapshot from './PageSnapshot';
 import ProductivityPercentage from './ProductivityPercentage ';
 import QuoteGen from './QuoteGen';
 
@@ -59,7 +60,7 @@ function DashboardComponent({ username, userId }) {
                 <div className='flex flex-row justify-center items-center gap-8 flex-wrap'>
                     <FlatCard path='/productivity-tips' title='Productivity Tips 💁‍♀️' subtitle="Let's increase your productivity with some useful tips and tricks." />
                     <FlatCard path='/tasklist' title='Tasklist 📃' subtitle="Let's help you in listing out your left-over tasks of the day." />
-                    <FlatCard path='/project' title='Kanban Board 🛹' subtitle="Let's increase your productivity by organizing things in a cool board." />
+                    <FlatCard path='/kanbanproject' title='Kanban Board 🛹' subtitle="Let's increase your productivity by organizing things in a cool board." />
                     <FlatCard path='/idealist' title='Idealist 💡' subtitle="Let's help you with some cool project ideas. If you're smarter, add some cool ones." />
                     <FlatCard path='/progress' title='Progress Tracker 🏃' subtitle="Track your daily progress by documenting your daily moves and achievements." />
                     <FlatCard path='/diarynote' title='Your Secret Diary 📔' subtitle="Make notes and keep it in one place or make the habit of writing your productivity diary." />
@@ -73,6 +74,7 @@ function DashboardComponent({ username, userId }) {
             <div className='flex flex-col justify-center items-center mb-3'>
                 <Link href={'/profile'} className='text-lg font-semibold text-cyan-500 underline underline-offset-2'>Go To Profile</Link>
             </div>
+            <PageSnapshot />
         </section>
     )
 }

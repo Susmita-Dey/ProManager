@@ -56,7 +56,7 @@ export default function Navbar() {
         getData.then(
             function (response) {
                 setUserDetails(response)
-                console.log(userDetails);
+                // console.log(userDetails);
             },
             function (error) {
                 console.log(error);

@@ -1,10 +1,12 @@
 import { account } from '@/appwrite/appwrite'
 // import Board from '@/components/Board'
-import KanbanBoard from '@/components/KanbanBoard'
+import KanbanBoard from '@/components/KanbanBoardComponent'
 import NotLoggedIn from '@/components/NotLoggedIn'
 import React, { useEffect, useState } from 'react'
+import { DragDropContextProvider } from "react-beautiful-dnd";
 
-export default function Kanban() {
+
+export default function KanbanProject() {
     const [userDetails, setUserDetails] = useState()
 
     useEffect(() => {
@@ -12,7 +14,7 @@ export default function Kanban() {
         getData.then(
             function (response) {
                 setUserDetails(response)
-                console.log(userDetails);
+                // console.log(userDetails);
             },
             function (error) {
                 console.log(error);
@@ -27,7 +29,9 @@ export default function Kanban() {
                         <div className='flex flex-row justify-center items-center gap-5'> */}
                     {/* <Board /> */}
                     {/* Hello */}
-                    <KanbanBoard />
+                    {/* <DragDropContextProvider> */}
+                    <KanbanBoard userId={userDetails.$id} />
+                    {/* </DragDropContextProvider> */}
                     {/* </div>
                     </section> */}
                 </>

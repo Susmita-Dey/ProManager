@@ -45,7 +45,7 @@ function GeneralIdeas(userId) {
         setLoader(true)
         const getIdeas = databases.listDocuments("646605464de2f5cb7435", "64744e13bc6fdbd44a94",
             [
-                Query.equal("created_by", [userId.userId]),
+                Query.equal("created_by", [userId.userId.userId]),
                 Query.equal('category', [category])
             ])
         getIdeas.then(
@@ -99,7 +99,7 @@ function GeneralIdeas(userId) {
                         />
                     </div>
                     <button
-                        className="bg-pink-600 hover:bg-pink-700 p-3 text-white lg:mt-12 rounded-md"
+                        className="bg-pink-600 hover:bg-pink-700 p-3 text-white lg:mt-20 rounded-md"
                         type="submit"
                     >
                         Add New Idea

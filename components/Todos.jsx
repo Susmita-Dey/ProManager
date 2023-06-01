@@ -43,8 +43,8 @@ function Todos(userId) {
     }
 
     return (
-        <div className="max-w-7xl mx-auto">
-            <p className="text-xl font-bold mb-2 text-white">Todo List</p>
+        <div className="max-w-7xl container mx-auto lg:px-8 px-5">
+            <h2 className="text-xl font-bold mb-2 text-white">Todo List</h2>
             {loader ? (
                 <div role="status">
                     <svg aria-hidden="true" className="w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-pink-800 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
