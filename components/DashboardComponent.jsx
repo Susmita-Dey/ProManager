@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React, { useContext } from 'react'
 import FlatCard from './FlatCard';
 import PageSnapshot from './PageSnapshot';
-import ProductivityPercentage from './ProductivityPercentage ';
+import ProductivityPercentage from './ProductivityPercentage';
 import QuoteGen from './QuoteGen';
 
 function DashboardComponent({ username, userId }) {

@@ -10,13 +10,12 @@ import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper";
 import testimonialsData from '@/data/testimonialsData';
 
-
 function Testimonials() {
     return (
-        <section className='container mx-auto text-white rounded-md min-h-full flex flex-col md:px-16 py-12 sm:px-6 lg:px-8 max-w-[84rem]'>
-            <div className='flex flex-col justify-center items-center text-center gap-5'>
+        <section className='container mx-auto text-white rounded-md min-h-full flex flex-col md:px-16 py-12 px-6 lg:px-8 max-w-[84rem]'>
+            <div className='flex flex-col justify-center items-center text-center px-5 gap-5'>
                 <h2 className='text-3xl font-semibold'>Hear What Our Users Have to Say</h2>
-                <p className='text-lg mb-12'>Discover how ProManager has transformed the productivity and success of our valued users.</p>
+                <p className='text-lg mb-12 text-center'>Discover how ProManager has transformed the productivity and success of our valued users.</p>
                 <Swiper
                     centeredSlides={true}
                     autoplay={{
@@ -39,7 +38,7 @@ function Testimonials() {
                     {testimonialsData.map((item, index) => {
                         return (
                             <SwiperSlide key={index}>
-                                <div className='w-full h-48 lg:h-72 p-5 md:text-lg text-base bg-slate-900 border-2 border-white'>
+                                <div className='w-full h-52 lg:h-72 p-5 md:text-lg text-base bg-slate-900 border-2 border-white'>
                                     <p className='italic'>&ldquo;{item.feedback}&rdquo;</p>
                                     <p className='font-medium text-pink-400 mt-2'>- {item.user}</p>
                                 </div>

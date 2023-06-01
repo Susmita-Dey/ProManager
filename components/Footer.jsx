@@ -6,9 +6,10 @@ export default function Footer() {
             <div className="px-20 flex flex-col md:flex-row justify-between items-center py-5 gap-5">
                 <Link href={'/policy'} className='font-medium hover:underline hover:underline-offset-4'>Terms {'&'} Services</Link>
                 <p className="text-sm text-slate-100 flex flex-col justify-center items-center">
-                    <span>Built with 💖 using
+                    <span className="flex flex-row">
+                        <span>Built with 💖 using</span>
                         <Link href={'https://nextjs.org/'} target="_blank" rel="noopener noreferrer" className="text-blue-500 mx-1 font-medium">NextJS</Link>
-                        and
+                        <span>and</span>
                         <Link href={'https://appwrite.io/'} target="_blank" rel="noopener noreferrer" className="font-medium text-rose-500 mx-1">Appwrite</Link>
                     </span>
                     <span className="flex flex-row space-x-2">

@@ -61,7 +61,7 @@ const ProductivityPercentage = (userId) => {
 
     return (
         <div>
-            <p className='font-bold text-base md:text-xl text-cyan-500'>Productivity Percentage: {productivityPercentage.toFixed(2)}%</p>
+            <p className='font-bold text-base md:text-xl text-cyan-500'>Productivity Level: {productivityPercentage.toFixed(2)}%</p>
             <TailwindToaster />
         </div>
     );

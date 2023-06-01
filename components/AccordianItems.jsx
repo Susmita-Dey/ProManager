@@ -6,7 +6,7 @@ import { FaQuestion, FaQuestionCircle } from "react-icons/fa";
 
 const AccordionItems = ({ open, toggle, title, desc }) => {
     return (
-        <div className="pt-10 px-5">
+        <div className="pt-10">
             <div
                 onClick={toggle}
                 className="px-2 flex justify-between cursor-pointer border-t-2 border-gray-400 pt-4"
