@@ -57,7 +57,7 @@ function StaticBoard() {
                                                 className={`w-full p-2 mb-2 rounded-lg ${snapshot.isDragging ? "bg-blue-100" : "bg-gray-300"
                                                     }`}
                                             >
-                                                I'm your ongoing task
+                                                I&apos;m your ongoing task
                                             </div>
                                         )}
                                     </Draggable>
