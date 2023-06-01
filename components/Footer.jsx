@@ -25,7 +25,7 @@ export default function Footer() {
                         . All rights reserved.
                     </span>
                 </p>
-                <Link href={'/open-source'} className='font-medium hover:underline hover:underline-offset-4'>Contribute</Link>
+                <Link href={'/contribute'} className='font-medium hover:underline hover:underline-offset-4'>Contribute</Link>
             </div>
         </footer>
     );
