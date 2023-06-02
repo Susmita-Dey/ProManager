@@ -128,7 +128,7 @@ export default function Navbar() {
                                 <li className="nav-item">
                                     <Link
                                         className="px-3 py-2 flex items-center text-base font-medium leading-snug hover:opacity-75"
-                                        href="#about"
+                                        href="/#about"
                                     >
                                         About
                                     </Link>
@@ -136,7 +136,7 @@ export default function Navbar() {
                                 <li className="nav-item">
                                     <Link
                                         className="px-3 py-2 flex items-center text-base font-medium leading-snug hover:opacity-75"
-                                        href="#use-case"
+                                        href="/#use-case"
                                     >
                                         Use Case
                                     </Link>
@@ -147,7 +147,7 @@ export default function Navbar() {
                                 <li className="nav-item">
                                     <Link
                                         className="px-3 py-2 flex items-center text-base font-medium leading-snug hover:opacity-75"
-                                        href="#newsletter"
+                                        href="/#newsletter"
                                     >
                                         Newsletter
                                     </Link>

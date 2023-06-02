@@ -1,13 +1,13 @@
-import { client } from '@/appwrite/appwrite';
+// import { client } from '@/appwrite/appwrite';
 import Link from 'next/link';
 import React, { useContext, useEffect, useState } from 'react'
-import toast from 'react-hot-toast';
+// import toast from 'react-hot-toast';
 import FlatCard from './FlatCard';
-import Loader from './Loader';
-import PageSnapshot from './PageSnapshot';
+// import Loader from './Loader';
+// import PageSnapshot from './PageSnapshot';
 import ProductivityPercentage from './ProductivityPercentage';
 import QuoteGen from './QuoteGen';
-import TailwindToaster from './TailwindToaster';
+// import TailwindToaster from './TailwindToaster';
 
 function DashboardComponent({ username, userId }) {
     // const [users, setUsers] = useState([]);
@@ -136,7 +136,7 @@ function DashboardComponent({ username, userId }) {
                 <div className='flex flex-col justify-center items-center mb-3'>
                     <Link href={'/profile'} className='text-lg font-semibold text-cyan-500 underline underline-offset-2'>Go To Profile</Link>
                 </div>
-                <PageSnapshot />
+                {/* <PageSnapshot /> */}
             </div >
             {/* ) */}
             {/* /} */}
