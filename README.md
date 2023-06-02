@@ -1,8 +1,12 @@
 # ProManager
 
-ProManager is a powerful productivity tool designed to help developers, students, and individuals track their tasks, todos, and boost their productivity levels. It offers a user-friendly interface with features like task management, productivity tips, and ideas.
+![ProManager](https://github.com/Susmita-Dey/ProManager/assets/79099734/3b3b60e7-7adf-4ea8-b81e-82b3bc737696)
+
+[ProManager](https://promanager.vercel.app/) is a powerful productivity tool designed to help developers, students, and individuals track their tasks, todos, and boost their productivity levels. It offers a user-friendly interface with features like task management, productivity tips, and ideas.
 
 This repository contains the source code for ProManager. Feel free to explore and contribute to the project!
+
+**Try out Promanager via this link**:- https://promanager.vercel.app/
 
 ## Tech Stack
 
@@ -74,4 +78,9 @@ The ProManager project is available under the [MIT License](LICENSE). Feel free 
 
 ## Acknowledgements
 
-- ProManager uses open-source libraries and frameworks that have greatly contributed to the development of this project. Special thanks to the Appwrite community for their valuable contributions to help me whenever I got stuck.
+We would like to express our gratitude to the [Appwrite](https://appwrite.io/) open-source community for providing the amazing tools and libraries that make ProManager possible.
+
+## Contact
+
+For any inquiries or questions, please head over to [Discussions](https://github.com/Susmita-Dey/ProManager/discussions) or contact us at [susmitadey475@gmail.com](mailto:susmitadey475@gmail.com).
+
