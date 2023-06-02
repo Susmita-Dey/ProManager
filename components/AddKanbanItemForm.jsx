@@ -10,6 +10,10 @@ function AddKanbanItemForm(userId) {
     const [boardItem, setBoardItem] = useState("")
     const [boardImage, setBoardImage] = useState(null)
 
+    const bucketId = process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID
+    const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID
+    const collectionId = process.env.NEXT_PUBLIC_APPWRITE_KANBAN_BOARD_COLLECTION_ID
+
     const handleImageUpload = (e) => {
         const file = e.target.files[0];
         setBoardImage(file);
@@ -19,7 +23,7 @@ function AddKanbanItemForm(userId) {
         e.preventDefault()
 
         // Upload the image to the bucket
-        const uploadPromise = storage.createFile("64660501997e9ab009e4", uuidv4(), boardImage);
+        const uploadPromise = storage.createFile(bucketId, uuidv4(), boardImage);
 
         // Create the document with the text data and the file ID returned from the upload
         uploadPromise.then((result) => {
@@ -28,8 +32,8 @@ function AddKanbanItemForm(userId) {
             console.log(data);
 
             const promise = databases.createDocument(
-                "646605464de2f5cb7435",
-                "6466067e1863a7ff50de",
+                databaseId,
+                collectionId,
                 uuidv4(),
                 data,
             )

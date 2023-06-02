@@ -3,8 +3,11 @@ import Image from 'next/image';
 import React from 'react';
 
 const DiaryCard = ({ imageFileId, diaryTitle, diaryNote }) => {
+
+    const bucketId = process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID
+
     // Generate the image URL using the file ID
-    const imageUrl = storage.getFilePreview("64660501997e9ab009e4", imageFileId, 150, 150, "center", 100);
+    const imageUrl = storage.getFilePreview(bucketId, imageFileId, 150, 150, "center", 100);
 
     return (
         <div className='flex flex-col justify-center items-center lg:w-96 w-full text-center flex-wrap gap-2'>

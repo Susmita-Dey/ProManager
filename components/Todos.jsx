@@ -16,7 +16,8 @@ function Todos(userId) {
 
     useEffect(() => {
         setLoader(true)
-        const getTodos = databases.listDocuments(databaseId, collectionId, [
+        const getTodos = databases.listDocuments(databaseId,
+            collectionId, [
             Query.equal("created_by", [userId.userId])])
         getTodos.then(
             function (response) {

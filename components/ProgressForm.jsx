@@ -11,14 +11,17 @@ function ProgressForm(userId) {
     const [achievementItem, setAchievementItem] = useState("")
     const [learningItem, setLearningItem] = useState("")
 
+    const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID
+    const collectionId = process.env.NEXT_PUBLIC_APPWRITE_PROGRESS_TRACK_COLLECTION_ID;
+
     const data = { done_yesterday: yesterdayItem, doing_today: todayItem, achievements: achievementItem, learnings: learningItem, created_by: userId.userId };
     console.log(data);
 
     const handleSubmit = (e) => {
         e.preventDefault()
         const promise = databases.createDocument(
-            "646605464de2f5cb7435",
-            "64748145e6b153bf9e4a",
+            databaseId,
+            collectionId,
             uuidv4(),
             data,
         )

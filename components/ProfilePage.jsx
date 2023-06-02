@@ -11,6 +11,10 @@ function ProfilePage() {
 
     const [isOpen, setIsOpen] = useState(true)
 
+    const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID
+    const collectionId = process.env.NEXT_PUBLIC_APPWRITE_TASKLIST_COLLECTION_ID
+    const functionId = process.env.NEXT_PUBLIC_APPWRITE_ACCOUNT_DELETE_FUNCTION_ID
+
     useEffect(() => {
         const getData = account.get()
         getData.then(
@@ -28,7 +32,7 @@ function ProfilePage() {
         if (id === undefined) {
             return;
         }
-        const promise = functions.createExecution('646b801508edd4a42aba', id);
+        const promise = functions.createExecution(functionId, id);
         promise.then(
             function (response) {
                 setUserDetails(response);
@@ -42,7 +46,7 @@ function ProfilePage() {
         );
     };
     const getCount = () => {
-        const list = databases.listDocuments("646605464de2f5cb7435", "6466055dd831efd150ef");
+        const list = databases.listDocuments(databaseId, collectionId);
         console.log(list);
         const stats = list?.total;
         console.log(stats);

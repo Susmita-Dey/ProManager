@@ -2,6 +2,8 @@
 export default async function handler(req, res) {
     const { email } = JSON.parse(req.body);
 
+    const audienceId = process.env.NEXT_PUBLIC_MAILCHIMP_AUDIENCE_ID
+
     if (!email) {
         res.status(401).json({ error: 'Email is required' });
         return;
@@ -17,16 +19,12 @@ export default async function handler(req, res) {
     }
 
     try {
-        // const audienceId = process.env.NEXT_PUBLIC_MAILCHIMP_AUDIENCE_ID
-        const audienceId = 'f9f7f8e0b1'
         const URL = `https://us14.api.mailchimp.com/3.0/lists/${audienceId}`
-        const NEXT_PUBLIC_MAILCHIMP_API_KEY = 'ffba271314ca1f22df5ced056e662e62 - us14'
         const response = await fetch(URL,
             {
                 method: 'POST',
                 headers: {
-                    // Authorization: `auth ${process.env.NEXT_PUBLIC_MAILCHIMP_API_KEY}`,
-                    Authorization: `auth ${NEXT_PUBLIC_MAILCHIMP_API_KEY}`,
+                    Authorization: `auth ${process.env.NEXT_PUBLIC_MAILCHIMP_API_KEY}`,
                 },
                 body: JSON.stringify(mailChimpData),
             }

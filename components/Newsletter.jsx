@@ -11,7 +11,7 @@ export default function Newsletter() {
         e.preventDefault();
         // TODO: handle submission logic
         console.log(emailInput);
-        alert(emailInput);
+        // alert(emailInput);
         if (!emailInput) {
             return toast.error('Email is required');
         }

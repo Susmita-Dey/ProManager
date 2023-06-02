@@ -10,9 +10,14 @@ function TipsList(userId) {
     const [loader, setLoader] = useState(false)
 
     // console.log(userId.userId);
+
+    const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID
+    const collectionId = process.env.NEXT_PUBLIC_APPWRITE_PROTIPS_COLLECTION_ID
+
     useEffect(() => {
         setLoader(true)
-        const getTipsList = databases.listDocuments("646605464de2f5cb7435", "646605ece1eec67da04a", [
+        const getTipsList = databases.listDocuments(databaseId,
+            collectionId, [
             Query.equal("created_by", [userId.userId])])
         getTipsList.then(
             function (response) {
@@ -28,7 +33,8 @@ function TipsList(userId) {
     }, [])
 
     const deleteTips = (id) => {
-        const promise = databases.deleteDocument("646605464de2f5cb7435", "646605ece1eec67da04a", id)
+        const promise = databases.deleteDocument(databaseId,
+            collectionId, id)
         promise.then(
             function (response) {
                 toast.success("Productivity tip deleted successfully!!")

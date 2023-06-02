@@ -10,12 +10,14 @@ function TipsForm(userId) {
     const data = { tips: tipsItem, created_by: userId.userId };
     console.log(data);
 
+    const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID
+    const collectionId = process.env.NEXT_PUBLIC_APPWRITE_PROTIPS_COLLECTION_ID
 
     const handleSubmit = (e) => {
         e.preventDefault()
         const promise = databases.createDocument(
-            "646605464de2f5cb7435",
-            "646605ece1eec67da04a",
+            databaseId,
+            collectionId,
             uuidv4(),
             data,
         )

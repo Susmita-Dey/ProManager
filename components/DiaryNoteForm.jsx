@@ -10,6 +10,10 @@ function DiaryNoteForm(userId) {
     const [noteItem, setNoteItem] = useState("")
     const [noteImage, setNoteImage] = useState(null)
 
+    const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID
+    const collectionId = process.env.NEXT_PUBLIC_APPWRITE_DIARY_COLLECTION_ID
+    const bucketId = process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID
+
     const handleImageUpload = (e) => {
         const file = e.target.files[0];
         setNoteImage(file);
@@ -19,7 +23,7 @@ function DiaryNoteForm(userId) {
         e.preventDefault()
 
         // Upload the image to the bucket
-        const uploadPromise = storage.createFile("64660501997e9ab009e4", uuidv4(), noteImage);
+        const uploadPromise = storage.createFile(bucketId, uuidv4(), noteImage);
 
         // Create the document with the text data and the file ID returned from the upload
         uploadPromise.then((result) => {
@@ -28,8 +32,8 @@ function DiaryNoteForm(userId) {
             console.log(data);
 
             const promise = databases.createDocument(
-                "646605464de2f5cb7435",
-                "64660b181c0af1741d29",
+                databaseId,
+                collectionId,
                 uuidv4(),
                 data,
             )

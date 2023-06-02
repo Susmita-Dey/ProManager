@@ -17,11 +17,15 @@ function StudentIdeas(userId) {
     const [ideas, setIdeas] = useState()
     const [loader, setLoader] = useState(false)
 
+    const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID
+    const collectionId = process.env.NEXT_PUBLIC_APPWRITE_IDEALIST_COLLECTION_ID
+
+
     const handleSubmit = (e) => {
         e.preventDefault()
         const promise = databases.createDocument(
-            "646605464de2f5cb7435",
-            "64744e13bc6fdbd44a94",
+            databaseId,
+            collectionId,
             uuidv4(),
             data,
         )
@@ -44,7 +48,8 @@ function StudentIdeas(userId) {
 
     useEffect(() => {
         setLoader(true)
-        const getIdeas = databases.listDocuments("646605464de2f5cb7435", "64744e13bc6fdbd44a94",
+        const getIdeas = databases.listDocuments(databaseId,
+            collectionId,
             [
                 Query.equal("created_by", [userId.userId.userId]),
                 Query.equal('category', [category])
@@ -63,7 +68,8 @@ function StudentIdeas(userId) {
     }, [])
 
     const deleteIdea = (id) => {
-        const promise = databases.deleteDocument("646605464de2f5cb7435", "64744e13bc6fdbd44a94", id)
+        const promise = databases.deleteDocument(databaseId,
+            collectionId, id)
         promise.then(
             function (response) {
                 toast.success("Project idea deleted successfully!!")

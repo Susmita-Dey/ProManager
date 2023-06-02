@@ -13,10 +13,13 @@ function Diary(userId) {
     const [loader, setLoader] = useState(false)
     const [isModalOpen, setIsModalOpen] = useState(false);
 
+    const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID
+    const collectionId = process.env.NEXT_PUBLIC_APPWRITE_DIARY_COLLECTION_ID
+
     // console.log(userId.userId);
     useEffect(() => {
         setLoader(true)
-        const getDiary = databases.listDocuments("646605464de2f5cb7435", "64660b181c0af1741d29", [
+        const getDiary = databases.listDocuments(databaseId, collectionId, [
             Query.equal("created_by", [userId.userId])])
         getDiary.then(
             function (response) {
@@ -32,7 +35,7 @@ function Diary(userId) {
     }, [])
 
     const deleteNote = (id) => {
-        const promise = databases.deleteDocument("646605464de2f5cb7435", "64660b181c0af1741d29", id)
+        const promise = databases.deleteDocument(databaseId, collectionId, id)
         promise.then(
             function (response) {
                 toast.success("Note deleted successfully!!")

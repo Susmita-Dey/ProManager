@@ -9,11 +9,14 @@ const ProductivityPercentage = (userId) => {
     const [productivityPercentage, setProductivityPercentage] = useState(0);
     const productivityGoal = 10; // Set your desired productivity goal here
 
+    const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID
+    const collectionId = process.env.NEXT_PUBLIC_APPWRITE_TASKLIST_COLLECTION_ID
+
     useEffect(() => {
         const fetchTodos = async () => {
             try {
                 // Make a request to the Appwrite API to fetch todos created today
-                const todosResponse = await databases.listDocuments("646605464de2f5cb7435", "6466055dd831efd150ef", [
+                const todosResponse = await databases.listDocuments(databaseId, collectionId, [
                     Query.equal("created_by", [userId.userId])]);
 
                 console.log(todosResponse.total);

@@ -9,10 +9,13 @@ function ProgressTrack(userId) {
     const [progress, setProgress] = useState()
     const [loader, setLoader] = useState(false)
 
+    const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID
+    const collectionId = process.env.NEXT_PUBLIC_APPWRITE_PROGRESS_TRACK_COLLECTION_ID;
+
     // console.log(userId.userId);
     useEffect(() => {
         setLoader(true)
-        const getProgress = databases.listDocuments("646605464de2f5cb7435", "64748145e6b153bf9e4a", [
+        const getProgress = databases.listDocuments(databaseId, collectionId, [
             Query.equal("created_by", [userId.userId])])
         getProgress.then(
             function (response) {
@@ -28,7 +31,7 @@ function ProgressTrack(userId) {
     }, [])
 
     const deleteProgress = (id) => {
-        const promise = databases.deleteDocument("646605464de2f5cb7435", "64748145e6b153bf9e4a", id)
+        const promise = databases.deleteDocument(databaseId, collectionId, id)
         promise.then(
             function (response) {
                 toast.success("Progress deleted successfully!!")

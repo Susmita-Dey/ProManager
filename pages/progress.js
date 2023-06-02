@@ -14,7 +14,7 @@ export default function Progress() {
         getData.then(
             function (response) {
                 setUserDetails(response)
-                toast.success("Let's track your daily progress!!")
+                // toast.success("Let's track your daily progress!!")
                 console.log(userDetails);
             },
             function (error) {

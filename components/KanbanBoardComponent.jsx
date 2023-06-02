@@ -19,12 +19,12 @@ const KanbanBoardComponent = (userId) => {
     const [isLoading, setIsLoading] = useState(true);
     // alert(userId.userId)
 
+    const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID
+    const collectionId = process.env.NEXT_PUBLIC_APPWRITE_KANBAN_BOARD_COLLECTION_ID
+
     useEffect(() => {
         fetchBoardData();
     }, []);
-
-    const collectionId = "6466067e1863a7ff50de"
-    const databaseId = "646605464de2f5cb7435"
 
     const handleAddItem = (newItem) => {
         // Create a new column or update an existing column
@@ -127,7 +127,8 @@ const KanbanBoardComponent = (userId) => {
         const newStatus = destination.droppableId;
 
         try {
-            await databases.updateDocument(databaseId, collectionId, itemId, {
+            await databases.updateDocument(databaseId,
+                collectionId, itemId, {
                 status: newStatus,
             });
         } catch (error) {
