@@ -6,6 +6,7 @@ import IdeaCard from './IdeaCard'
 import TailwindToaster from './TailwindToaster';
 import { Query } from 'appwrite';
 import proideas from '@/data/proideas';
+import Loader from './Loader';
 
 function MarketerIdeas(userId) {
     console.info(userId.userId.userId);
@@ -76,6 +77,11 @@ function MarketerIdeas(userId) {
             }
         )
     }
+    if (loader) {
+        return (
+            <Loader />
+        );
+    }
 
     return (
         <>
@@ -109,38 +115,28 @@ function MarketerIdeas(userId) {
             </div>
             <div className="max-w-7xl container lg:px-8 px-5 mx-auto my-4">
                 <p className="text-xl font-bold mb-2 text-white">Ideas Tracking List</p>
-                {loader ? (
-                    <div
-                        className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-                        role="status">
-                        <span
-                            class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
-                        >Loading...</span>
-                    </div>
-                ) : (
-                    <div className='flex flex-col md:flex-row justify-center items-center gap-4'>
-                        {ideas && ideas.map((item) => (
-                            <div key={item.$id} >
-                                <div className="p-4 flex flex-col items-center justify-center border-b bg-gradient-to-b px-4 pb-6 pt-8 lg:backdrop-blur-2xl border-neutral-800 bg-zinc-800/30 from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:bg-zinc-800/30 gap-2 hover:shadow-lg hover:border-pink-500/40 my-4">
-                                    <div className='flex p-2 gap-3 border-b-2 border-white text-white'>
-                                        <p className='text-xl font-medium'>{item.proideas}</p>
-                                    </div>
-                                    <div className='flex hover:bg-pink-900 hover:rounded-md w-full justify-center items-center'>
-                                        <span
-                                            className="text-white p-2 cursor-pointer"
-                                            onClick={() => {
-                                                deleteIdea(item.$id)
-                                            }}
-                                        >
-                                            Delete
-                                        </span>
-                                    </div>
+                <div className='flex flex-col md:flex-row justify-center items-center gap-4'>
+                    {ideas && ideas.map((item) => (
+                        <div key={item.$id} >
+                            <div className="p-4 flex flex-col items-center justify-center border-b bg-gradient-to-b px-4 pb-6 pt-8 lg:backdrop-blur-2xl border-neutral-800 bg-zinc-800/30 from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:bg-zinc-800/30 gap-2 hover:shadow-lg hover:border-pink-500/40 my-4">
+                                <div className='flex p-2 gap-3 border-b-2 border-white text-white'>
+                                    <p className='text-xl font-medium'>{item.proideas}</p>
+                                </div>
+                                <div className='flex hover:bg-pink-900 hover:rounded-md w-full justify-center items-center'>
+                                    <span
+                                        className="text-white p-2 cursor-pointer"
+                                        onClick={() => {
+                                            deleteIdea(item.$id)
+                                        }}
+                                    >
+                                        Delete
+                                    </span>
                                 </div>
                             </div>
-                        ))
-                        }
-                    </div>
-                )}
+                        </div>
+                    ))
+                    }
+                </div>
             </div>
             <div>
                 {proideas.map((category) => (

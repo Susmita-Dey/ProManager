@@ -10,12 +10,14 @@ function TodoForm(userId) {
     const data = { todoitem: todoItem, created_by: userId.userId };
     console.log(data);
 
+    const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID
+    const collectionId = process.env.NEXT_PUBLIC_APPWRITE_TASKLIST_COLLECTION_ID
 
     const handleSubmit = (e) => {
         e.preventDefault()
         const promise = databases.createDocument(
-            "646605464de2f5cb7435",
-            "6466055dd831efd150ef",
+            databaseId,
+            collectionId,
             uuidv4(),
             data,
         )

@@ -14,7 +14,7 @@ function OpenSource() {
                 <div className='my-2'>
                     <h2 className="text-2xl font-bold mb-2">Overview</h2>
                     <p className="text-lg mb-4">
-                        ProManager is an open-source project aimed at helping individuals effectively manage their projects. It provides a comprehensive set of tools and features to streamline project planning, task management, notes keeping, and tracking progress. With ProManager, users can easily organize their tasks, visualize productivity, set goals, and track project milestones. Whether you're a student, professional, or freelancer, ProManager is designed to enhance your productivity and ensure project success. Join our vibrant community of contributors and users and take control of your projects with ProManager.
+                        ProManager is an open-source project aimed at helping individuals effectively manage their projects. It provides a comprehensive set of tools and features to streamline project planning, task management, notes keeping, and tracking progress. With ProManager, users can easily organize their tasks, visualize productivity, set goals, and track project milestones. Whether you&apos;re a student, professional, or freelancer, ProManager is designed to enhance your productivity and ensure project success. Join our vibrant community of contributors and users and take control of your projects with ProManager.
                     </p>
                 </div>
                 <div className='my-2'>
@@ -37,7 +37,7 @@ function OpenSource() {
                         <Link href="https://github.com/Susmita-Dey/ProManager" target="_blank" rel="noopener noreferrer" className='font-semibold text-cyan-500'>ProManager GitHub repository.</Link>
                     </p>
 
-                    <h3 className="text-lg font-medium mb-2">If you're new to open source or contributing, the following guides can be particularly helpful:</h3>
+                    <h3 className="text-lg font-medium mb-2">If you&apos;re new to open source or contributing, the following guides can be particularly helpful:</h3>
                     <ul className="list-disc ml-6 mb-4">
                         <li>
                             <Link href="https://opensource.guide/how-to-contribute/" className="text-pink-500 underline underline-offset-2" target="_blank" rel="noopener noreferrer">
@@ -61,7 +61,7 @@ function OpenSource() {
                             <Link href="https://github.com/Susmita-Dey/ProManager/blob/main/CODE_OF_CONDUCT.md" className="text-pink-500 underline underline-offset-2" target="_blank" rel="noopener noreferrer">
                                 Code of Conduct
                             </Link>
-                            : All contributors are expected to adhere to the project's code of conduct.
+                            : All contributors are expected to adhere to the project&apos;s code of conduct.
                         </li>
                     </ul>
                 </div>
@@ -112,7 +112,7 @@ function OpenSource() {
                 <div className='my-2'>
                     <h2 className="text-2xl font-bold mb-2">Helping with Documentation</h2>
                     <p className="text-lg mb-4">
-                        ProManager's documentation is hosted in the project's website repository. If you want to contribute to the documentation, you can suggest changes by following the guidelines like fork, clone, etc.
+                        ProManager&apos;s documentation is hosted in the project&apos;s website repository. If you want to contribute to the documentation, you can suggest changes by following the guidelines like fork, clone, etc.
 
                         Your contributions can include fixing typos, improving explanations, adding examples, or updating outdated information. By helping with documentation, you ensure that ProManager users have access to accurate and up-to-date resources.
                     </p>
@@ -121,7 +121,7 @@ function OpenSource() {
                 <div className='my-2'>
                     <h2 className="text-2xl font-bold mb-2">Contributing Code</h2>
                     <p className="text-lg mb-4">
-                        If you're interested in contributing code to ProManager, we welcome your contributions! Follow the steps below to get started:
+                        If you&apos;re interested in contributing code to ProManager, we welcome your contributions! Follow the steps below to get started:
                     </p>
                     <ol className="list-decimal text-lg mb-4 px-6">
                         <li>
@@ -165,7 +165,7 @@ function OpenSource() {
                     </p>
                     <ul className="text-lg list-disc px-6 mb-4">
                         <li>
-                            <span className='font-medium my-1 underline underline-offset-2'>Read the contributing guidelines:</span> Familiarize yourself with the project's specific contributing guidelines. They provide essential information on code style, commit conventions, and other important guidelines.</li>
+                            <span className='font-medium my-1 underline underline-offset-2'>Read the contributing guidelines:</span> Familiarize yourself with the project&apos;s specific contributing guidelines. They provide essential information on code style, commit conventions, and other important guidelines.</li>
                         <li>
                             <span className='font-medium my-1 underline underline-offset-2'>Create descriptive pull requests:</span> When submitting a pull request, provide a clear and concise description of the changes you've made. Include relevant context, reference related issues, and explain the impact of your changes.</li>
                         <li>
@@ -185,10 +185,10 @@ function OpenSource() {
                     <ul className="list-disc text-lg px-6">
                         <li><span className='font-medium my-1 underline underline-offset-2'>Sharing your experiences:</span> Help others by sharing your experiences and insights with ProManager. Write blog posts, articles, or tutorials about your usage of ProManager and its impact on your productivity.</li>
                         <li><span className='font-medium my-1 underline underline-offset-2'>Giving talks at conferences:</span> If you have expertise in project management or productivity, consider giving talks or presentations at conferences or meetups. Share your knowledge and promote ProManager to a wider audience.</li>
-                        <li><span className='font-medium my-1 underline underline-offset-2'>Engaging on social media:</span> Connect with the ProManager community on social media platforms like Twitter. Share your thoughts, ideas, and experiences with ProManager, and tag ProManager's official account to get involved in conversations and spread the word.</li>
+                        <li><span className='font-medium my-1 underline underline-offset-2'>Engaging on social media:</span> Connect with the ProManager community on social media platforms like Twitter. Share your thoughts, ideas, and experiences with ProManager, and tag ProManager&apos;s official account to get involved in conversations and spread the word.</li>
                     </ul>
                     <p className="text-lg my-2">
-                        Remember to check out the project's specific contributing guidelines or documentation for more detailed information on how to contribute to ProManager. Happy contributing! 😃
+                        Remember to check out the project&apos;s specific contributing guidelines or documentation for more detailed information on how to contribute to ProManager. Happy contributing! 😃
                     </p>
                 </div>
                 {/* ... Rest of the content ... */}

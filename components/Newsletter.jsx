@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import TailwindToaster from './TailwindToaster';
 import { toast } from 'react-hot-toast';
+import Loader from './Loader';
 
 export default function Newsletter() {
     const [emailInput, setEmailInput] = useState('');
@@ -41,6 +42,13 @@ export default function Newsletter() {
         setEmailInput('');
         setButtonLoading(false);
     };
+
+    if (buttonLoading) {
+        return (
+            <Loader />
+        );
+    }
+
     return (
         <section className='container mx-auto my-12 md:my-4 py-10 px-5' id='newsletter'>
             <div className='flex flex-col justify-center items-center gap-6'>

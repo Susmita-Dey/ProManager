@@ -16,18 +16,17 @@ function LoginComponent() {
         e.preventDefault()
         try {
             const logInUser = await account.createEmailSession(user.email, user.password)
-            // console.log(logInUser);
-            // if (logInUser.success) {
             console.log("Succesfully logged in!")
             toast.success("Succesfully logged in!");
-            // } else {
-            //     console.log("Error", response.error)
-            //     throw new Error(response?.error || 'Something went wrong, please try again later');
-            // }
             router.push("/")
         } catch (error) {
-            console.log(error);
-            toast.error(error.message)
+            if (error.code == 401) {
+                console.log('Incorrect password');
+                toast.error('Incorrect password')
+            } else {
+                console.log('Login failed:', error);
+                toast.error(error.message)
+            }
         }
     }
 

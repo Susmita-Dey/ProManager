@@ -1,14 +1,18 @@
 import { Client, Account, Databases, Functions, Storage } from "appwrite";
 
+const projectId = process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID
+
 const client = new Client();
 
-client.setEndpoint('https://cloud.appwrite.io/v1').setProject('646603e71af4ea9f598a');
+client.setEndpoint('https://cloud.appwrite.io/v1').setProject(projectId);
 
-export const account = new Account(client)
+const account = new Account(client)
 
 // Database 
-export const databases = new Databases(client)
+const databases = new Databases(client)
 
-export const functions = new Functions(client)
+const functions = new Functions(client)
 
-export const storage = new Storage(client)
+const storage = new Storage(client)
+
+export { client, account, databases, functions, storage }
