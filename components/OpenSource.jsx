@@ -167,7 +167,7 @@ function OpenSource() {
                         <li>
                             <span className='font-medium my-1 underline underline-offset-2'>Read the contributing guidelines:</span> Familiarize yourself with the project&apos;s specific contributing guidelines. They provide essential information on code style, commit conventions, and other important guidelines.</li>
                         <li>
-                            <span className='font-medium my-1 underline underline-offset-2'>Create descriptive pull requests:</span> When submitting a pull request, provide a clear and concise description of the changes you've made. Include relevant context, reference related issues, and explain the impact of your changes.</li>
+                            <span className='font-medium my-1 underline underline-offset-2'>Create descriptive pull requests:</span> When submitting a pull request, provide a clear and concise description of the changes you&apos;ve made. Include relevant context, reference related issues, and explain the impact of your changes.</li>
                         <li>
                             <span className='font-medium my-1 underline underline-offset-2'>Test your changes:</span> Before submitting a pull request, make sure to thoroughly test your changes to ensure they work as intended. Include any necessary tests or documentation updates related to your changes.</li>
                         <li>
