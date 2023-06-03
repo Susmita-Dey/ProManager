@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import { v4 as uuidv4 } from "uuid";
+import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import { databases } from "@/appwrite/appwrite";
 import toast from "react-hot-toast";
 import TailwindToaster from "./TailwindToaster";
 import { Query } from "appwrite";
 import AddKanbanItemForm from "./AddKanbanItemForm";
-import Image from "next/image";
+import KanbanCard from "./KanbanCard";
+import { MdAddCircle } from "react-icons/md";
+import Loader from "./Loader";
 
 const KanbanBoardComponent = (userId) => {
     const [board, setBoard] = useState({
@@ -19,35 +20,22 @@ const KanbanBoardComponent = (userId) => {
     const [isLoading, setIsLoading] = useState(true);
     // alert(userId.userId)
 
+    const [showModalForm, setShowModalForm] = useState(false);
+
+    const openModalForm = () => {
+        setShowModalForm(true);
+    };
+
+    const closeModalForm = () => {
+        setShowModalForm(false);
+    };
+
     const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID
     const collectionId = process.env.NEXT_PUBLIC_APPWRITE_KANBAN_BOARD_COLLECTION_ID
 
     useEffect(() => {
         fetchBoardData();
     }, []);
-
-    const handleAddItem = (newItem) => {
-        // Create a new column or update an existing column
-        setBoard((prevBoard) => {
-            const columnId = "todo"; // Set the desired column ID
-
-            return {
-                ...prevBoard,
-                columns: {
-                    ...prevBoard.columns,
-                    [columnId]: {
-                        ...prevBoard.columns[columnId],
-                        items: [...prevBoard.columns[columnId].items, newItem],
-                    },
-                },
-            };
-        });
-        // Update the state or perform any necessary logic to update the board
-        // For example:
-        // const updatedColumns = { ...board.columns };
-        // updatedColumns[columnId].items.push(newItem);
-        // setBoard({ columns: updatedColumns });
-    };
 
     const fetchBoardData = async () => {
         try {
@@ -138,7 +126,7 @@ const KanbanBoardComponent = (userId) => {
     };
 
     if (isLoading) {
-        return <div>Loading...</div>;
+        return <div><Loader /></div>;
     }
 
     // if (Object.keys(board.columns).length === 0) {
@@ -146,55 +134,48 @@ const KanbanBoardComponent = (userId) => {
     //     <StaticBoard />
     // }
 
+    // alert(board.columns.)
     return (
-        <section className="container mx-auto max-w-[84rem] lg:px-8 px-5">
-            <div>
-                <h2>Kanban Board</h2>
+        <section className="container mx-auto mt-10 mb-5 max-w-[84rem] lg:px-8 px-5">
+            <div className="flex flex-col gap-4 justify-center items-center">
+                <h2 className="text-4xl font-bold">Kanban Board</h2>
+                <p className="text-xl font-medium">Effortlessly add new items to your Kanban board and stay organized with ease.</p>
+                <button className="bg-rose-600 font-medium px-4 py-2 lg:w-1/6 w-full flex flex-row gap-2 justify-center items-center" onClick={openModalForm}>
+                    Add New Item<MdAddCircle className="text-xl font-bold" />
+                </button>
+                {showModalForm && <AddKanbanItemForm userId={userId} closeModalForm={closeModalForm} />}
             </div>
-            <AddKanbanItemForm userId={userId} />
+            {/* <AddKanbanItemForm userId={userId} /> */}
             <DragDropContext onDragEnd={onDragEnd}>
-                <div className="flex items-center justify-center py-8">
+                <div className="flex flex-col lg:flex-row items-center justify-center py-8">
                     {Object.values(board.columns).map((column) => (
                         <div
                             key={column.id}
                             className="flex flex-col text-black items-center w-full m-4 bg-gray-100 rounded-lg"
                         >
                             <h3 className="text-xl font-bold m-4">{column.boardtitle}</h3>
-
-                            <Droppable droppableId={column.id}>
-                                {(provided, snapshot) => (
-                                    <div
-                                        ref={provided.innerRef}
-                                        {...provided.droppableProps}
-                                        className={`lg:w-96 w-full px-4 py-2 mb-4 ${snapshot.isDraggingOver ? 'bg-blue-200' : 'bg-gray-300'
-                                            }`}
-                                    >
-                                        {column.items.map((item, index) => (
-                                            <Draggable key={item.id} draggableId={item.id.toString()} index={index}>
-                                                {(provided, snapshot) => (
-                                                    <div
-                                                        ref={provided.innerRef}
-                                                        {...provided.draggableProps}
-                                                        {...provided.dragHandleProps}
-                                                        className={` w-full gap-2 text-center p-2 mb-4 rounded-lg ${snapshot.isDragging ? 'bg-blue-100' : 'bg-blue-300'
-                                                            }`}
-                                                    >
-                                                        {/* {item.boardtitle} */}
-                                                        <div className="flex flex-col gap-2">
-                                                            <h3 className="font-medium text-lg">{item.boardtitle}</h3>
-                                                            <p className="font-normal text-base">{item.boarditem}</p>
-                                                            <div className='flex p-2'>
-                                                                <Image width={200} height={100} src={"https://cdn.pixabay.com/photo/2016/11/22/23/09/fountain-pen-1851096_1280.jpg"} className='w-full h-full' alt="kanban item image" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                )}
-                                            </Draggable>
-                                        ))}
-                                        {provided.placeholder}
-                                    </div>
-                                )}
-                            </Droppable>
+                            <div className="lg:w-96 w-full px-4 overflow-auto h-96 py-2 mb-4 bg-gray-300">
+                                <Droppable droppableId={column.id}>
+                                    {(provided, snapshot) => (
+                                        <div
+                                            key={column.id}
+                                            ref={provided.innerRef}
+                                            {...provided.droppableProps}
+                                            className={`${snapshot.isDraggingOver ? 'bg-cyan-800' : ''
+                                                }`}
+                                            onScroll={(e) =>
+                                                // eslint-disable-next-line no-console
+                                                console.log('current scrollTop', e.currentTarget.scrollTop)
+                                            }
+                                        >
+                                            {column.items.map((item, index) => (
+                                                <KanbanCard columnId={column.id} itemId={item.id} index={index} boarditem={item.boarditem} boardtitle={item.boardtitle} imageFileId={item.image} />
+                                            ))}
+                                            {provided.placeholder}
+                                        </div>
+                                    )}
+                                </Droppable>
+                            </div>
                         </div>
                     ))}
                 </div>

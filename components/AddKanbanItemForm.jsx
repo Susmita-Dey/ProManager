@@ -3,8 +3,9 @@ import { v4 as uuidv4 } from 'uuid';
 import React, { useState } from 'react'
 import toast from 'react-hot-toast';
 import TailwindToaster from './TailwindToaster';
+import { RxCross2 } from 'react-icons/rx';
 
-function AddKanbanItemForm(userId) {
+function AddKanbanItemForm({ userId, closeModalForm }) {
     // console.log(userId.userId.userId);
     const [boardTitle, setBoardTitle] = useState("")
     const [boardItem, setBoardItem] = useState("")
@@ -57,51 +58,60 @@ function AddKanbanItemForm(userId) {
         });
 
         e.target.reset()
+        closeModalForm()
     }
 
 
     return (
-        <div className="max-w-7xl mx-auto container lg:px-8 px-5 mt-10 text-white">
-            <form
-                action=""
-                onSubmit={handleSubmit}
-                className="flex flex-col justify-center gap-3 mb-10"
-            >
-                <div className='flex flex-col gap-3'>
-                    <label className='text-xl font-semibold'>Kanban Title:</label>
-                    <input
-                        type="text"
-                        name=""
-                        id=""
-                        placeholder="Funny Weather"
-                        className="border p-2 rounded-md text-black placeholder-gray-600"
-                        onChange={(e) => {
-                            setBoardTitle(e.target.value)
-                        }}
-                    />
+        <div className="max-w-7xl mx-auto container lg:px-8 px-5 mt-10">
+            <div className='fixed inset-0 bg-opacity-50 flex flex-col justify-center items-center'>
+                <div className='bg-white rounded-lg p-6 text-pink-600'>
+                    <div className='flex flex-row justify-between mb-4 items-center gap-5'>
+                        <h2 className='text-xl font-bold'>Add Kanban Item</h2>
+                        <RxCross2 className="text-xl font-bold relative top-0 right-0 hover:text-pink-600 hover:scale-150 text-gray-900 cursor-pointer w-6 h-6" onClick={closeModalForm} />
+                    </div>
+                    <form
+                        action=""
+                        onSubmit={handleSubmit}
+                        className="flex flex-col justify-center gap-3 mb-10"
+                    >
+                        <div className='flex flex-col gap-3'>
+                            <label className='text-xl font-semibold'>Kanban Title:</label>
+                            <input
+                                type="text"
+                                name=""
+                                id=""
+                                placeholder="Funny Weather"
+                                className="border p-2 rounded-md text-black placeholder-gray-600"
+                                onChange={(e) => {
+                                    setBoardTitle(e.target.value)
+                                }}
+                            />
+                        </div>
+                        <div className='flex flex-col gap-3'>
+                            <label className='flex flex-col gap-1 text-xl font-semibold'>Kanban Details:
+                                <span className='text-base text-gray-500'>*Character limit is 600.</span>
+                            </label>
+                            <input name="kanban" id="kanban" cols="30" rows="5" placeholder="Now is the winter of our discontent. Made glorious summer by this sun of York...." className="border p-2 rounded-md text-black placeholder-gray-600"
+                                onChange={(e) => {
+                                    setBoardItem(e.target.value)
+                                }} />
+                        </div>
+                        <div className='flex flex-col gap-3'>
+                            <label className='flex flex-col gap-1 text-xl font-semibold'>Image Cover:
+                                <span className='text-base text-gray-500'>*Files with extensions *.jpg,*.jpeg,*.png,*.svg and *.gif are supported.</span>
+                            </label>
+                            <input type="file" id="imageFile" accept="image/*" onChange={handleImageUpload} />
+                        </div>
+                        <button
+                            className="bg-pink-600 hover:bg-pink-700 p-2 w-full text-white rounded-md"
+                            type="submit"
+                        >
+                            Add kanban
+                        </button>
+                    </form>
                 </div>
-                <div className='flex flex-col gap-3'>
-                    <label className='flex flex-col gap-1 text-xl font-semibold'>Kanban Details:
-                        <span className='text-base text-gray-500'>*Character limit is 600.</span>
-                    </label>
-                    <input name="kanban" id="kanban" cols="30" rows="5" placeholder="Now is the winter of our discontent. Made glorious summer by this sun of York...." className="border p-2 rounded-md text-black placeholder-gray-600"
-                        onChange={(e) => {
-                            setBoardItem(e.target.value)
-                        }} />
-                </div>
-                <div className='flex flex-col gap-3'>
-                    <label className='flex flex-col gap-1 text-xl font-semibold'>Image Cover:
-                        <span className='text-base text-gray-500'>*Files with extensions *.jpg,*.jpeg,*.png,*.svg and *.gif are supported.</span>
-                    </label>
-                    <input type="file" id="imageFile" accept="image/*" onChange={handleImageUpload} />
-                </div>
-                <button
-                    className="bg-pink-600 hover:bg-pink-700 p-2 lg:w-1/6 w-full text-white rounded-md"
-                    type="submit"
-                >
-                    Add kanban
-                </button>
-            </form>
+            </div>
             <TailwindToaster />
         </div>
     )

@@ -28,7 +28,7 @@ export default function ContactPage() {
             </div>
             <div>
               <div className="container flex flex-col">
-                <div className="flex flex-col mx-auto my-4 text-white">
+                <div className="flex flex-col mx-auto my-4 ">
                   <h2 className="text-center text-3xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-green-300 via-cyan-300 to-pink-300">
                     Contact Us
                   </h2>
@@ -39,14 +39,14 @@ export default function ContactPage() {
                   <div className="my-3 flex flex-col">
                     <label
                       htmlFor="name"
-                      className="text-white mb-3 font-semibold"
+                      className=" mb-3 font-semibold"
                     >
                       Name
                     </label>
                     <input
                       type="text"
                       name="name"
-                      className="name bg-blue-100 p-3 rounded-xl"
+                      className="name bg-blue-100 text-pink-600 p-3 rounded-xl"
                       placeholder="Name"
                       required
                     />
@@ -55,14 +55,14 @@ export default function ContactPage() {
                   <div className="my-3 flex flex-col">
                     <label
                       htmlFor="email"
-                      className="text-white mb-3 font-semibold"
+                      className=" mb-3 font-semibold"
                     >
                       Email ID
                     </label>
                     <input
                       type="email"
                       name="email"
-                      className="email p-3 rounded-xl bg-blue-100"
+                      className="email p-3 rounded-xl bg-blue-100 text-pink-600"
                       placeholder="Your Email Address"
                       required
                     />
@@ -71,14 +71,14 @@ export default function ContactPage() {
                   <div className="my-3 flex flex-col">
                     <label
                       htmlFor="subject"
-                      className="text-white mb-3 font-semibold"
+                      className=" mb-3 font-semibold"
                     >
                       Subject
                     </label>
                     <input
                       type="text"
                       name="subject"
-                      className="subject p-4 rounded-xl bg-blue-100"
+                      className="subject p-4 rounded-xl bg-blue-100 text-pink-600"
                       placeholder="Subject"
                       required
                     />
@@ -87,21 +87,21 @@ export default function ContactPage() {
                   <div className="my-3 flex flex-col">
                     <label
                       htmlFor="message"
-                      className="text-white mb-3 font-semibold"
+                      className=" mb-3 font-semibold"
                     >
                       Message
                     </label>
                     <textarea
                       type="text"
                       name="message"
-                      className="message p-3 rounded-xl bg-blue-100"
+                      className="message p-3 rounded-xl bg-blue-100 text-pink-600"
                       placeholder="Your Message"
                       required
                     />
                   </div>
 
                   <div className="text-center my-4">
-                    <button type="submit" className="bg-pink-600 text-white font-medium hover:bg-pink-800 px-4 py-2 rounded-lg" role="button">
+                    <button type="submit" className="bg-pink-600  font-medium hover:bg-pink-800 px-4 py-2 rounded-lg" role="button">
                       Submit
                     </button>
                   </div>

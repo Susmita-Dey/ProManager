@@ -171,7 +171,7 @@ export default function Navbar() {
                             </ul>
                             <div className="flex flex-col bg-gray-950 lg:flex-row list-none">
                                 <Link href="/signup">
-                                    <button className='px-4 py-2 rounded-md font-medium bg-pink-600 hover:bg-pink-700'>
+                                    <button className='px-4 py-2 w-full rounded-md font-medium bg-pink-600 hover:bg-pink-700'>
                                         Sign Up
                                     </button>
                                 </Link>
