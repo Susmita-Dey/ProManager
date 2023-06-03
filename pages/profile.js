@@ -2,6 +2,7 @@ import { account } from '@/appwrite/appwrite'
 import NotLoggedIn from '@/components/NotLoggedIn'
 import ProfileBg from '@/components/ProfileBg'
 import ProfilePage from '@/components/ProfilePage'
+import Head from 'next/head'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 
@@ -22,6 +23,11 @@ export default function Profile() {
     })
     return (
         <>
+            <Head>
+                <title>ProManager | Your Profile</title>
+                <meta name="description" content="ProManager - The only Productivity Tool You Need to boost your productivity" />
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
             {userDetails ? (
                 <>
                     <ProfileBg />

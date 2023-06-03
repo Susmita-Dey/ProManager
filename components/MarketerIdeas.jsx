@@ -5,14 +5,13 @@ import toast from 'react-hot-toast';
 import IdeaCard from './IdeaCard'
 import TailwindToaster from './TailwindToaster';
 import { Query } from 'appwrite';
-import proideas from '@/data/proideas';
 import Loader from './Loader';
 
 function MarketerIdeas(userId) {
-    console.info(userId.userId.userId);
+    console.info(userId.userId);
     const [ideaItem, setIdeaItem] = useState("")
     const category = "marketer";
-    const data = { proideas: ideaItem, category: category, created_by: userId.userId.userId };
+    const data = { proideas: ideaItem, category: category, created_by: userId.userId };
     console.log(data);
     const [ideas, setIdeas] = useState()
     const [loader, setLoader] = useState(false)
@@ -20,6 +19,18 @@ function MarketerIdeas(userId) {
     const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID
     const collectionId = process.env.NEXT_PUBLIC_APPWRITE_IDEALIST_COLLECTION_ID
 
+    const promarketer = [
+        "Social media content calendar and scheduling tool.",
+        "Influencer marketing campaign management platform.",
+        "Marketing analytics dashboard for tracking key metrics.",
+        "Content curation app for gathering industry-related articles.",
+        "Landing page optimization tool for A/B testing.",
+        "Email marketing campaign automation and tracking platform.",
+        "Social media listening and sentiment analysis tool.",
+        "Customer segmentation and targeting platform.",
+        "Competitive analysis tool for monitoring industry trends.",
+        "Interactive video marketing platform for engagement.",
+    ]
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -51,7 +62,7 @@ function MarketerIdeas(userId) {
         const getIdeas = databases.listDocuments(databaseId,
             collectionId,
             [
-                Query.equal("created_by", [userId.userId.userId]),
+                Query.equal("created_by", [userId.userId]),
                 Query.equal('category', [category])
             ])
         getIdeas.then(
@@ -120,7 +131,7 @@ function MarketerIdeas(userId) {
                 <TailwindToaster />
             </div>
             <div className="max-w-7xl container lg:px-8 px-5 mx-auto my-4">
-                <p className="text-xl font-bold mb-2 text-white">Ideas Tracking List</p>
+                <p className="text-xl font-bold mb-2 text-white text-center">Your Ideas</p>
                 <div className='flex flex-col md:flex-row justify-center items-center gap-4'>
                     {ideas && ideas.map((item) => (
                         <div key={item.$id} >
@@ -144,15 +155,11 @@ function MarketerIdeas(userId) {
                     }
                 </div>
             </div>
-            <div>
-                {proideas.map((category) => (
-                    <div key={category.category}>
-                        <h2 className='text-3xl font-semibold text-center my-10'>{category.category}</h2>
-                        <div className="flex md:flex-row flex-col flex-wrap justify-center items-center gap-5">
-                            {category.proideas.map((idea) => (
-                                <IdeaCard key={idea} idea={idea} />
-                            ))}
-                        </div>
+            <h2 className='text-3xl font-semibold text-center my-10'>List of Marketing Ideas</h2>
+            <div className='flex lg:flex-row flex-wrap flex-col justify-center items-center gap-5'>
+                {promarketer.map((item, index) => (
+                    <div key={index} className="max-w-7xl flex lg:flex-row flex-col justify-center items-center gap-2">
+                        <IdeaCard key={item} idea={item} />
                     </div>
                 ))}
             </div>

@@ -5,14 +5,13 @@ import toast from 'react-hot-toast';
 import IdeaCard from './IdeaCard'
 import TailwindToaster from './TailwindToaster';
 import { Query } from 'appwrite';
-import proideas from '@/data/proideas';
 import Loader from './Loader';
 
 function StudentIdeas(userId) {
-    console.info(userId.userId.userId);
+    console.info(userId.userId);
     const [ideaItem, setIdeaItem] = useState("")
     const category = "student";
-    const data = { proideas: ideaItem, category: category, created_by: userId.userId.userId };
+    const data = { proideas: ideaItem, category: category, created_by: userId.userId };
     console.log(data);
     const [ideas, setIdeas] = useState()
     const [loader, setLoader] = useState(false)
@@ -20,6 +19,18 @@ function StudentIdeas(userId) {
     const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID
     const collectionId = process.env.NEXT_PUBLIC_APPWRITE_IDEALIST_COLLECTION_ID
 
+    const prostudent = [
+        "Virtual science fair platform for students to showcase their projects.",
+        "Educational podcast series covering various subjects.",
+        "Online platform for peer-to-peer tutoring and knowledge sharing.",
+        "Mobile app for collaborative note-taking and study groups.",
+        "Augmented reality (AR) app for interactive history lessons.",
+        "Virtual reality (VR) game to teach coding concepts.",
+        "Online platform for sharing and discussing book reviews.",
+        "Language learning app with interactive conversations.",
+        "Personalized recommendation system for educational resources.",
+        "AI-powered study buddy app for personalized study plans.",
+    ]
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -51,7 +62,7 @@ function StudentIdeas(userId) {
         const getIdeas = databases.listDocuments(databaseId,
             collectionId,
             [
-                Query.equal("created_by", [userId.userId.userId]),
+                Query.equal("created_by", [userId.userId]),
                 Query.equal('category', [category])
             ])
         getIdeas.then(
@@ -92,7 +103,7 @@ function StudentIdeas(userId) {
 
     return (
         <>
-            <div className="max-w-7xl mx-auto container lg:px-8 px-5 mt-10 text-white">
+            <div className="max-w-[85rem] mx-auto container lg:px-8 px-5 mt-10 text-white">
                 <form
                     action=""
                     onSubmit={handleSubmit}
@@ -120,8 +131,8 @@ function StudentIdeas(userId) {
                 </form>
                 <TailwindToaster />
             </div>
-            <div className="max-w-7xl container lg:px-8 px-5 mx-auto my-4">
-                <p className="text-xl font-bold mb-2 text-white">Ideas Tracking List</p>
+            <div className="max-w-[85rem] container lg:px-8 px-5 mx-auto my-4">
+                <p className="text-xl font-bold mb-2 text-white text-center">Your Ideas</p>
                 <div className='flex flex-col md:flex-row justify-center items-center gap-4'>
                     {ideas && ideas.map((item) => (
                         <div key={item.$id} >
@@ -145,15 +156,11 @@ function StudentIdeas(userId) {
                     }
                 </div>
             </div>
-            <div>
-                {proideas.map((category) => (
-                    <div key={category.category}>
-                        <h2 className='text-3xl font-semibold text-center my-10'>{category.category}</h2>
-                        <div className="flex md:flex-row flex-col flex-wrap justify-center items-center gap-5">
-                            {category.proideas.map((idea) => (
-                                <IdeaCard key={idea} idea={idea} />
-                            ))}
-                        </div>
+            <h2 className='text-3xl font-semibold text-center my-10'>List of Brainstorming Ideas</h2>
+            <div className='flex lg:flex-row flex-wrap flex-col justify-center items-center gap-5'>
+                {prostudent.map((item, index) => (
+                    <div key={index} className="max-w-7xl flex lg:flex-row flex-col justify-center items-center gap-2">
+                        <IdeaCard key={item} idea={item} />
                     </div>
                 ))}
             </div>

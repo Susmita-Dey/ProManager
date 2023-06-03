@@ -1,91 +1,65 @@
-import proideas from '@/data/proideas';
 import React, { useState } from 'react';
+import { RxCross2 } from 'react-icons/rx';
 import DesignerIdeas from './DesignerIdeas';
 import GeneralIdeas from './GeneralIdeas';
 import MarketerIdeas from './MarketerIdeas';
 import StudentIdeas from './StudentIdeas';
 import TeacherIdeas from './TeacherIdeas';
-import TechProfessionalIdeas from './TechProfessionalIdeas';
+import DeveloperIdeas from './DeveloperIdeas';
 
-// Note: If student, show student idea Component, if teacher show teacher idea component 
-//create different table for different category
-
-const ProjectIdeas = (userId) => {
+const ProjectIdeas = ({ userId }) => {
     const [selectedComponent, setSelectedComponent] = useState(null);
-    const [showDiv, setShowDiv] = useState(true);
 
     const handleButtonClick = (component) => {
         setSelectedComponent(component);
-        setShowDiv(false);
     };
 
     const handleBackButtonClick = () => {
-        setShowDiv(true);
         setSelectedComponent(null);
     };
 
-    const showStudent = () => {
-        return (
-            <StudentIdeas />
-        )
-    }
-    const showTeacher = () => {
-        return (
-            <StudentIdeas />
-        )
-    }
-    const showMarketer = () => {
-        return (
-            <StudentIdeas />
-        )
-    }
-    const showTechProf = () => {
-        return (
-            <StudentIdeas />
-        )
-    }
-    const showDesigner = () => {
-        return (
-            <StudentIdeas />
-        )
-    }
-    const showOther = () => {
-        return (
-            <StudentIdeas />
-        )
+    let componentToRender = null;
+    if (selectedComponent === 'Student') {
+        componentToRender = <StudentIdeas userId={userId} />;
+    } else if (selectedComponent === 'Teacher') {
+        componentToRender = <TeacherIdeas userId={userId} />;
+    } else if (selectedComponent === 'Marketers') {
+        componentToRender = <MarketerIdeas userId={userId} />;
+    } else if (selectedComponent === 'Developers') {
+        componentToRender = <DeveloperIdeas userId={userId} />;
+    } else if (selectedComponent === 'Designers') {
+        componentToRender = <DesignerIdeas userId={userId} />;
+    } else if (selectedComponent === 'General') {
+        componentToRender = <GeneralIdeas userId={userId} />;
     }
 
     return (
-        <section className="min-h-full container mx-auto py-12 px-5 sm:px-6 lg:px-8">
-            <div className='flex flex-col justify-center items-center'>
-                <div>
-                    {showDiv ? (
-                        <div className='flex flex-col gap-5 lg:p-[8.5rem] p-5 rounded-lg max-w-7xl max-h-full bg-gray-950'>
-                            <h2 className='text-4xl font-semibold'>Hey, before moving ahead we wanna know you.</h2>
-                            <h3 className='text-2xl font-medium'>Choose any of the following roles that you currently pursue in your life.</h3>
-                            <p className='text-lg font-normal'>*You may choose any one of the following and we&apos;ll provide you the data based on your preferences.</p>
-                            <div className='flex flex-col lg:flex-row gap-4'>
-                                <button className='bg-rose-900 px-4 py-2 rounded-md shadow-sm' onClick={() => handleButtonClick('Component1')}>Student</button>
-                                <button className='bg-rose-900 px-4 py-2 rounded-md shadow-sm' onClick={() => handleButtonClick('Component2')}>Teacher</button>
-                                <button className='bg-rose-900 px-4 py-2 rounded-md shadow-sm' onClick={() => handleButtonClick('Component3')}>Marketers</button>
-                                <button className='bg-rose-900 px-4 py-2 rounded-md shadow-sm' onClick={() => handleButtonClick('Component4')}>Tech Professionals</button>
-                                <button className='bg-rose-900 px-4 py-2 rounded-md shadow-sm' onClick={() => handleButtonClick('Component5')}>Designers</button>
-                                <button className='bg-rose-900 px-4 py-2 rounded-md shadow-sm' onClick={() => handleButtonClick('Component6')}>I&apos;m just a normal human being.</button>
-                            </div>
-                        </div>
-                    ) : (
-                        <div>
-                            <button onClick={handleBackButtonClick}>Go Back</button>
-                            {selectedComponent === 'Component1' && <StudentIdeas userId={userId} />}
-                            {selectedComponent === 'Component2' && <TeacherIdeas userId={userId} />}
-                            {selectedComponent === 'Component3' && <MarketerIdeas userId={userId} />}
-                            {selectedComponent === 'Component4' && <TechProfessionalIdeas userId={userId} />}
-                            {selectedComponent === 'Component5' && <DesignerIdeas userId={userId} />}
-                            {selectedComponent === 'Component6' && <GeneralIdeas userId={userId} />}
-                        </div>
-                    )
-                    }
+        <section className="min-h-full max-w-[85rem] container mx-auto py-12 px-5 sm:px-6 lg:px-8">
+            <div className="flex flex-col justify-center items-center">
+                <div className="flex flex-col gap-5 lg:p-[8.5rem] p-5 rounded-lg max-h-full bg-gray-950">
+                    <h2 className="text-4xl font-semibold">Hey, before moving ahead we wanna know you.</h2>
+                    <h3 className="text-2xl font-medium">Choose any of the following roles that you currently pursue in your life.</h3>
+                    <p className="text-lg font-normal">*You may choose any one of the following and we'll provide you the data based on your preferences.</p>
+                    <div className="flex flex-col lg:flex-row gap-4">
+                        <button className="bg-rose-900 px-4 py-2 rounded-md shadow-sm" onClick={() => handleButtonClick('Student')}>Student</button>
+                        <button className="bg-rose-900 px-4 py-2 rounded-md shadow-sm" onClick={() => handleButtonClick('Teacher')}>Teacher</button>
+                        <button className="bg-rose-900 px-4 py-2 rounded-md shadow-sm" onClick={() => handleButtonClick('Marketers')}>Marketers</button>
+                        <button className="bg-rose-900 px-4 py-2 rounded-md shadow-sm" onClick={() => handleButtonClick('Developers')}>Developers</button>
+                        <button className="bg-rose-900 px-4 py-2 rounded-md shadow-sm" onClick={() => handleButtonClick('Designers')}>Designers</button>
+                        <button className="bg-rose-900 px-4 py-2 rounded-md shadow-sm" onClick={() => handleButtonClick('General')}>I'm just a normal human being.</button>
+                    </div>
+
                 </div>
+                {selectedComponent && (
+                    <div className="flex mt-10 flex-col gap-5 lg:p-8 p-5 rounded-lg max-w-7xl max-h-full bg-gray-950">
+                        <>
+                            <button onClick={handleBackButtonClick}>
+                                <RxCross2 className="text-xl font-bold relative flex top-0 right-0 hover:text-pink-600 hover:scale-150 w-6 h-6" />
+                            </button>
+                            {componentToRender}
+                        </>
+                    </div>
+                )}
             </div>
         </section>
     );

@@ -2,6 +2,7 @@ import { account } from '@/appwrite/appwrite'
 import Diary from '@/components/Diary'
 import DiaryNoteForm from '@/components/DiaryNoteForm'
 import NotLoggedIn from '@/components/NotLoggedIn'
+import Head from 'next/head'
 import React, { useEffect, useState } from 'react'
 
 export default function DiaryNote() {
@@ -21,6 +22,11 @@ export default function DiaryNote() {
     })    // console.log(userDetails.$id);
     return (
         <>
+            <Head>
+                <title>ProManager | Take a Note</title>
+                <meta name="description" content="ProManager - The only Productivity Tool You Need to boost your productivity" />
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
             {userDetails ? (
                 <>
                     <div>

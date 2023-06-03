@@ -4,6 +4,7 @@ import StaticProTips from '@/components/StaticProTips'
 import TailwindToaster from '@/components/TailwindToaster'
 import TipsForm from '@/components/TipsForm'
 import TipsList from '@/components/TipsList'
+import Head from 'next/head'
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 
@@ -27,6 +28,11 @@ export default function ProductivityTips() {
     // console.log(userDetails.$id);
     return (
         <>
+            <Head>
+                <title>ProManager | Productivity Tips</title>
+                <meta name="description" content="ProManager - The only Productivity Tool You Need to boost your productivity" />
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
             {userDetails ? (
                 <>
                     <div>

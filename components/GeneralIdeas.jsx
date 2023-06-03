@@ -5,14 +5,14 @@ import toast from 'react-hot-toast';
 import IdeaCard from './IdeaCard'
 import TailwindToaster from './TailwindToaster';
 import { Query } from 'appwrite';
-import proideas from '@/data/proideas';
 import Loader from './Loader';
 
 function GeneralIdeas(userId) {
-    console.info(userId.userId.userId);
+    console.info(userId.userId);
+    // alert(userId);
     const [ideaItem, setIdeaItem] = useState("")
     const category = "general";
-    const data = { proideas: ideaItem, category: category, created_by: userId.userId.userId };
+    const data = { proideas: ideaItem, category: category, created_by: userId.userId };
     console.log(data);
     const [ideas, setIdeas] = useState()
     const [loader, setLoader] = useState(false)
@@ -51,7 +51,7 @@ function GeneralIdeas(userId) {
         const getIdeas = databases.listDocuments(databaseId,
             collectionId,
             [
-                Query.equal("created_by", [userId.userId.userId]),
+                Query.equal("created_by", [userId.userId]),
                 Query.equal('category', [category])
             ])
         getIdeas.then(
@@ -121,7 +121,7 @@ function GeneralIdeas(userId) {
                 <TailwindToaster />
             </div>
             <div className="max-w-7xl container lg:px-8 px-5 mx-auto my-4">
-                <p className="text-xl font-bold mb-2 text-white">Ideas Tracking List</p>
+                <p className="text-xl font-bold mb-2 text-white text-center">Your Super Cool Ideas 😎</p>
                 <div className='flex flex-col md:flex-row justify-center items-center gap-4'>
                     {ideas && ideas.map((item) => (
                         <div key={item.$id} >
@@ -144,18 +144,6 @@ function GeneralIdeas(userId) {
                     ))
                     }
                 </div>
-            </div>
-            <div>
-                {proideas.map((category) => (
-                    <div key={category.category}>
-                        <h2 className='text-3xl font-semibold text-center my-10'>{category.category}</h2>
-                        <div className="flex md:flex-row flex-col flex-wrap justify-center items-center gap-5">
-                            {category.proideas.map((idea) => (
-                                <IdeaCard key={idea} idea={idea} />
-                            ))}
-                        </div>
-                    </div>
-                ))}
             </div>
         </>
     )

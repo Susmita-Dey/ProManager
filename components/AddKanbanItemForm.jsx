@@ -6,7 +6,7 @@ import TailwindToaster from './TailwindToaster';
 import { RxCross2 } from 'react-icons/rx';
 
 function AddKanbanItemForm({ userId, closeModalForm }) {
-    // console.log(userId.userId.userId);
+    // console.log(userId.userId);
     const [boardTitle, setBoardTitle] = useState("")
     const [boardItem, setBoardItem] = useState("")
     const [boardImage, setBoardImage] = useState(null)
@@ -29,7 +29,7 @@ function AddKanbanItemForm({ userId, closeModalForm }) {
         // Create the document with the text data and the file ID returned from the upload
         uploadPromise.then((result) => {
             const fileId = result.$id;
-            const data = { boardtitle: boardTitle, boarditem: boardItem, status: "todo", image: fileId, created_by: userId.userId.userId };
+            const data = { boardtitle: boardTitle, boarditem: boardItem, status: "todo", image: fileId, created_by: userId.userId };
             console.log(data);
 
             const promise = databases.createDocument(

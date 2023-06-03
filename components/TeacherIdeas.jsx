@@ -5,20 +5,32 @@ import toast from 'react-hot-toast';
 import IdeaCard from './IdeaCard'
 import TailwindToaster from './TailwindToaster';
 import { Query } from 'appwrite';
-import proideas from '@/data/proideas';
 import Loader from './Loader';
 
 function TeacherIdeas(userId) {
-    console.info(userId.userId.userId);
+    console.info(userId.userId);
     const [ideaItem, setIdeaItem] = useState("")
     const category = "teacher";
-    const data = { proideas: ideaItem, category: category, created_by: userId.userId.userId };
+    const data = { proideas: ideaItem, category: category, created_by: userId.userId };
     console.log(data);
     const [ideas, setIdeas] = useState()
     const [loader, setLoader] = useState(false)
 
     const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID
     const collectionId = process.env.NEXT_PUBLIC_APPWRITE_IDEALIST_COLLECTION_ID
+
+    const proteacher = [
+        "Digital portfolio platform for students to showcase their work",
+        "Collaborative lesson planning and resource-sharing app",
+        "Online assessment and grading system",
+        "Classroom management app for attendance and behavior tracking",
+        "Parent-teacher communication and updates platform",
+        "Gamified learning app for interactive lessons",
+        "Virtual field trip platform for immersive educational experiences",
+        "Interactive math learning games for elementary students",
+        "Adaptive learning platform for personalized student instruction",
+        "Professional development resource hub for teachers"
+    ]
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -50,7 +62,7 @@ function TeacherIdeas(userId) {
         const getIdeas = databases.listDocuments(databaseId,
             collectionId,
             [
-                Query.equal("created_by", [userId.userId.userId]),
+                Query.equal("created_by", [userId.userId]),
                 Query.equal('category', [category])
             ])
         getIdeas.then(
@@ -120,7 +132,7 @@ function TeacherIdeas(userId) {
                 <TailwindToaster />
             </div>
             <div className="max-w-7xl container lg:px-8 px-5 mx-auto my-4">
-                <p className="text-xl font-bold mb-2 text-white">Ideas Tracking List</p>
+                <p className="text-xl font-bold mb-2 text-white text-center">Your Ideas</p>
                 <div className='flex flex-col md:flex-row justify-center items-center gap-4'>
                     {ideas && ideas.map((item) => (
                         <div key={item.$id} >
@@ -144,15 +156,11 @@ function TeacherIdeas(userId) {
                     }
                 </div>
             </div>
-            <div>
-                {proideas.map((category) => (
-                    <div key={category.category}>
-                        <h2 className='text-3xl font-semibold text-center my-10'>{category.category}</h2>
-                        <div className="flex md:flex-row flex-col flex-wrap justify-center items-center gap-5">
-                            {category.proideas.map((idea) => (
-                                <IdeaCard key={idea} idea={idea} />
-                            ))}
-                        </div>
+            <h2 className='text-3xl font-semibold text-center my-10'>List of Teaching/Project Ideas</h2>
+            <div className='flex lg:flex-row flex-wrap flex-col justify-center items-center gap-5'>
+                {proteacher.map((item, index) => (
+                    <div key={index} className="max-w-7xl flex lg:flex-row flex-col justify-center items-center gap-2">
+                        <IdeaCard key={item} idea={item} />
                     </div>
                 ))}
             </div>

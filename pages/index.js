@@ -32,6 +32,8 @@ export default function Home() {
     <>
       <Head>
         <title>ProManager</title>
+        <meta name="description" content="ProManager - The only Productivity Tool You Need to boost your productivity" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       {!userDetails ? (
         <>
