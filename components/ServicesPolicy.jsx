@@ -1,3 +1,4 @@
+import { montserrat } from '@/context/fonts'
 import React from 'react'
 
 export default function ServicesPolicy() {
@@ -5,7 +6,7 @@ export default function ServicesPolicy() {
         <section className='container mx-auto my-4 py-10 px-12'>
             <div className='flex flex-col justify-center items-center space-x-6 space-y-6'>
                 <div className='space-y-6'>
-                    <h2 className='text-3xl font-semibold'>Services Policy</h2>
+                    <h2 className={`${montserrat.className} text-3xl font-semibold`}>Services Policy</h2>
                     <div className='space-x-4'>
                         <ul className='list-outside list-decimal space-y-4'>
                             <li className='font-medium'>Service Description</li>

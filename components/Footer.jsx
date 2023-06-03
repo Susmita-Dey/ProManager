@@ -1,8 +1,9 @@
+import { opensans } from "@/context/fonts";
 import Link from "next/link";
 
 export default function Footer() {
     return (
-        <footer className="bg-gray-950 container mx-auto">
+        <footer className={`${opensans.className} bg-gray-950 container mx-auto`}>
             <div className="px-20 flex flex-col md:flex-row justify-between items-center py-5 gap-5">
                 <Link href={'/policy'} className='font-medium hover:underline hover:underline-offset-4'>Terms {'&'} Services</Link>
                 <p className="text-sm text-slate-100 flex flex-col justify-center items-center">

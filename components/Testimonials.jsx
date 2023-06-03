@@ -9,12 +9,13 @@ import "swiper/css/navigation";
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
 import testimonialsData from '@/data/testimonialsData';
+import { montserrat } from '@/context/fonts';
 
 function Testimonials() {
     return (
         <section className='container mx-auto text-white rounded-md min-h-full flex flex-col md:px-16 py-12 px-6 lg:px-8 max-w-[84rem]'>
             <div className='flex flex-col justify-center items-center text-center px-5 gap-5'>
-                <h2 className='text-3xl font-semibold'>Hear What Our Users Have to Say</h2>
+                <h2 className={`${montserrat.className} text-3xl font-semibold`}>Hear What Our Users Have to Say</h2>
                 <p className='text-lg mb-12 text-center'>Discover how ProManager has transformed the productivity and success of our valued users.</p>
                 <Swiper
                     centeredSlides={true}

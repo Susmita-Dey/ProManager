@@ -1,4 +1,5 @@
 import LoginComponent from '@/components/LoginComponent'
+import Head from 'next/head'
 import React from 'react'
 
 export default function Login() {

@@ -10,7 +10,7 @@ function EditDiaryModal({ documentId, closeModalForm }) {
                 <div className='fixed inset-0 bg-opacity-50 flex flex-col justify-center items-center'>
                     <div className='bg-white rounded-lg p-6 text-pink-600'>
                         <div className='flex flex-row justify-between mb-4 items-center gap-5'>
-                            <h2 className='text-xl font-bold'>Edit Note</h2>
+                            <h2 className={`${montserrat.className} text-xl font-bold`}>Edit Note</h2>
                             <RxCross2 className="text-xl font-bold relative top-0 right-0 hover:text-pink-600 hover:scale-150 text-gray-900 cursor-pointer w-6 h-6" onClick={closeModalForm} />
                         </div>
                         <DiaryNoteForm documentId={documentId} buttonTitle={'Save'} />

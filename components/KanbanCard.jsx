@@ -43,7 +43,7 @@ function KanbanCard({ columnId, itemId, index, imageFileId, boardtitle, boardite
                                     ref={provided.innerRef}
                                     {...provided.draggableProps}
                                     {...provided.dragHandleProps}
-                                    className={`${snapshot.isDragging ? "bg-pink-800" : ""}`}
+                                    className={`${snapshot.isDragging ? "bg-pink-500 text-white my-2" : ""}`}
                                 >
                                     <div className="flex flex-col gap-2 my-1">
                                         <h3 className="font-medium text-lg">{boardtitle}</h3>
@@ -66,7 +66,7 @@ function KanbanCard({ columnId, itemId, index, imageFileId, boardtitle, boardite
                                             )}
                                         </div>
                                         <button
-                                            className="relative top-0 left-2 flex justify-center items-center text-white font-medium p-2 mr-3 text-center border border-red-500 bg-rose-900 rounded-md"
+                                            className="relative top-0 left-2 flex justify-center items-center text-white font-medium p-2 mr-3 text-center border border-red-500 bg-rose-900 mb-2 rounded-md"
                                             onClick={() => {
                                                 deleteKanbanItem(itemId);
                                             }}

@@ -6,6 +6,7 @@ import IdeaCard from './IdeaCard'
 import TailwindToaster from './TailwindToaster';
 import { Query } from 'appwrite';
 import Loader from './Loader';
+import { roboto } from '@/context/fonts';
 
 function GeneralIdeas(userId) {
     console.info(userId.userId);
@@ -92,7 +93,7 @@ function GeneralIdeas(userId) {
 
     return (
         <>
-            <div className="max-w-7xl mx-auto container lg:px-8 px-5 mt-10 text-white">
+            <div className={` max-w-7xl mx-auto container lg:px-8 px-5 mt-10 text-white`}>
                 <form
                     action=""
                     onSubmit={handleSubmit}

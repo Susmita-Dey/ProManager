@@ -44,7 +44,7 @@ function ProgressForm(userId) {
 
 
     return (
-        <div className="max-w-7xl mx-auto container lg:px-8 px-5 mt-10 text-white">
+        <div className={` max-w-7xl mx-auto container lg:px-8 px-5 mt-10 text-white`}>
             <form
                 action=""
                 onSubmit={handleSubmit}

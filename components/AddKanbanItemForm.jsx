@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import toast from 'react-hot-toast';
 import TailwindToaster from './TailwindToaster';
 import { RxCross2 } from 'react-icons/rx';
+import { montserrat } from '@/context/fonts';
 
 function AddKanbanItemForm({ userId, closeModalForm }) {
     // console.log(userId.userId);
@@ -63,11 +64,11 @@ function AddKanbanItemForm({ userId, closeModalForm }) {
 
 
     return (
-        <div className="max-w-7xl mx-auto container lg:px-8 px-5 mt-10">
+        <section className={` max-w-7xl mx-auto container lg:px-8 px-5 mt-10`}>
             <div className='fixed inset-0 bg-opacity-50 flex flex-col justify-center items-center'>
                 <div className='bg-white rounded-lg p-6 text-pink-600'>
                     <div className='flex flex-row justify-between mb-4 items-center gap-5'>
-                        <h2 className='text-xl font-bold'>Add Kanban Item</h2>
+                        <h2 className={`${montserrat.className} text-xl font-bold`}>Add Kanban Item</h2>
                         <RxCross2 className="text-xl font-bold relative top-0 right-0 hover:text-pink-600 hover:scale-150 text-gray-900 cursor-pointer w-6 h-6" onClick={closeModalForm} />
                     </div>
                     <form
@@ -113,7 +114,7 @@ function AddKanbanItemForm({ userId, closeModalForm }) {
                 </div>
             </div>
             <TailwindToaster />
-        </div>
+        </section>
     )
 }
 

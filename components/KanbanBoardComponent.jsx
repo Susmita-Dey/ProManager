@@ -151,10 +151,10 @@ const KanbanBoardComponent = (userId) => {
                     {Object.values(board.columns).map((column) => (
                         <div
                             key={column.id}
-                            className="flex flex-col text-black items-center w-full m-4 bg-gray-100 rounded-lg"
+                            className="flex flex-col items-center w-full m-4 bg-gray-950 rounded-lg"
                         >
                             <h3 className="text-xl font-bold m-4">{column.boardtitle}</h3>
-                            <div className="lg:w-96 w-full px-4 overflow-auto h-96 py-2 mb-4 bg-gray-300">
+                            <div className="lg:w-96 w-full px-4 overflow-auto h-96 py-2 mb-4 text-black">
                                 <Droppable droppableId={column.id}>
                                     {(provided, snapshot) => (
                                         <div

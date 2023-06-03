@@ -1,3 +1,4 @@
+import { montserrat, roboto } from '@/context/fonts'
 import React from 'react'
 import { AiFillBulb } from 'react-icons/ai'
 import { FaCloud, FaCreativeCommonsSamplingPlus, FaFingerprint, FaLock, FaProjectDiagram, FaStopwatch, FaTasks } from 'react-icons/fa'
@@ -44,10 +45,10 @@ const features = [
 
 export default function About() {
     return (
-        <section className="min-h-full flex flex-col py-12 sm:px-6 lg:px-8" id='about'>
+        <section className={` min-h-full flex flex-col py-12 sm:px-6 lg:px-8`} id='about'>
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-2xl text-center">
-                    <h2 className="text-base font-semibold leading-7 text-cyan-400">Achieve your goals faster</h2>
+                    <h2 className={`${montserrat.className} text-base font-semibold leading-7 text-cyan-400`}>Achieve your goals faster</h2>
                     <p className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
                         Everything you need to <span className='text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500'>increase</span> your level of <span className='text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500'>productivity</span>
                     </p>

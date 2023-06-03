@@ -6,6 +6,7 @@ import IdeaCard from './IdeaCard'
 import TailwindToaster from './TailwindToaster';
 import { Query } from 'appwrite';
 import Loader from './Loader';
+import { montserrat, roboto } from '@/context/fonts';
 
 function DeveloperIdeas(userId) {
     console.info(userId.userId);
@@ -103,7 +104,7 @@ function DeveloperIdeas(userId) {
 
     return (
         <>
-            <div className="max-w-7xl mx-auto container lg:px-8 px-5 mt-10 text-white">
+            <section className={` max-w-7xl mx-auto container lg:px-8 px-5 mt-10 text-white`}>
                 <form
                     action=""
                     onSubmit={handleSubmit}
@@ -130,9 +131,9 @@ function DeveloperIdeas(userId) {
                     </button>
                 </form>
                 <TailwindToaster />
-            </div>
+            </section>
             <div className="max-w-7xl container lg:px-8 px-5 mx-auto my-4">
-                <p className="text-xl font-bold mb-2 text-white text-center">Your Ideas</p>
+                <h2 className={`${montserrat.className} text-2xl font-bold mb-2 text-white text-center`}>Your Ideas</h2>
                 <div className='flex flex-col md:flex-row justify-center items-center gap-4'>
                     {ideas && ideas.map((item) => (
                         <div key={item.$id} >
@@ -156,7 +157,7 @@ function DeveloperIdeas(userId) {
                     }
                 </div>
             </div>
-            <h2 className='text-3xl font-semibold text-center my-10'>List of Development Ideas</h2>
+            <h2 className={`${montserrat.className} text-3xl font-semibold text-center my-10`}>List of Development Ideas</h2>
             <div className='flex lg:flex-row flex-wrap flex-col justify-center items-center gap-5'>
                 {prodeveloper.map((item, index) => (
                     <div key={index} className="max-w-7xl flex lg:flex-row flex-col justify-center items-center gap-2">

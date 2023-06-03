@@ -10,8 +10,6 @@ import Testimonials from '@/components/Testimonials'
 import FaqComponent from '@/components/FaqComponent'
 import UseCaseComponent from '@/components/UseCaseComponent'
 
-const inter = Inter({ subsets: ['latin'] })
-
 export default function Home() {
   const [userDetails, setUserDetails] = useState()
 
@@ -38,7 +36,7 @@ export default function Home() {
       {!userDetails ? (
         <>
           <main
-            className={`min-h-screen text-white ${inter.className}`}
+            className='min-h-screen text-white'
           >
             <HeroSection />
             <About />

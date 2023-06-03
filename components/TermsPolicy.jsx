@@ -1,3 +1,4 @@
+import { montserrat } from '@/context/fonts'
 import React from 'react'
 
 export default function TermsPolicy() {
@@ -5,7 +6,7 @@ export default function TermsPolicy() {
         <section className='container mx-auto my-4 py-10 px-12'>
             <div className='flex flex-col justify-center items-center space-x-6 space-y-6'>
                 <div className='space-y-6'>
-                    <h2 className='text-3xl font-semibold'>Terms of Service</h2>
+                    <h2 className={`${montserrat.className} text-3xl font-semibold`}>Terms of Service</h2>
                     <p className='font-medium'>Welcome to ProManager!</p>
                     <p>These Terms of Service (&apos;Terms&apos;) govern your use of the ProManager application (&apos;the Service&apos;) provided by ProManager, Inc. <br /> By accessing or using the Service, you agree to be bound by these Terms. <br /> If you do not agree with any of these terms, please do not use the Service.</p>
                     <div>

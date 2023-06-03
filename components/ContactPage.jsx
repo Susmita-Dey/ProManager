@@ -1,11 +1,12 @@
 import React from "react";
 import Image from "next/image";
+
 // import Link from "next/link";
 
 export default function ContactPage() {
   return (
     <>
-      <section className="container mx-auto px-6 py-12" id="contact">
+      <section className={` container mx-auto px-6 py-12`} id="contact">
         <div className="max-w-6xl mx-auto">
           <div
             className="flex flex-col md:flex-row"

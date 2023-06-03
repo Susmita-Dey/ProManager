@@ -1,4 +1,5 @@
 import { account } from "@/appwrite/appwrite";
+import { opensans } from "@/context/fonts";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
@@ -36,7 +37,7 @@ export default function Navbar() {
 
     return (
         <>
-            <nav className="filter drop-shadow-md lg:px-24 h-20 px-2 border-b-2 border-gray-400 relative flex flex-wrap items-center justify-between py-3 bg-gray-950 mb-3">
+            <nav className={`${opensans.className} filter drop-shadow-md lg:px-24 h-20 px-2 border-b-2 border-gray-400 relative flex flex-wrap items-center justify-between py-3 bg-gray-950 mb-3`}>
                 <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
                     <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
                         <Link

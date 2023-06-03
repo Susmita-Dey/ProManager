@@ -4,10 +4,11 @@ import { MdPhone } from "react-icons/md";
 import { FaDiscord, FaLinkedin, FaRegClock, FaTwitter, FaUserFriends, FaYoutube } from "react-icons/fa";
 import { SlLocationPin } from "react-icons/sl";
 
+
 export default function ContactFooter() {
     return (
         <>
-            <section className="text-white bg-gray-950 body-font relative">
+            <section className={` text-white bg-gray-950 body-font relative`}>
                 <div className="container px-20 pt-8 pb-2 mx-auto">
                     <div className="flex justify-between my-4 md:flex-row md:flex-nowrap flex-wrap flex-col">
                         <div className="flex flex-col my-4">

@@ -1,3 +1,5 @@
+
+import { montserrat } from "@/context/fonts";
 import React, { useState } from "react";
 import AccordionItems from "./AccordianItems";
 
@@ -46,9 +48,9 @@ export default function FaqComponent() {
         },
     ];
     return (
-        <section className="min-h-full flex flex-col py-12 px-5 lg:px-8">
+        <section className={` min-h-full flex flex-col py-12 px-5 lg:px-8`}>
             <div className="flex flex-col justify-center items-center text-center lg:text-start lg:px-24">
-                <h1 className="lg:text-4xl text-2xl mt-20 font-semibold text-center">Frequently Asked Questions</h1>
+                <h2 className={`${montserrat.className} lg:text-4xl text-2xl mt-20 font-semibold text-center`}>Frequently Asked Questions</h2>
                 <p className="text-lg mt-4 mb-6 font-normal text-center">Find answers to common inquiries about ProManager and its features to get the most out of your productivity tool.</p>
             </div>
             <div className="px-4 md:px-20 text-justify justify-center items-center list-disc">

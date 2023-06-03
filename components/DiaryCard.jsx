@@ -1,4 +1,5 @@
 import { storage } from '@/appwrite/appwrite';
+import { roboto } from '@/context/fonts';
 import Image from 'next/image';
 import React from 'react';
 
@@ -10,7 +11,7 @@ const DiaryCard = ({ imageFileId, diaryTitle, diaryNote }) => {
     const imageUrl = storage.getFilePreview(bucketId, imageFileId, 150, 150, "center", 100);
 
     return (
-        <div className='flex flex-col justify-center items-center lg:w-96 w-full text-center flex-wrap gap-2'>
+        <div className={`flex flex-col justify-center items-center lg:w-96 w-full text-center flex-wrap gap-2`}>
             {imageUrl ? (
                 <div className='flex p-2 border-2 border-white text-white'>
                     <img src={imageUrl} width={150} height={150} alt="Card Image" />

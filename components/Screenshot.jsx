@@ -14,7 +14,7 @@ export default function Screenshot() {
             </div>
             <img width={width} src={image} alt={'Screenshot'} />
             <div ref={ref}>
-                <h1>use-react-screenshot</h1>
+                <h2>use-react-screenshot</h2>
                 <p>
                     <strong>hook by @vre2h which allows to create screenshots</strong>
                 </p>
