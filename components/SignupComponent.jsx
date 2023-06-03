@@ -89,6 +89,7 @@ function SignupComponent() {
                                     id="email"
                                     name="email"
                                     type="email"
+                                    required
                                     className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 focus:outline-none focus:ring-pink-500 focus:border-pink-500 sm:text-sm"
                                     placeholder='example@gmail.com'
                                     onChange={(e) => {
@@ -128,7 +129,10 @@ function SignupComponent() {
                             <span className='text-sm font-medium text-pink-950 mt-1'>* Password must be atleast 8 characters long</span>
                         </div>
 
-
+                        <div className='flex flex-row gap-2'>
+                            <input type="checkbox" name="" id="" required className='text-pink-900' />
+                            <label className='text-rose-900 text-xs'>By signing up, I accept the ProManager <Link href={'/policy'} className='text-blue-600'>Terms of Service</Link> </label>
+                        </div>
 
                         <div>
                             <button

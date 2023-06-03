@@ -1,0 +1,21 @@
+{
+  "name": "ProManager",
+  "short_name": "ProManager",
+  "icons": [
+    {
+      "src": "/logo.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/logo.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ],
+  "theme_color": "#FFFFFF",
+  "background_color": "#161622",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait"
+}

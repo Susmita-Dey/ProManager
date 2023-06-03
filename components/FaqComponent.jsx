@@ -48,7 +48,7 @@ export default function FaqComponent() {
         },
     ];
     return (
-        <section className={` min-h-full flex flex-col py-12 px-5 lg:px-8`}>
+        <section className={` min-h-full flex flex-col py-12 px-5 lg:px-8`} data-aos="fade-up">
             <div className="flex flex-col justify-center items-center text-center lg:text-start lg:px-24">
                 <h2 className={`${montserrat.className} lg:text-4xl text-2xl mt-20 font-semibold text-center`}>Frequently Asked Questions</h2>
                 <p className="text-lg mt-4 mb-6 font-normal text-center">Find answers to common inquiries about ProManager and its features to get the most out of your productivity tool.</p>

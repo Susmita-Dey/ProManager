@@ -4,7 +4,6 @@ import { MdPhone } from "react-icons/md";
 import { FaDiscord, FaLinkedin, FaRegClock, FaTwitter, FaUserFriends, FaYoutube } from "react-icons/fa";
 import { SlLocationPin } from "react-icons/sl";
 
-
 export default function ContactFooter() {
     return (
         <>

@@ -51,7 +51,7 @@ export default function Newsletter() {
     }
 
     return (
-        <section className='container mx-auto my-12 md:my-4 py-10 px-5' id='newsletter'>
+        <section className='container mx-auto my-12 md:my-4 py-10 px-5' id='newsletter' data-aos="fade-up">
             <div className='flex flex-col justify-center items-center gap-6'>
                 <h2 className={`${montserrat.className} md:text-4xl text-2xl`}>
                     Subscribe to our <span className='font-semibold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500'>Newsletter</span>

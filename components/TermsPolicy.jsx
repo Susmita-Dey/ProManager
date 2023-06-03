@@ -9,7 +9,7 @@ export default function TermsPolicy() {
                     <h2 className={`${montserrat.className} text-3xl font-semibold`}>Terms of Service</h2>
                     <p className='font-medium'>Welcome to ProManager!</p>
                     <p>These Terms of Service (&apos;Terms&apos;) govern your use of the ProManager application (&apos;the Service&apos;) provided by ProManager, Inc. <br /> By accessing or using the Service, you agree to be bound by these Terms. <br /> If you do not agree with any of these terms, please do not use the Service.</p>
-                    <div>
+                    <div data-aos="fade-up">
                         <ul className='list-outside list-decimal space-y-4'>
                             <li className='font-medium'>User Responsibilities</li>
                             <ol className='space-y-2 list-inside list-decimal'>

@@ -49,13 +49,17 @@ export default function UseCaseComponent() {
     })
 
     return (
+
         <section className='container mx-auto md:px-16 py-12 lg:mt-32 sm:px-6 lg:px-8' id='use-case'>
             <div className='flex flex-col justify-center items-center gap-5'>
-                <h2 className={`${montserrat.className} text-3xl font-semibold`}>Real-Life
+                <h2 className={`${montserrat.className} text-3xl font-semibold`} data-aos="fade-up" data-aos-easing="linear"
+                    data-aos-duration="500">Real-Life
                     <span className='ml-2 text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500'>Applications</span>
                 </h2>
-                <p className='text-lg text-center'>Explore how ProManager benefits developers, students, and individuals<br /> in various scenarios to achieve their goals efficiently.</p>
-                <div className="w-full max-w-[84rem] px-2 py-16 sm:px-0 justify-center items-center">
+                <p className='text-lg text-center' data-aos="fade-up" data-aos-easing="linear"
+                    data-aos-duration="500">Explore how ProManager benefits developers, students, and individuals<br /> in various scenarios to achieve their goals efficiently.</p>
+                <div className="w-full max-w-[84rem] px-2 py-16 sm:px-0 justify-center items-center" data-aos="zoom-in" data-aos-easing="linear"
+                    data-aos-duration="500">
                     <Tab.Group>
                         <Tab.List className="flex space-x-1 rounded-xl bg-blue-900/20 p-1">
                             {Object.keys(categories).map((category) => (

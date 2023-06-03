@@ -5,19 +5,19 @@ function OpenSource() {
     return (
         <section className='container mx-auto my-12 md:my-4 py-10 px-5 lg:px-8 max-w-[85rem]'>
             <div className='flex flex-col'>
-                <div className='my-2'>
+                <div className='my-2' data-aos="fade-up">
                     <h2 className="text-4xl font-bold mb-4">Open Source</h2>
                     <p className="text-lg mb-6">
                         ProManager is an open-source project aimed at helping individuals effectively manage their projects.
                     </p>
                 </div>
-                <div className='my-2'>
+                <div className='my-2' data-aos="fade-up">
                     <h2 className="text-2xl font-bold mb-2">Overview</h2>
                     <p className="text-lg mb-4">
                         ProManager is an open-source project aimed at helping individuals effectively manage their projects. It provides a comprehensive set of tools and features to streamline project planning, task management, notes keeping, and tracking progress. With ProManager, users can easily organize their tasks, visualize productivity, set goals, and track project milestones. Whether you&apos;re a student, professional, or freelancer, ProManager is designed to enhance your productivity and ensure project success. Join our vibrant community of contributors and users and take control of your projects with ProManager.
                     </p>
                 </div>
-                <div className='my-2'>
+                <div className='my-2' data-aos="fade-up">
                     <h2 className="text-2xl font-bold mb-2">Project Goal</h2>
                     <p className="text-lg mb-4">
                         ProManager aims to provide individuals with a comprehensive project management solution
@@ -27,8 +27,7 @@ function OpenSource() {
                     </p>
                 </div>
 
-                {/* ... Rest of the content ... */}
-                <div className='my-2'>
+                <div className='my-2' data-aos="fade-up">
                     <h2 className="text-2xl font-bold mb-2">Contributing Overview</h2>
                     <p className="text-lg mb-4">
                         Thank you for your interest in contributing to ProManager! From commenting on and triaging issues,
@@ -67,9 +66,9 @@ function OpenSource() {
                 </div>
 
                 {/* ... Rest of the content ... */}
-                <div className='my-2'>
+                <div className='my-2' data-aos="zoom-in">
                     <h2 className="text-2xl font-bold mb-2">License</h2>
-                    <p className="text-lg mb-4">
+                    <div className="text-lg mb-4">
                         ProManager is open source software released under the MIT License.
 
                         <pre className="bg-gray-950 mt-2 p-4 rounded-md overflow-auto">
@@ -95,10 +94,10 @@ function OpenSource() {
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.`}
                         </pre>
-                    </p>
+                    </div>
                 </div>
 
-                <div className='my-2'>
+                <div className='my-2' data-aos="fade-up">
                     <h2 className="text-2xl font-bold mb-2">GitHub Issues</h2>
                     <p className="text-lg mb-4">
                         GitHub issues are used to track bugs in ProManager. You can contribute by:
@@ -109,7 +108,7 @@ function OpenSource() {
                         </ul>
                     </p>
                 </div>
-                <div className='my-2'>
+                <div className='my-2' data-aos="fade-up">
                     <h2 className="text-2xl font-bold mb-2">Helping with Documentation</h2>
                     <p className="text-lg mb-4">
                         ProManager&apos;s documentation is hosted in the project&apos;s website repository. If you want to contribute to the documentation, you can suggest changes by following the guidelines like fork, clone, etc.
@@ -118,7 +117,7 @@ function OpenSource() {
                     </p>
 
                 </div>
-                <div className='my-2'>
+                <div className='my-2' data-aos="fade-up">
                     <h2 className="text-2xl font-bold mb-2">Contributing Code</h2>
                     <p className="text-lg mb-4">
                         If you&apos;re interested in contributing code to ProManager, we welcome your contributions! Follow the steps below to get started:
@@ -158,7 +157,7 @@ function OpenSource() {
                     <p className="text-lg mb-4">Please make sure to follow our coding guidelines and best practices when contributing code. We appreciate your efforts in making ProManager better for everyone!
                     </p>
                 </div>
-                <div className='my-2'>
+                <div className='my-2' data-aos="fade-up">
                     <h2 className="text-2xl font-bold mb-2">Contributing Best Practices</h2>
                     <p className="text-lg mb-4">
                         To ensure a smooth and effective contribution process, we recommend following these best practices:
@@ -177,7 +176,7 @@ function OpenSource() {
                     </ul>
                 </div>
 
-                <div className='my-2'>
+                <div className='my-2' data-aos="fade-up">
                     <h2 className="text-2xl font-bold mb-2">Community Contributions</h2>
                     <p className="text-lg mb-4">
                         Contributions to ProManager go beyond GitHub. You can make a difference by:
@@ -192,7 +191,7 @@ function OpenSource() {
                     </p>
                 </div>
                 {/* ... Rest of the content ... */}
-                <div className='flex flex-col lg:flex-row justify-center items-center text-lg font-semibold text-pink-600 gap-4'>
+                <div data-aos="zoom-in" className='flex flex-col lg:flex-row justify-center items-center text-lg font-semibold text-pink-600 gap-4'>
                     <Link className='underline underline-offset-4' href={'https://github.com/Susmita-Dey/ProManager'} target="_blank" rel="noopener noreferrer">GitHub Repository</Link>
                     <Link className='underline underline-offset-4' href={'https://github.com/Susmita-Dey/ProManager/discussions'} target="_blank" rel="noopener noreferrer">GitHub Discussions</Link>
                     <Link className='underline underline-offset-4' href={'/policy'} target="_blank" rel="noopener noreferrer">Terms and Policy</Link>
