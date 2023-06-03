@@ -150,6 +150,7 @@ const KanbanBoardComponent = (userId) => {
                 <div className="flex flex-col lg:flex-row items-center justify-center py-8">
                     {Object.values(board.columns).map((column) => (
                         <div
+                            key={column.id}
                             className="flex flex-col text-black items-center w-full m-4 bg-gray-100 rounded-lg"
                         >
                             <h3 className="text-xl font-bold m-4">{column.boardtitle}</h3>
@@ -168,7 +169,9 @@ const KanbanBoardComponent = (userId) => {
                                             }
                                         >
                                             {column.items.map((item, index) => (
-                                                <KanbanCard columnId={column.id} itemId={item.id} index={index} boarditem={item.boarditem} boardtitle={item.boardtitle} imageFileId={item.image} />
+                                                <div key={index}>
+                                                    <KanbanCard columnId={column.id} itemId={item.id} index={index} boarditem={item.boarditem} boardtitle={item.boardtitle} imageFileId={item.image} />
+                                                </div>
                                             ))}
                                             {provided.placeholder}
                                         </div>
