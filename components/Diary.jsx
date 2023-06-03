@@ -78,7 +78,7 @@ function Diary(userId) {
 
     return (
         <section className={` max-w-7xl container lg:px-8 px-5 mt-16 mx-auto`}>
-            <h2 className={`${montserrat.className} text-2xl font-bold mb-2 text-white underline underline-offset-2 decoration-wavy`}>Your Secret Notes</h2>
+            <h2 className={`${montserrat.className} text-2xl font-bold mb-2 text-white underline underline-offset-2 decoration-wavy`}>My Secret Notes</h2>
             <div className='flex flex-col lg:flex-row flex-wrap justify-center items-center gap-4'>
                 {diary && diary.map((item) => (
                     <div key={item.$id} className="p-4 flex flex-col items-center justify-center border-b bg-gradient-to-b px-4 pb-6 pt-8 lg:backdrop-blur-2xl border-neutral-800 bg-zinc-800/30 from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:bg-zinc-800/30 gap-2 hover:shadow-lg hover:border-pink-500/40 my-4">

@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import toast from 'react-hot-toast';
 import TailwindToaster from './TailwindToaster';
 import { RxCross2 } from 'react-icons/rx';
-import { montserrat } from '@/context/fonts';
+import { montserrat, nunito } from '@/context/fonts';
 
 function AddKanbanItemForm({ userId, closeModalForm }) {
     // console.log(userId.userId);
@@ -105,7 +105,7 @@ function AddKanbanItemForm({ userId, closeModalForm }) {
                             <input type="file" id="imageFile" accept="image/*" onChange={handleImageUpload} />
                         </div>
                         <button
-                            className="bg-pink-600 hover:bg-pink-700 p-2 w-full text-white rounded-md"
+                            className={`${nunito.className} bg-pink-600 font-bold hover:bg-pink-700 p-2 w-full text-white rounded-md`}
                             type="submit"
                         >
                             Add kanban

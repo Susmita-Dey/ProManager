@@ -1,3 +1,4 @@
+import { montserrat } from '@/context/fonts'
 import React from 'react'
 import { Draggable, Droppable } from 'react-beautiful-dnd'
 
@@ -6,7 +7,7 @@ function StaticBoard() {
         <section className="container mx-auto max-w-[84rem] lg:px-8 px-5">
             <div className="flex flex-col justify-center items-center gap-5">
                 <div className="flex flex-col gap-2 my-4">
-                    <h2 className="text-4xl font-bold">Kanban Board</h2>
+                    <h2 className={`${montserrat.className} text-4xl font-bold`}>Kanban Board</h2>
                     <p className="text-lg font-normal">Kanban Board</p>
                 </div>
                 <div className="flex justify-center py-8">

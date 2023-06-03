@@ -75,7 +75,7 @@ function DiaryNoteForm(userId) {
     return (
         <div className={` max-w-7xl mx-auto container lg:px-8 px-5 mt-10 text-white`}>
             <div className="flex flex-col gap-4 my-5 justify-center items-center">
-                <h2 className="text-4xl font-bold">Diary Notes</h2>
+                <h2 className={`${montserrat.className} text-4xl font-bold`}>Diary Notes</h2>
                 <p className="text-xl font-medium">Effortlessly capture and organize your thoughts, ideas, and plans with Promanger&apos;s Diary Note Keeping feature.</p>
                 <button className="bg-rose-600 font-medium px-4 py-2 lg:w-1/6 w-full flex flex-row gap-2 justify-center items-center" onClick={openModalForm}>
                     Add New Note <MdAddCircle className="text-xl font-bold" />

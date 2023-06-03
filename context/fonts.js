@@ -1,4 +1,4 @@
-import { Montserrat, Open_Sans, Roboto } from "next/font/google";
+import { Montserrat, Nunito, Open_Sans, Roboto } from "next/font/google";
 
 export const montserrat = Montserrat({
     weight: ['100', '300', '400', '500', '700', '900'],
@@ -15,7 +15,14 @@ export const roboto = Roboto({
 });
 
 export const opensans = Open_Sans({
-    // weight: ['100', '300', '400', '500', '700', '900'],
+    weight: ['300', '400', '500', '600', '700', '800'],
+    style: ['normal', 'italic'],
+    subsets: ['latin'],
+    display: 'swap',
+});
+
+export const nunito = Nunito({
+    weight: ['200', '300', '400', '500', '600', '700', '800', '900'],
     style: ['normal', 'italic'],
     subsets: ['latin'],
     display: 'swap',

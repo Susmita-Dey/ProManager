@@ -8,6 +8,7 @@ import AddKanbanItemForm from "./AddKanbanItemForm";
 import KanbanCard from "./KanbanCard";
 import { MdAddCircle } from "react-icons/md";
 import Loader from "./Loader";
+import { montserrat } from "@/context/fonts";
 
 const KanbanBoardComponent = (userId) => {
     const [board, setBoard] = useState({
@@ -138,7 +139,7 @@ const KanbanBoardComponent = (userId) => {
     return (
         <section className="container mx-auto mt-10 mb-5 max-w-[84rem] lg:px-8 px-5">
             <div className="flex flex-col gap-4 justify-center items-center">
-                <h2 className="text-4xl font-bold">Kanban Board</h2>
+                <h2 className={`${montserrat.className} text-4xl font-bold`}>Kanban Board</h2>
                 <p className="text-xl font-medium">Effortlessly add new items to your Kanban board and stay organized with ease.</p>
                 <button className="bg-rose-600 font-medium px-4 py-2 lg:w-1/6 w-full flex flex-row gap-2 justify-center items-center" onClick={openModalForm}>
                     Add New Item<MdAddCircle className="text-xl font-bold" />

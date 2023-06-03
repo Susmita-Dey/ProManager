@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { nunito } from "@/context/fonts";
 
 // import Link from "next/link";
 
@@ -102,7 +103,7 @@ export default function ContactPage() {
                   </div>
 
                   <div className="text-center my-4">
-                    <button type="submit" className="bg-pink-600  font-medium hover:bg-pink-800 px-4 py-2 rounded-lg" role="button">
+                    <button type="submit" className={`${nunito.className} bg-pink-600 font-bold hover:bg-pink-800 px-4 py-2 rounded-lg`} role="button">
                       Submit
                     </button>
                   </div>

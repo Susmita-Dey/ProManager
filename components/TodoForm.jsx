@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid'
 import { databases } from '@/appwrite/appwrite'
 import toast from 'react-hot-toast';
 import TailwindToaster from './TailwindToaster';
+import { montserrat } from '@/context/fonts';
 
 function TodoForm(userId) {
     // console.log(userId.userId);
@@ -41,6 +42,10 @@ function TodoForm(userId) {
 
     return (
         <div className="max-w-7xl mx-auto mt-10 text-white">
+            <div className="flex flex-col gap-4 my-5 justify-center items-center">
+                <h2 className={`${montserrat.className} text-4xl font-bold`}>Task list</h2>
+                <p className="text-xl font-medium">Effortlessly Manage and Dominate Your Tasks with ProManager&apos;s Powerful Tasklist Feature</p>
+            </div>
             <form
                 action=""
                 onSubmit={handleSubmit}

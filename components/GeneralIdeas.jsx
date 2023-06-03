@@ -122,7 +122,7 @@ function GeneralIdeas(userId) {
                 <TailwindToaster />
             </div>
             <div className="max-w-7xl container lg:px-8 px-5 mx-auto my-4">
-                <p className="text-xl font-bold mb-2 text-white text-center">Your Super Cool Ideas 😎</p>
+                <p className="text-xl font-bold mb-2 text-white text-center">My Super Cool Ideas 😎</p>
                 <div className='flex flex-col md:flex-row justify-center items-center gap-4'>
                     {ideas && ideas.map((item) => (
                         <div key={item.$id} >

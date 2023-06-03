@@ -4,6 +4,7 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { account } from '@/appwrite/appwrite'
 import NotLoggedIn from '@/components/NotLoggedIn'
+import Head from 'next/head'
 
 
 function TaskList() {
@@ -24,6 +25,11 @@ function TaskList() {
 
     return (
         <>
+            <Head>
+                <title>ProManager | TaskList</title>
+                <meta name="description" content="ProManager - Orgranize tasks with KanbanBoard" />
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
             {userDetails ? (
                 <>
                     <div>
