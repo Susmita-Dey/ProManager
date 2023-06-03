@@ -35,7 +35,7 @@ function KanbanCard({ columnId, itemId, index, imageFileId, boardtitle, boardite
     return (
         <Droppable droppableId={columnId}>
             {(provided) => (
-                <div key={columnId} ref={provided.innerRef} {...provided.droppableProps}>
+                <div ref={provided.innerRef} {...provided.droppableProps}>
                     <div className="w-full gap-2 text-center p-2 mb-4 rounded-lg bg-blue-300">
                         <Draggable key={itemId} draggableId={itemId.toString()} index={index}>
                             {(provided, snapshot) => (
