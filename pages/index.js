@@ -1,4 +1,3 @@
-import { Inter } from 'next/font/google'
 import { useEffect, useState } from 'react'
 import { account } from '@/appwrite/appwrite'
 import DashboardComponent from '@/components/DashboardComponent'
