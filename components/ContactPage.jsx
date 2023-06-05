@@ -1,15 +1,37 @@
 import React from "react";
 import Image from "next/image";
 import { nunito } from "@/context/fonts";
-import { useForm, ValidationError } from '@formspree/react';
-
-// import Link from "next/link";
+import { useForm, ValidationError } from "@formspree/react";
+import Link from "next/link";
 
 export default function ContactPage() {
   const [state, handleSubmit] = useForm("xeqwbkgb");
 
   if (state.succeeded) {
-    return <p>Thanks for joining!</p>;
+    return (
+      <div className="text-white flex flex-col mx-auto my-10 justify-center items-center">
+        <Image
+          className="mb-6"
+          src="https://cdn.pixabay.com/photo/2018/08/02/18/58/survival-3580200_1280.png"
+          alt="error"
+          width={250}
+          height={250}
+        />
+        <h2 className="text-center font-medium text-lg">
+          Thank you for reaching out to us!! We have received your info.
+        </h2>
+        <p className="text-center py-4">
+          We&apos;ll reach out to you shortly via email. Kindly go back home
+          safely and enjoy using ProManager.
+          <br /> Happy Productiviting! 🎃
+        </p>
+        <Link href="/">
+          <button className="bg-pink-900 text-white p-4 rounded-lg">
+            Go back Home
+          </button>
+        </Link>
+      </div>
+    );
   }
 
   return (
@@ -41,15 +63,15 @@ export default function ContactPage() {
                   <h2 className="text-center text-3xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-green-300 via-cyan-300 to-pink-300">
                     Contact Us
                   </h2>
-                  <p>Feel free to connect with our developers by filling this form.</p>
+                  <p>
+                    Feel free to connect with our developers by filling this
+                    form.
+                  </p>
                 </div>
 
                 <form onSubmit={handleSubmit}>
                   <div className="my-3 flex flex-col">
-                    <label
-                      htmlFor="name"
-                      className=" mb-3 font-semibold"
-                    >
+                    <label htmlFor="name" className=" mb-3 font-semibold">
                       Name
                     </label>
                     <input
@@ -67,10 +89,7 @@ export default function ContactPage() {
                   </div>
 
                   <div className="my-3 flex flex-col">
-                    <label
-                      htmlFor="email"
-                      className=" mb-3 font-semibold"
-                    >
+                    <label htmlFor="email" className=" mb-3 font-semibold">
                       Email ID
                     </label>
                     <input
@@ -88,10 +107,7 @@ export default function ContactPage() {
                   </div>
 
                   <div className="my-3 flex flex-col">
-                    <label
-                      htmlFor="subject"
-                      className=" mb-3 font-semibold"
-                    >
+                    <label htmlFor="subject" className=" mb-3 font-semibold">
                       Subject
                     </label>
                     <input
@@ -109,10 +125,7 @@ export default function ContactPage() {
                   </div>
 
                   <div className="my-3 flex flex-col">
-                    <label
-                      htmlFor="message"
-                      className=" mb-3 font-semibold"
-                    >
+                    <label htmlFor="message" className=" mb-3 font-semibold">
                       Message
                     </label>
                     <textarea
@@ -130,7 +143,12 @@ export default function ContactPage() {
                   </div>
 
                   <div className="text-center my-4">
-                    <button type="submit" disabled={state.submitting} className={`${nunito.className} bg-pink-600 font-bold hover:bg-pink-800 px-4 py-2 rounded-lg`} role="button">
+                    <button
+                      type="submit"
+                      disabled={state.submitting}
+                      className={`${nunito.className} bg-pink-600 font-bold hover:bg-pink-800 px-4 py-2 rounded-lg`}
+                      role="button"
+                    >
                       Submit
                     </button>
                   </div>

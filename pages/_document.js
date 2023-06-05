@@ -36,7 +36,7 @@ export default function Document() {
         <meta property="og:url" content="https://promanager.vercel.app" />
         <meta property="og:image" content="https://promanager.vercel.app/icons/apple-touch-icon.png" />
 
-        <link rel="manifest" href="/manifest.json" />
+        <link rel='manifest' href='/manifest.webmanifest' />
         <link rel="apple-touch-icon" href="/logo.png"></link>
         <meta name="theme-color" content="#fff" />
       </Head>
