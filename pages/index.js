@@ -60,22 +60,21 @@ export default function Home() {
           </main>
         </>
       ) : (
-        !isAdmin ? (
-          <>
-            <div>
-              <DashboardComponent username={userDetails.name} userId={userDetails.$id} />
-              <AdminDashboard />
-            </div>
-          </>
-        ) : (
-          <>
-            <div>
-              <DashboardComponent username={userDetails.name} userId={userDetails.$id} />
-            </div>
-          </>
-        )
-
+        // !isAdmin ? (
+        //   <>
+        //     <div>
+        //       <DashboardComponent username={userDetails.name} userId={userDetails.$id} />
+        //       <AdminDashboard />
+        //     </div>
+        //   </>
+        // ) : (
+        <>
+          <div>
+            <DashboardComponent username={userDetails.name} userId={userDetails.$id} />
+          </div>
+        </>
       )
+        // )
       }
     </>
   )
