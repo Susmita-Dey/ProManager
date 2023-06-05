@@ -4,10 +4,21 @@ import { Query } from 'appwrite'
 import toast from 'react-hot-toast'
 import TailwindToaster from './TailwindToaster'
 import Loader from './Loader'
+import EditTipsModal from './EditTipsModal'
 
 function TipsList(userId) {
     const [tipsList, setTipsList] = useState()
     const [loader, setLoader] = useState(false)
+
+    const [showModalForm, setShowModalForm] = useState(false);
+
+    const openModalForm = () => {
+        setShowModalForm(true);
+    };
+
+    const closeModalForm = () => {
+        setShowModalForm(false);
+    };
 
     // console.log(userId.userId);
 
@@ -44,7 +55,6 @@ function TipsList(userId) {
             function (error) {
                 toast.error(error.message)
                 console.log(error);
-                window.location.reload()
             }
         )
     }
@@ -65,7 +75,13 @@ function TipsList(userId) {
                             <div>
                                 <p className='text-lg font-medium text-white'>{item.tips}</p>
                             </div>
-                            <div>
+                            <div className='flex flex-row gap-2'>
+                                <span
+                                    className="text-white cursor-pointer"
+                                    onClick={openModalForm}
+                                >
+                                    Edit
+                                </span>
                                 <span
                                     className="text-white cursor-pointer"
                                     onClick={() => {
@@ -76,6 +92,7 @@ function TipsList(userId) {
                                 </span>
                             </div>
                         </div>
+                        {showModalForm && <EditTipsModal closeModal={closeModalForm} documentId={item.$id} tipval={item.tips} userId={userId.userId} />}
                     </div>
                 ))
                 }

@@ -8,9 +8,14 @@ import About from '@/components/About'
 import Testimonials from '@/components/Testimonials'
 import FaqComponent from '@/components/FaqComponent'
 import UseCaseComponent from '@/components/UseCaseComponent'
+import AdminDashboard from '@/components/AdminDashboard'
 
 export default function Home() {
-  const [userDetails, setUserDetails] = useState()
+  const [userDetails, setUserDetails] = useState('')
+  const [isAdmin, setIsAdmin] = useState(false)
+
+  const adminName = 'admin-susmita'
+  const adminId = '6468cd72a4cbcdd4971f'
 
   useEffect(() => {
     const getData = account.get()
@@ -24,6 +29,15 @@ export default function Home() {
       }
     )
   }, [])
+
+  const checkAdmin = () => {
+    if (userDetails.name === adminName) {
+      // alert('Admin login')
+      setIsAdmin(true)
+    }
+
+    console.log(userDetails.name);
+  }
 
   return (
     <>
@@ -45,12 +59,23 @@ export default function Home() {
             <Newsletter />
           </main>
         </>
-      ) :
-        <>
-          <div>
-            <DashboardComponent username={userDetails.name} userId={userDetails.$id} />
-          </div>
-        </>
+      ) : (
+        !isAdmin ? (
+          <>
+            <div>
+              <DashboardComponent username={userDetails.name} userId={userDetails.$id} />
+              <AdminDashboard />
+            </div>
+          </>
+        ) : (
+          <>
+            <div>
+              <DashboardComponent username={userDetails.name} userId={userDetails.$id} />
+            </div>
+          </>
+        )
+
+      )
       }
     </>
   )

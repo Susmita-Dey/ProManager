@@ -1,10 +1,17 @@
 import React from "react";
 import Image from "next/image";
 import { nunito } from "@/context/fonts";
+import { useForm, ValidationError } from '@formspree/react';
 
 // import Link from "next/link";
 
 export default function ContactPage() {
+  const [state, handleSubmit] = useForm("xeqwbkgb");
+
+  if (state.succeeded) {
+    return <p>Thanks for joining!</p>;
+  }
+
   return (
     <>
       <section className={` container mx-auto px-6 py-12`} id="contact">
@@ -37,7 +44,7 @@ export default function ContactPage() {
                   <p>Feel free to connect with our developers by filling this form.</p>
                 </div>
 
-                <form action="https://formspree.io/f/mlevdloa" method="POST">
+                <form onSubmit={handleSubmit}>
                   <div className="my-3 flex flex-col">
                     <label
                       htmlFor="name"
@@ -51,6 +58,11 @@ export default function ContactPage() {
                       className="name bg-blue-100 text-pink-600 p-3 rounded-xl"
                       placeholder="Name"
                       required
+                    />
+                    <ValidationError
+                      prefix="Name"
+                      field="name"
+                      errors={state.errors}
                     />
                   </div>
 
@@ -68,6 +80,11 @@ export default function ContactPage() {
                       placeholder="Your Email Address"
                       required
                     />
+                    <ValidationError
+                      prefix="Email"
+                      field="email"
+                      errors={state.errors}
+                    />
                   </div>
 
                   <div className="my-3 flex flex-col">
@@ -83,6 +100,11 @@ export default function ContactPage() {
                       className="subject p-4 rounded-xl bg-blue-100 text-pink-600"
                       placeholder="Subject"
                       required
+                    />
+                    <ValidationError
+                      prefix="Subject"
+                      field="subject"
+                      errors={state.errors}
                     />
                   </div>
 
@@ -100,10 +122,15 @@ export default function ContactPage() {
                       placeholder="Your Message"
                       required
                     />
+                    <ValidationError
+                      prefix="Message"
+                      field="message"
+                      errors={state.errors}
+                    />
                   </div>
 
                   <div className="text-center my-4">
-                    <button type="submit" className={`${nunito.className} bg-pink-600 font-bold hover:bg-pink-800 px-4 py-2 rounded-lg`} role="button">
+                    <button type="submit" disabled={state.submitting} className={`${nunito.className} bg-pink-600 font-bold hover:bg-pink-800 px-4 py-2 rounded-lg`} role="button">
                       Submit
                     </button>
                   </div>

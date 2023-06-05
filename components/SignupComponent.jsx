@@ -28,22 +28,13 @@ function SignupComponent() {
             function (response) {
                 console.log(response);
                 toast.success("Succesfully signed up!");
-                router.push("/") //success
-                window.location.reload()
+                router.push("/login") //success
             },
             function (error) {
                 console.log(error); //failure
                 toast.error(error.message);
             }
         )
-
-        // if (promise.success) {
-        //     console.log("Succesfully signed up!")
-        //     toast.success("Succesfully signed up!");
-        // } else {
-        //     console.log("Error", promise.error)
-        //     throw new Error(promise?.error || 'Something went wrong, please try again later');
-        // }
     }
 
     return (

@@ -28,7 +28,7 @@ function TipsForm(userId) {
             function (response) {
                 console.log(response);
                 toast.success("Successfully added new productivity tip!!")
-                window.location.reload()
+                // window.location.reload()
             },
             function (error) {
                 toast.error(error.message)

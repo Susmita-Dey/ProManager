@@ -9,7 +9,7 @@ function ProfilePage() {
     const [userDetails, setUserDetails] = useState()
     const [todoCount, setTodoCount] = useState(0)
 
-    const [isOpen, setIsOpen] = useState(true)
+    const [isOpen, setIsOpen] = useState(false)
 
     const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID
     const collectionId = process.env.NEXT_PUBLIC_APPWRITE_TASKLIST_COLLECTION_ID
@@ -20,7 +20,7 @@ function ProfilePage() {
         getData.then(
             function (response) {
                 setUserDetails(response)
-                console.log(userDetails);
+                // console.log(userDetails);
             },
             function (error) {
                 console.log(error);
