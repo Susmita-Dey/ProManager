@@ -88,15 +88,15 @@ function AddKanbanItemForm({ userId, closeModalForm }) {
   };
 
   return (
-    <section className={` max-w-7xl mx-auto container lg:px-8 px-5 mt-10`}>
+    <section className={`max-w-7xl mx-auto container lg:px-8 px-5 mt-10`}>
       <div className="fixed inset-0 bg-opacity-50 flex flex-col justify-center items-center">
-        <div className="bg-white rounded-lg p-6 text-pink-600">
+        <div className="bg-gray-900 border-2 border-cyan-500 rounded-lg p-6">
           <div className="flex flex-row justify-between mb-4 items-center gap-5">
             <h2 className={`${montserrat.className} text-xl font-bold`}>
               Add Kanban Item
             </h2>
             <RxCross2
-              className="text-xl font-bold relative top-0 right-0 hover:text-pink-600 hover:scale-150 text-gray-900 cursor-pointer w-6 h-6"
+              className="text-xl font-bold relative top-0 right-0 hover:text-pink-600 hover:scale-150 text-gray-200 cursor-pointer w-6 h-6"
               onClick={closeModalForm}
             />
           </div>
@@ -144,7 +144,8 @@ function AddKanbanItemForm({ userId, closeModalForm }) {
               <select
                 value={status}
                 onChange={handleStatusChange}
-                className="border-2 border-pink-600"
+                required
+                className="border-2 rounded-md p-2 text-pink-600 border-pink-600"
               >
                 {options.map((option) => (
                   <option key={option.value} value={option.value}>
