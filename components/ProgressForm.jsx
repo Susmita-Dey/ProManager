@@ -105,6 +105,7 @@ function ProgressForm(userId) {
                   type="text"
                   name=""
                   id=""
+                  required
                   placeholder="I was a superhero yesterday saving lots of people...."
                   className="border p-2 bg-gray-300 rounded-md text-black placeholder-gray-600"
                   onChange={(e) => {
@@ -122,6 +123,7 @@ function ProgressForm(userId) {
                   type="text"
                   name=""
                   id=""
+                  required
                   placeholder="I wanna/have learn/learnt a new technology..."
                   className="border p-2 rounded-md bg-gray-300 text-black placeholder-gray-600"
                   onChange={(e) => {
@@ -138,6 +140,7 @@ function ProgressForm(userId) {
                   type="text"
                   name=""
                   id=""
+                  required
                   placeholder="I got a new job...."
                   className="border p-2 bg-gray-300 rounded-md text-black placeholder-gray-600"
                   onChange={(e) => {
@@ -154,6 +157,7 @@ function ProgressForm(userId) {
                   type="text"
                   name=""
                   id=""
+                  required
                   placeholder="I faced many challenges and learnt...."
                   className="border p-2 bg-gray-300 rounded-md text-black placeholder-gray-600"
                   onChange={(e) => {

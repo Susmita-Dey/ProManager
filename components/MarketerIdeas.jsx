@@ -115,6 +115,7 @@ function MarketerIdeas(userId) {
                             type="text"
                             name=""
                             id=""
+                            required
                             placeholder="Built a scientifical robot..."
                             className="border p-3 rounded-md text-black placeholder-gray-600"
                             onChange={(e) => {

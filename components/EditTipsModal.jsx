@@ -54,6 +54,7 @@ function EditTipsModal({ selectedTip, closeModal, closeReload }) {
                 type="text"
                 name=""
                 id=""
+                required
                 placeholder={selectedTip?.tips}
                 className="border p-3 rounded-md text-pink-600 placeholder-gray-600"
                 onChange={(e) => {

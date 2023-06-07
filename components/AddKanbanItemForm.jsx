@@ -38,13 +38,16 @@ function AddKanbanItemForm({ userId, closeModalForm }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Upload the image to the bucket
-    const uploadPromise = storage.createFile(bucketId, uuidv4(), boardImage);
+    // Upload the image to the bucket if selected
+    let uploadPromise = Promise.resolve();
+    if (boardImage) {
+      uploadPromise = storage.createFile(bucketId, uuidv4(), boardImage);
+    }
 
     // Create the document with the text data and the file ID returned from the upload
     uploadPromise
       .then((result) => {
-        const fileId = result.$id;
+        const fileId = result ? result.$id : null;
         const data = {
           boardtitle: boardTitle,
           boarditem: boardItem,
@@ -108,6 +111,7 @@ function AddKanbanItemForm({ userId, closeModalForm }) {
                 type="text"
                 name=""
                 id=""
+                required
                 placeholder="Funny Weather"
                 className="border p-2 rounded-md text-black placeholder-gray-600"
                 onChange={(e) => {
@@ -125,8 +129,7 @@ function AddKanbanItemForm({ userId, closeModalForm }) {
               <input
                 name="kanban"
                 id="kanban"
-                cols="30"
-                rows="5"
+                required
                 placeholder="Now is the winter of our discontent. Made glorious summer by this sun of York...."
                 className="border p-2 rounded-md text-black placeholder-gray-600"
                 onChange={(e) => {

@@ -88,16 +88,8 @@ function Diary(userId) {
           diary.map((item) => (
             <div
               key={item.$id}
-              className="p-4 flex flex-col items-center justify-center border-b bg-gradient-to-b px-4 pb-6 pt-8 lg:backdrop-blur-2xl border-neutral-800 bg-zinc-800/30 from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:bg-zinc-800/30 gap-2 hover:shadow-lg hover:border-pink-500/40 my-4"
+              className="p-4 flex flex-col items-center lg:justify-start justify-center border-b bg-gradient-to-b px-4 pb-6 pt-8 lg:backdrop-blur-2xl border-neutral-800 bg-zinc-800/30 from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:bg-zinc-800/30 gap-2 hover:shadow-lg hover:border-pink-500/40 my-4"
             >
-              {/* <button
-                            className="absolute top-2 right-2 flex text-white font-medium p-2 text-center border border-red-500 hover:bg-rose-900 rounded-md"
-                            onClick={() => {
-                                deleteNote(item.$id)
-                            }}
-                        >
-                            <MdDeleteForever className='text-2xl' />
-                        </button> */}
               <DiaryCard
                 key={item.$id}
                 imageFileId={item.image}

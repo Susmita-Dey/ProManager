@@ -62,6 +62,7 @@ function TodoForm(userId) {
           name=""
           id=""
           placeholder="Enter Todo"
+          required
           className="border p-2 w-2/3 rounded-md text-black placeholder-gray-600"
           onChange={(e) => {
             setTodoItem(e.target.value);

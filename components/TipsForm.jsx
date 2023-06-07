@@ -64,6 +64,7 @@ function TipsForm(userId) {
             name=""
             id=""
             placeholder="Follow your karma..."
+            required
             className="border p-3 rounded-md text-black placeholder-gray-600"
             onChange={(e) => {
               setTipsItem(e.target.value);

@@ -11,6 +11,7 @@ function EditDiaryModal({ selectedNote, closeModal, closeReload }) {
   const [noteItem, setNoteItem] = useState("");
   const [noteImage, setNoteImage] = useState(null);
 
+  // alert(selectedNote.$id);
   const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
   const collectionId = process.env.NEXT_PUBLIC_APPWRITE_DIARY_COLLECTION_ID;
   const bucketId = process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID;
@@ -22,12 +23,16 @@ function EditDiaryModal({ selectedNote, closeModal, closeReload }) {
 
   const updateNote = () => {
     if (!selectedNote) return;
-    const uploadPromise = storage.createFile(bucketId, uuidv4(), noteImage);
+    // Upload the image to the bucket if selected
+    let uploadPromise = Promise.resolve();
+    if (noteImage) {
+      uploadPromise = storage.createFile(bucketId, uuidv4(), noteImage);
+    }
 
     // Create the document with the text data and the file ID returned from the upload
     uploadPromise
       .then((result) => {
-        const fileId = result.$id;
+        const fileId = result ? result.$id : null;
 
         const data = {
           diarytitle: diaryTitle,
@@ -80,6 +85,7 @@ function EditDiaryModal({ selectedNote, closeModal, closeReload }) {
                 type="text"
                 name=""
                 id=""
+                required
                 placeholder={selectedNote?.diarytitle}
                 className="border p-3 rounded-md text-pink-600 placeholder-gray-600"
                 onChange={(e) => {
@@ -100,6 +106,7 @@ function EditDiaryModal({ selectedNote, closeModal, closeReload }) {
                 cols="30"
                 rows="5"
                 placeholder={selectedNote?.diarynote}
+                required
                 className="border p-2 rounded-md text-pink-600 placeholder-gray-600"
                 onChange={(e) => {
                   setNoteItem(e.target.value);
