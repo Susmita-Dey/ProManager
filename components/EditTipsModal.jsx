@@ -5,27 +5,28 @@ import toast from "react-hot-toast";
 import { RxCross2 } from "react-icons/rx";
 import TailwindToaster from "./TailwindToaster";
 
-function EditTipsModal({ closeModal, documentId, tipval, userId }) {
+function EditTipsModal({ selectedTip, closeModal, closeReload }) {
   const [tipsItem, setTipsItem] = useState("");
   const data = { tips: tipsItem };
   console.log(data);
-  console.log(documentId);
 
   const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
   const collectionId = process.env.NEXT_PUBLIC_APPWRITE_PROTIPS_COLLECTION_ID;
 
-  const editTips = (id) => {
+  const updateTip = () => {
+    if (!selectedTip) return;
+
     const promise = databases.updateDocument(
       databaseId,
       collectionId,
-      id,
+      selectedTip.$id,
       data
     );
     promise.then(
       function (response) {
-        toast.success("Productivity tip updated successfully!!");
+        toast.success("Tip updated successfully!!");
         console.log(response);
-        window.location.reload();
+        closeReload();
       },
       function (error) {
         toast.error(error.message);
@@ -37,7 +38,7 @@ function EditTipsModal({ closeModal, documentId, tipval, userId }) {
   return (
     <div>
       <div className="fixed inset-0 z-50 bg-opacity-50 flex flex-col justify-center items-center">
-        <div className="bg-gray-900 border-2 border-cyan-500 rounded-lg p-6 w-[32rem] h-52">
+        <div className="bg-gray-900 border-2 border-cyan-500 rounded-lg p-6 w-80 lg:w-[32rem] lg:h-52">
           <div className="flex flex-row justify-between mb-4 items-center gap-5">
             <h2 className={`${montserrat.className} text-xl font-bold`}>
               Add Productivity Tip
@@ -53,7 +54,7 @@ function EditTipsModal({ closeModal, documentId, tipval, userId }) {
                 type="text"
                 name=""
                 id=""
-                placeholder={tipval}
+                placeholder={selectedTip?.tips}
                 className="border p-3 rounded-md text-pink-600 placeholder-gray-600"
                 onChange={(e) => {
                   setTipsItem(e.target.value);
@@ -62,11 +63,9 @@ function EditTipsModal({ closeModal, documentId, tipval, userId }) {
             </div>
             <button
               className="bg-pink-600 text-white hover:bg-pink-700 px-3 py-2 rounded-md"
-              onClick={() => {
-                editTips(documentId);
-              }}
+              onClick={updateTip}
             >
-              Update Tip
+              Update Productivity Tip
             </button>
           </div>
           <TailwindToaster />

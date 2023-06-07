@@ -9,6 +9,7 @@ import EditTipsModal from "./EditTipsModal";
 function TipsList(userId) {
   const [tipsList, setTipsList] = useState();
   const [loader, setLoader] = useState(false);
+  const [selectedTip, setSelectedTip] = useState(null);
 
   const [showModalForm, setShowModalForm] = useState(false);
 
@@ -19,7 +20,6 @@ function TipsList(userId) {
   const closeModalForm = () => {
     setShowModalForm(false);
   };
-
   // console.log(userId.userId);
 
   const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
@@ -43,19 +43,30 @@ function TipsList(userId) {
     setLoader(false);
   }, []);
 
+  const editTips = (tip) => {
+    setSelectedTip(tip);
+    openModalForm();
+  };
+
   const deleteTips = (id) => {
     const promise = databases.deleteDocument(databaseId, collectionId, id);
     promise.then(
       function (response) {
         toast.success("Productivity tip deleted successfully!!");
         console.log(response);
-        window.location.reload();
+        closeAndReload();
       },
       function (error) {
         toast.error(error.message);
         console.log(error);
       }
     );
+  };
+
+  const closeAndReload = () => {
+    setSelectedTip(null);
+    setShowModalForm(false);
+    window.location.reload();
   };
 
   if (loader) {
@@ -73,35 +84,32 @@ function TipsList(userId) {
             <div key={item.$id}>
               <div className="p-4 flex items-center justify-between border-b bg-gradient-to-b px-4 pb-6 pt-8 lg:backdrop-blur-2xl border-neutral-800 bg-zinc-800/30 from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:bg-zinc-800/30 gap-2 hover:shadow-lg hover:border-pink-500/40 my-4">
                 <div>
-                  <p className="text-lg font-medium text-white">{item.tips}</p>
+                  <p className="text-white">{item.tips}</p>
                 </div>
                 <div className="flex flex-row gap-2">
                   <span
                     className="text-white cursor-pointer"
-                    onClick={openModalForm}
+                    onClick={() => editTips(item)}
                   >
                     Edit
                   </span>
                   <span
                     className="text-white cursor-pointer"
-                    onClick={() => {
-                      deleteTips(item.$id);
-                    }}
+                    onClick={() => deleteTips(item.$id)}
                   >
                     Delete
                   </span>
                 </div>
               </div>
-              {showModalForm && (
-                <EditTipsModal
-                  closeModal={closeModalForm}
-                  documentId={item.$id}
-                  tipval={item.tips}
-                  userId={userId.userId}
-                />
-              )}
             </div>
           ))}
+        {showModalForm && (
+          <EditTipsModal
+            closeModal={closeModalForm}
+            closeReload={closeAndReload}
+            selectedTip={selectedTip}
+          />
+        )}
       </div>
       <TailwindToaster />
     </div>
