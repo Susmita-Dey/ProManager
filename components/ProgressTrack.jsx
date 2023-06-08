@@ -4,10 +4,23 @@ import { Query } from "appwrite";
 import toast from "react-hot-toast";
 import TailwindToaster from "./TailwindToaster";
 import Loader from "./Loader";
+import { MdDelete, MdEdit } from "react-icons/md";
+import EditProgressModal from "./EditProgressModal";
 
 function ProgressTrack(userId) {
-  const [progress, setProgress] = useState();
+  const [progress, setProgress] = useState([]);
   const [loader, setLoader] = useState(false);
+  const [selectedProgress, setSelectedProgress] = useState(null);
+
+  const [showModalForm, setShowModalForm] = useState(false);
+
+  const openModalForm = () => {
+    setShowModalForm(true);
+  };
+
+  const closeModalForm = () => {
+    setShowModalForm(false);
+  };
 
   const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
   const collectionId =
@@ -32,20 +45,30 @@ function ProgressTrack(userId) {
     setLoader(false);
   }, []);
 
+  const editProgress = (progress) => {
+    setSelectedProgress(progress);
+    openModalForm();
+  };
+
   const deleteProgress = (id) => {
     const promise = databases.deleteDocument(databaseId, collectionId, id);
     promise.then(
       function (response) {
         toast.success("Progress deleted successfully!!");
         console.log(response);
-        window.location.reload();
+        closeAndReload();
       },
       function (error) {
         toast.error(error.message);
         console.log(error);
-        // window.location.reload()
       }
     );
+  };
+
+  const closeAndReload = () => {
+    setSelectedProgress(null);
+    setShowModalForm(false);
+    window.location.reload();
   };
 
   if (loader) {
@@ -107,19 +130,32 @@ function ProgressTrack(userId) {
                   </p>
                 </div>
                 <div className="w-full border border-white"></div>
-                <div className="flex hover:bg-pink-900 hover:rounded-md w-full justify-center items-center">
-                  <span
-                    className="text-white p-2 cursor-pointer"
+                <div className="flex flex-row justify-between items-center lg:gap-6 gap-2 my-2">
+                  <button
+                    className="flex flex-row gap-2 text-white font-medium px-12 py-2 text-center border border-pink-800 bg-pink-800 rounded-md"
+                    onClick={() => editProgress(item)}
+                  >
+                    <MdEdit className="text-2xl" /> Edit
+                  </button>
+                  <button
+                    className="flex flex-row gap-2 text-white font-medium px-10 py-2 text-center border border-rose-500 hover:bg-rose-900 rounded-md"
                     onClick={() => {
                       deleteProgress(item.$id);
                     }}
                   >
-                    Delete
-                  </span>
+                    Delete <MdDelete className="text-2xl" />
+                  </button>
                 </div>
               </div>
             </div>
           ))}
+        {showModalForm && (
+          <EditProgressModal
+            closeModal={closeModalForm}
+            closeReload={closeAndReload}
+            selectedProgress={selectedProgress}
+          />
+        )}
       </div>
       <TailwindToaster />
     </div>

@@ -2,11 +2,12 @@ import { databases } from "@/appwrite/appwrite";
 import { v4 as uuidv4 } from "uuid";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import IdeaCard from "./IdeaCard";
 import TailwindToaster from "./TailwindToaster";
 import { Query } from "appwrite";
 import Loader from "./Loader";
-import { roboto } from "@/context/fonts";
+import { MdDelete, MdEdit } from "react-icons/md";
+import { montserrat } from "@/context/fonts";
+import EditIdeasModal from "./EditIdeasModal";
 
 function GeneralIdeas(userId) {
   console.info(userId.userId);
@@ -19,8 +20,19 @@ function GeneralIdeas(userId) {
     created_by: userId.userId,
   };
   console.log(data);
-  const [ideas, setIdeas] = useState();
+  const [ideas, setIdeas] = useState([]);
   const [loader, setLoader] = useState(false);
+  const [selectedIdea, setSelectedIdea] = useState(null);
+
+  const [showModalForm, setShowModalForm] = useState(false);
+
+  const openModalForm = () => {
+    setShowModalForm(true);
+  };
+
+  const closeModalForm = () => {
+    setShowModalForm(false);
+  };
 
   const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
   const collectionId = process.env.NEXT_PUBLIC_APPWRITE_IDEALIST_COLLECTION_ID;
@@ -44,7 +56,6 @@ function GeneralIdeas(userId) {
       function (error) {
         toast.error(error.message);
         console.log(error);
-        // window.location.reload()
       }
     );
     e.target.reset();
@@ -69,20 +80,30 @@ function GeneralIdeas(userId) {
     setLoader(false);
   }, []);
 
+  const editIdea = (idea) => {
+    setSelectedIdea(idea);
+    openModalForm();
+  };
+
   const deleteIdea = (id) => {
     const promise = databases.deleteDocument(databaseId, collectionId, id);
     promise.then(
       function (response) {
         toast.success("Project idea deleted successfully!!");
         console.log(response);
-        window.location.reload();
+        closeAndReload();
       },
       function (error) {
         toast.error(error.message);
         console.log(error);
-        // window.location.reload()
       }
     );
+  };
+
+  const closeAndReload = () => {
+    setSelectedIdea(null);
+    setShowModalForm(false);
+    window.location.reload();
   };
 
   if (loader) {
@@ -92,7 +113,7 @@ function GeneralIdeas(userId) {
   return (
     <>
       <div
-        className={` max-w-7xl mx-auto container lg:px-8 px-5 mt-10 text-white`}
+        className={`max-w-[85rem] mx-auto container lg:px-8 px-5 mt-10 text-white`}
       >
         <form
           action=""
@@ -125,31 +146,50 @@ function GeneralIdeas(userId) {
         </form>
         <TailwindToaster />
       </div>
-      <div className="max-w-7xl container lg:px-8 px-5 mx-auto my-4">
-        <p className="text-xl font-bold mb-2 text-white text-center">
+      <div className="max-w-[85rem] container lg:px-8 px-5 mx-auto my-4">
+        <h2
+          className={`${montserrat.className} text-2xl font-bold mb-8 text-white text-center`}
+        >
           My Super Cool Ideas 😎
-        </p>
-        <div className="flex flex-col md:flex-row justify-center items-center gap-4">
+        </h2>
+        <div className="flex flex-col lg:flex-row flex-wrap lg:justify-start text-center justify-center items-center gap-4">
           {ideas &&
             ideas.map((item) => (
               <div key={item.$id}>
-                <div className="p-4 flex flex-col items-center justify-center border-b bg-gradient-to-b px-4 pb-6 pt-8 lg:backdrop-blur-2xl border-neutral-800 bg-zinc-800/30 from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:bg-zinc-800/30 gap-2 hover:shadow-lg hover:border-pink-500/40 my-4">
-                  <div className="flex p-2 gap-3 border-b-2 border-white text-white">
-                    <p className="text-xl font-medium">{item.proideas}</p>
+                <div className="p-4 flex flex-col items-center justify-center border-b bg-gradient-to-b px-4 pb-6 pt-8 lg:backdrop-blur-2xl border-neutral-800 bg-zinc-800/30 from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:bg-zinc-800/30 gap-4 hover:shadow-lg hover:border-purple-500/40 my-4">
+                  <div className="flex p-2 lg:w-80 lg:h-24 text-white">
+                    <p className="lg:text-xl text-lg lg:font-medium">
+                      {item.proideas}
+                    </p>
                   </div>
-                  <div className="flex hover:bg-pink-900 hover:rounded-md w-full justify-center items-center">
-                    <span
-                      className="text-white p-2 cursor-pointer"
+                  {/* <div className="border-2 border-white w-full"></div> */}
+                  <div className="flex flex-row justify-between items-center lg:gap-6 gap-4">
+                    <button
+                      className="flex flex-row gap-2 text-white font-medium px-8 py-2 text-center border border-pink-800 bg-pink-800 rounded-md"
+                      onClick={() => editIdea(item)}
+                    >
+                      <MdEdit className="text-2xl" /> Edit
+                    </button>
+                    <button
+                      className="flex flex-row gap-2 text-white font-medium px-5 py-2 text-center border border-rose-500 hover:bg-rose-900 rounded-md"
                       onClick={() => {
                         deleteIdea(item.$id);
                       }}
                     >
-                      Delete
-                    </span>
+                      Delete <MdDelete className="text-2xl" />
+                    </button>
                   </div>
                 </div>
               </div>
             ))}
+          {showModalForm && (
+            <EditIdeasModal
+              closeModal={closeModalForm}
+              closeReload={closeAndReload}
+              selectedIdea={selectedIdea}
+              selectedCategory={category}
+            />
+          )}
         </div>
       </div>
     </>

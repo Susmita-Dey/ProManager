@@ -6,10 +6,10 @@ import TailwindToaster from "./TailwindToaster";
 import { RxCross2 } from "react-icons/rx";
 import { montserrat, nunito } from "@/context/fonts";
 
-function AddKanbanItemForm({ userId, closeModalForm }) {
+function EditKanbanModal({ userId, closeModalForm, selectedItem }) {
   // console.log(userId.userId);
-  const [boardTitle, setBoardTitle] = useState("");
-  const [boardItem, setBoardItem] = useState("");
+  const [boardTitle, setBoardTitle] = useState(selectedItem?.boardtitle);
+  const [boardItem, setBoardItem] = useState(selectedItem?.boarditem);
   const [boardImage, setBoardImage] = useState(null);
 
   const options = [
@@ -57,10 +57,10 @@ function AddKanbanItemForm({ userId, closeModalForm }) {
         };
         console.log(data);
 
-        const promise = databases.createDocument(
+        const promise = databases.updateDocument(
           databaseId,
           collectionId,
-          uuidv4(),
+          selectedItem.$id,
           data
         );
 
@@ -182,4 +182,4 @@ function AddKanbanItemForm({ userId, closeModalForm }) {
   );
 }
 
-export default AddKanbanItemForm;
+export default EditKanbanModal;

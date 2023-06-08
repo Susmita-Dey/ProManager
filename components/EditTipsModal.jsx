@@ -6,7 +6,7 @@ import { RxCross2 } from "react-icons/rx";
 import TailwindToaster from "./TailwindToaster";
 
 function EditTipsModal({ selectedTip, closeModal, closeReload }) {
-  const [tipsItem, setTipsItem] = useState("");
+  const [tipsItem, setTipsItem] = useState(selectedTip?.tips);
   const data = { tips: tipsItem };
   console.log(data);
 
@@ -38,7 +38,7 @@ function EditTipsModal({ selectedTip, closeModal, closeReload }) {
   return (
     <div>
       <div className="fixed inset-0 z-50 bg-opacity-50 flex flex-col justify-center items-center">
-        <div className="bg-gray-900 border-2 border-cyan-500 rounded-lg p-6 w-80 lg:w-[32rem] lg:h-52">
+        <div className="bg-gray-900 border-2 border-purple-500 rounded-lg p-6 w-80 lg:w-[32rem] lg:h-52">
           <div className="flex flex-row justify-between mb-4 items-center gap-5">
             <h2 className={`${montserrat.className} text-xl font-bold`}>
               Add Productivity Tip
@@ -56,6 +56,7 @@ function EditTipsModal({ selectedTip, closeModal, closeReload }) {
                 id=""
                 required
                 placeholder={selectedTip?.tips}
+                defaultValue={selectedTip?.tips}
                 className="border p-3 rounded-md text-pink-600 placeholder-gray-600"
                 onChange={(e) => {
                   setTipsItem(e.target.value);

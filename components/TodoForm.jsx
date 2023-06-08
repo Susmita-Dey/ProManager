@@ -33,7 +33,6 @@ function TodoForm(userId) {
       function (error) {
         toast.error(error.message);
         console.log(error);
-        // window.location.reload()
       }
     );
     e.target.reset();

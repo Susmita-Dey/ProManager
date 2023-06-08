@@ -67,7 +67,6 @@ function DiaryNoteForm(userId) {
           function (error) {
             toast.error(error.message);
             console.log(error);
-            // window.location.reload()
           }
         );
       })

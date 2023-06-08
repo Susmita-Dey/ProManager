@@ -56,7 +56,6 @@ function ProgressForm(userId) {
       function (error) {
         toast.error(error.message);
         console.log(error);
-        // window.location.reload()
       }
     );
     e.target.reset();
@@ -82,13 +81,13 @@ function ProgressForm(userId) {
       </div>
       {showModalForm && (
         <div className="fixed inset-0 z-50 bg-opacity-50 flex flex-col justify-center items-center">
-          <div className="bg-white rounded-lg p-6 text-pink-600">
+          <div className="bg-gray-900 border-2 border-purple-500 rounded-lg p-6">
             <div className="flex flex-row justify-between mb-4 items-center gap-5">
               <h2 className={`${montserrat.className} text-xl font-bold`}>
                 Add Your Progress
               </h2>
               <RxCross2
-                className="text-xl font-bold relative top-0 right-0 hover:text-pink-600 hover:scale-150 text-gray-900 cursor-pointer w-6 h-6"
+                className="text-xl font-bold relative top-0 right-0 hover:text-pink-600 hover:scale-150 text-gray-200 cursor-pointer w-6 h-6"
                 onClick={closeModalForm}
               />
             </div>
@@ -166,7 +165,7 @@ function ProgressForm(userId) {
                 />
               </div>
               <button
-                className="bg-pink-600 hover:bg-pink-700 p-2 lg:w-1/6 w-full text-white rounded-md"
+                className="bg-pink-600 hover:bg-pink-700 p-2 w-full text-white rounded-md"
                 type="submit"
               >
                 Add Progress

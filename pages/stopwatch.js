@@ -1,8 +1,10 @@
 import { account } from '@/appwrite/appwrite';
 import NotLoggedIn from '@/components/NotLoggedIn';
+import TailwindToaster from '@/components/TailwindToaster';
 import Timer from '@/components/Timer';
 import Head from 'next/head';
 import React, { useEffect, useRef, useState } from 'react';
+import toast from 'react-hot-toast';
 
 export default function Stopwatch() {
     const [userDetails, setUserDetails] = useState();
@@ -12,7 +14,7 @@ export default function Stopwatch() {
         getData.then(
             function (response) {
                 setUserDetails(response);
-                // toast.success("Let's track your daily progress!!");
+                toast.success("Ready to race with time? 🏃");
                 console.log(userDetails);
             },
             function (error) {
@@ -30,7 +32,10 @@ export default function Stopwatch() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             {userDetails ? (
-                <Timer />
+                <>
+                    <Timer />
+                    <TailwindToaster />
+                </>
             ) : (
                 <NotLoggedIn />
             )

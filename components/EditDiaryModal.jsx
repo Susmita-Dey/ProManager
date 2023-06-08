@@ -7,8 +7,8 @@ import { RxCross2 } from "react-icons/rx";
 import TailwindToaster from "./TailwindToaster";
 
 function EditDiaryModal({ selectedNote, closeModal, closeReload }) {
-  const [diaryTitle, setDiaryTitle] = useState("");
-  const [noteItem, setNoteItem] = useState("");
+  const [diaryTitle, setDiaryTitle] = useState(selectedNote?.diarytitle);
+  const [noteItem, setNoteItem] = useState(selectedNote?.diarynote);
   const [noteImage, setNoteImage] = useState(null);
 
   // alert(selectedNote.$id);
@@ -68,7 +68,7 @@ function EditDiaryModal({ selectedNote, closeModal, closeReload }) {
   return (
     <div>
       <div className="fixed inset-0 z-50 bg-opacity-50 flex flex-col justify-center items-center">
-        <div className="bg-gray-900 border-2 border-cyan-500 rounded-lg p-6 lg:w-auto md:w-auto lg:h-auto md:h-auto w-80 h-[40rem]">
+        <div className="bg-gray-900 border-2 border-purple-500 rounded-lg p-6 lg:w-auto md:w-auto lg:h-auto md:h-auto w-80 h-[40rem]">
           <div className="flex flex-row justify-between mb-4 items-center gap-5">
             <h2 className={`${montserrat.className} text-xl font-bold`}>
               Add Note
@@ -87,6 +87,7 @@ function EditDiaryModal({ selectedNote, closeModal, closeReload }) {
                 id=""
                 required
                 placeholder={selectedNote?.diarytitle}
+                defaultValue={selectedNote?.diarytitle}
                 className="border p-3 rounded-md text-pink-600 placeholder-gray-600"
                 onChange={(e) => {
                   setDiaryTitle(e.target.value);
@@ -106,6 +107,7 @@ function EditDiaryModal({ selectedNote, closeModal, closeReload }) {
                 cols="30"
                 rows="5"
                 placeholder={selectedNote?.diarynote}
+                defaultValue={selectedNote?.diarynote}
                 required
                 className="border p-2 rounded-md text-pink-600 placeholder-gray-600"
                 onChange={(e) => {
@@ -126,7 +128,6 @@ function EditDiaryModal({ selectedNote, closeModal, closeReload }) {
                 id="imageFile"
                 accept="image/*"
                 className="border p-2 rounded-md text-pink-600 placeholder-gray-600"
-                placeholder={selectedNote?.image}
                 onChange={handleImageUpload}
               />
             </div>
