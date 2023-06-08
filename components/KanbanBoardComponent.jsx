@@ -194,6 +194,10 @@ const KanbanBoardComponent = (userId) => {
           Effortlessly add new items to your Kanban board and stay organized
           with ease.
         </p>
+        <p className="text-lg">
+          Add new items with proper status and use the full power of Kanban
+          board.
+        </p>
         <button
           className="bg-rose-600 font-medium px-4 py-2 lg:w-1/6 w-full flex flex-row gap-2 justify-center items-center"
           onClick={openModalForm}

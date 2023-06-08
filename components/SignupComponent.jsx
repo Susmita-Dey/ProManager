@@ -211,7 +211,7 @@ function SignupComponent() {
               />
               <label className="text-rose-900 text-xs">
                 By signing up, I accept the ProManager{" "}
-                <Link href={"/policy"} className="text-blue-600">
+                <Link href={"/policy"} className="text-purple-700">
                   Terms of Service
                 </Link>{" "}
               </label>
@@ -253,25 +253,27 @@ function SignupComponent() {
         </div>
         <TailwindToaster />
       </div>
-      {signupSuccess && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-          <div className="bg-white p-6 rounded-md shadow-lg">
-            <h2 className="text-2xl font-medium mb-4">Check Your Email</h2>
-            <p className="text-lg text-gray-900">
-              Hi there! 👋 Kindly close this window and check your email for a
-              verification link. Click the link to verify your email address.
-            </p>
-            <div className="flex justify-end mt-4">
-              <button
-                className="px-4 py-2 text-lg rounded-md bg-pink-600 text-white hover:bg-pink-700"
-                onClick={() => setSignupSuccess(false)}
-              >
-                Close
-              </button>
+      <div>
+        {signupSuccess && (
+          <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+            <div className="bg-white p-6 rounded-md shadow-lg">
+              <h2 className="text-2xl font-medium mb-4">Check Your Email</h2>
+              <p className="text-lg text-gray-900">
+                Hi there! 👋 Kindly close this window and check your email for a
+                verification link. Click the link to verify your email address.
+              </p>
+              <div className="flex justify-end mt-4">
+                <button
+                  className="px-4 py-2 text-lg rounded-md bg-pink-600 text-white hover:bg-pink-700"
+                  onClick={() => setSignupSuccess(false)}
+                >
+                  Close
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </section>
   );
 }

@@ -10,6 +10,7 @@ function ProfilePage() {
   const router = useRouter();
   const [userDetails, setUserDetails] = useState();
   const [todoCount, setTodoCount] = useState(0);
+  const [verifySuccess, setVerifySuccess] = useState(false);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -36,6 +37,7 @@ function ProfilePage() {
       await account.createVerification(
         `${window.location.origin}/verify-email`
       );
+      setVerifySuccess(true);
       toast.success("Check your email!");
     } catch (error) {
       console.log(error);
@@ -108,8 +110,8 @@ function ProfilePage() {
                       {userDetails?.email}
                     </span>
                   </div>
-                  <div className="mb-2 text-gray-700 mt-10">
-                    <BsBriefcaseFill className="mr-2 text-lg text-gray-500" />
+                  <div className="flex flex-row mb-2 text-gray-700 mt-10">
+                    <BsBriefcaseFill className="mr-2 mt-1 text-lg text-amber-900" />
                     Account Registration:{" "}
                     <code>{userDetails?.registration}</code>
                   </div>
@@ -137,6 +139,30 @@ function ProfilePage() {
                 </div>
               </div>
             </div>
+          </div>
+          <div>
+            {verifySuccess && (
+              <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+                <div className="bg-white p-6 rounded-md shadow-lg">
+                  <h2 className="text-2xl font-medium mb-4">
+                    Check Your Email
+                  </h2>
+                  <p className="text-lg text-gray-900">
+                    Hi there! 👋 Kindly close this window and check your email
+                    for a verification link. Click the link to verify your email
+                    address.
+                  </p>
+                  <div className="flex justify-end mt-4">
+                    <button
+                      className="px-4 py-2 text-lg rounded-md bg-pink-600 text-white hover:bg-pink-700"
+                      onClick={() => setVerifySuccess(false)}
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </section>
       )}
