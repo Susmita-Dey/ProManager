@@ -34,10 +34,8 @@ export default function Progress() {
             </Head>
             {userDetails ? (
                 <>
-                    <div>
-                        <ProgressForm userId={userDetails.$id} />
-                        <ProgressTrack userId={userDetails.$id} />
-                    </div>
+                    <ProgressForm userId={userDetails.$id} />
+                    <ProgressTrack userId={userDetails.$id} />
                 </>
             ) : (
                 <NotLoggedIn />

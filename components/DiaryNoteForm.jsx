@@ -110,7 +110,7 @@ function DiaryNoteForm(userId) {
               />
             </div>
             <form
-              action=""
+              action="#"
               onSubmit={handleSubmit}
               className="flex flex-col justify-center gap-3 mb-10"
             >

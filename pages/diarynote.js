@@ -29,10 +29,8 @@ export default function DiaryNote() {
             </Head>
             {userDetails ? (
                 <>
-                    <div>
-                        <DiaryNoteForm userId={userDetails.$id} />
-                        <Diary userId={userDetails.$id} />
-                    </div>
+                    <DiaryNoteForm userId={userDetails.$id} />
+                    <Diary userId={userDetails.$id} />
                 </>
             ) : (
                 <NotLoggedIn />

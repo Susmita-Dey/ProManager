@@ -35,11 +35,9 @@ export default function ProductivityTips() {
             </Head>
             {userDetails ? (
                 <>
-                    <div>
-                        <TipsForm userId={userDetails.$id} />
-                        <TipsList userId={userDetails.$id} />
-                        <StaticProTips />
-                    </div>
+                    <TipsForm userId={userDetails.$id} />
+                    <TipsList userId={userDetails.$id} />
+                    <StaticProTips />
                 </>
             ) : (
                 <NotLoggedIn />

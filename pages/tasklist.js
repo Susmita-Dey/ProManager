@@ -32,10 +32,8 @@ function TaskList() {
             </Head>
             {userDetails ? (
                 <>
-                    <div>
-                        <TodoForm userId={userDetails.$id} />
-                        <Todos userId={userDetails.$id} />
-                    </div>
+                    <TodoForm userId={userDetails.$id} />
+                    <Todos userId={userDetails.$id} />
                 </>
             ) : (
                 <NotLoggedIn />

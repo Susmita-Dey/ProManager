@@ -11,6 +11,7 @@ function SignupComponent() {
   const router = useRouter();
   const [isEmailVerified, setIsEmailVerified] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [signupSuccess, setSignupSuccess] = useState(false);
 
   const [user, setUser] = useState({
     name: "",
@@ -82,7 +83,14 @@ function SignupComponent() {
       async function (response) {
         console.log(response);
         toast.success("Successfully signed up!");
-        router.push("/login");
+        setSignupSuccess(true);
+
+        const logInUser = await account.createEmailSession(
+          user.email,
+          user.password
+        );
+        console.log("Succesfully logged in!");
+        await account.get();
 
         // Send email verification request
         try {
@@ -101,6 +109,10 @@ function SignupComponent() {
       }
     );
   };
+
+  if (isEmailVerified === true) {
+    toast.error("Email has been already verified");
+  }
 
   return (
     <section className="text-gray-900 min-h-full flex flex-col justify-center items-center py-12 sm:px-6 lg:px-8">
@@ -241,6 +253,25 @@ function SignupComponent() {
         </div>
         <TailwindToaster />
       </div>
+      {signupSuccess && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+          <div className="bg-white p-6 rounded-md shadow-lg">
+            <h2 className="text-2xl font-medium mb-4">Check Your Email</h2>
+            <p className="text-lg text-gray-900">
+              Hi there! 👋 Kindly close this window and check your email for a
+              verification link. Click the link to verify your email address.
+            </p>
+            <div className="flex justify-end mt-4">
+              <button
+                className="px-4 py-2 text-lg rounded-md bg-pink-600 text-white hover:bg-pink-700"
+                onClick={() => setSignupSuccess(false)}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

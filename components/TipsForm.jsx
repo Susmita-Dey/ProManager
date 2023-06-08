@@ -52,7 +52,7 @@ function TipsForm(userId) {
         </p>
       </div>
       <form
-        action=""
+        action="#"
         onSubmit={handleSubmit}
         className="flex flex-col lg:flex-row gap-4 justify-center mb-10"
       >

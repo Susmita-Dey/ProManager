@@ -127,7 +127,7 @@ function StudentIdeas(userId) {
     <>
       <div className="max-w-[85rem] mx-auto container lg:px-8 px-5 mt-10 text-white">
         <form
-          action=""
+          action="#"
           onSubmit={handleSubmit}
           className="flex flex-col lg:flex-row gap-4 justify-center mb-10"
         >

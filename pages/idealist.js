@@ -28,9 +28,7 @@ export default function IdeaList() {
             </Head>
             {userDetails ? (
                 <>
-                    <div>
-                        <ProjectIdeas userId={userDetails.$id} />
-                    </div>
+                    <ProjectIdeas userId={userDetails.$id} />
                 </>
             ) : (
                 <NotLoggedIn />

@@ -52,7 +52,7 @@ function TodoForm(userId) {
         </p>
       </div>
       <form
-        action=""
+        action="#"
         onSubmit={handleSubmit}
         className="flex justify-center mb-10"
       >

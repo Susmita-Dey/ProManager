@@ -129,7 +129,7 @@ function TeacherIdeas(userId) {
         className={` max-w-7xl mx-auto container lg:px-8 px-5 mt-10 text-white`}
       >
         <form
-          action=""
+          action="#"
           onSubmit={handleSubmit}
           className="flex flex-col lg:flex-row gap-4 justify-center mb-10"
         >
