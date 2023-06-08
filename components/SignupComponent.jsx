@@ -82,6 +82,7 @@ function SignupComponent() {
       async function (response) {
         console.log(response);
         toast.success("Successfully signed up!");
+        router.push("/login");
 
         // Send email verification request
         try {
