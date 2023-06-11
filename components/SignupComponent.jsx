@@ -110,9 +110,9 @@ function SignupComponent() {
     );
   };
 
-  if (isEmailVerified === true) {
-    toast.error("Email has been already verified");
-  }
+  // if (isEmailVerified === true) {
+  //   toast.error("Email has been already verified");
+  // }
 
   return (
     <section className="text-gray-900 min-h-full flex flex-col justify-center items-center py-12 sm:px-6 lg:px-8">

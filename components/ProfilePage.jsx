@@ -56,6 +56,7 @@ function ProfilePage() {
         setUserDetails(response);
         console.log(response);
         router.push("/");
+        window.location.reload();
       },
       function (error) {
         console.log(error);

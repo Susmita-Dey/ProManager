@@ -16,6 +16,7 @@ function VerifyEmail() {
             .then(() => {
                 toast.success('Email verification successful!');
                 router.push('/profile'); // Redirect to the dashboard page after successful verification
+                window.location.reload()
             })
             .catch((error) => {
                 console.error(error);
