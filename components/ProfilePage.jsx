@@ -81,6 +81,10 @@ function ProfilePage() {
     setIsOpen(true);
   };
 
+  const isEmailVerified = userDetails?.emailVerification === true;
+
+  // alert(isEmailVerified);
+
   return (
     <>
       {userDetails && (
@@ -111,9 +115,11 @@ function ProfilePage() {
                       {userDetails?.email}
                     </span>
                   </div>
-                  <div className="flex flex-row mb-2 text-gray-700 mt-10">
-                    <BsBriefcaseFill className="mr-2 mt-1 text-lg text-amber-900" />
-                    Account Registration:{" "}
+                  <div className="flex lg:flex-row flex-col mb-2 text-gray-700 mt-10">
+                    <div className="flex">
+                      <BsBriefcaseFill className="mr-2 mt-1 text-lg text-amber-900" />
+                      Account Registration:
+                    </div>{" "}
                     <code>{userDetails?.registration}</code>
                   </div>
                 </div>
@@ -123,11 +129,12 @@ function ProfilePage() {
                                             <p>No of Todo items: {todoCount}</p>
                                         </div> */}
                     <button
-                      className="flex flex-row gap-1 px-4 py-2 bg-pink-600 hover:bg-pink-800 text-white"
+                      className="flex flex-row gap-1 px-4 py-2 bg-pink-600 hover:bg-pink-800 text-white disabled:cursor-not-allowed disabled:bg-slate-600"
                       type="button"
                       onClick={handleVerify}
+                      disabled={isEmailVerified}
                     >
-                      Verify Account
+                      {isEmailVerified ? "Verified✅" : "Verify Account"}
                     </button>
                     <button
                       className="flex flex-row gap-1 px-4 py-2 bg-red-600 hover:bg-red-800 text-white"
@@ -144,11 +151,11 @@ function ProfilePage() {
           <div>
             {verifySuccess && (
               <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-                <div className="bg-white p-6 rounded-md shadow-lg">
+                <div className="bg-white text-gray-900 p-6 rounded-md shadow-lg">
                   <h2 className="text-2xl font-medium mb-4">
                     Check Your Email
                   </h2>
-                  <p className="text-lg text-gray-900">
+                  <p className="text-lg">
                     Hi there! 👋 Kindly close this window and check your email
                     for a verification link. Click the link to verify your email
                     address.
@@ -156,7 +163,10 @@ function ProfilePage() {
                   <div className="flex justify-end mt-4">
                     <button
                       className="px-4 py-2 text-lg rounded-md bg-pink-600 text-white hover:bg-pink-700"
-                      onClick={() => setVerifySuccess(false)}
+                      onClick={() => {
+                        setVerifySuccess(false);
+                        window.close();
+                      }}
                     >
                       Close
                     </button>

@@ -265,7 +265,10 @@ function SignupComponent() {
               <div className="flex justify-end mt-4">
                 <button
                   className="px-4 py-2 text-lg rounded-md bg-pink-600 text-white hover:bg-pink-700"
-                  onClick={() => setSignupSuccess(false)}
+                  onClick={() => {
+                    setSignupSuccess(false);
+                    window.close();
+                  }}
                 >
                   Close
                 </button>

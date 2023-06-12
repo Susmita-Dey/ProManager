@@ -1,9 +1,8 @@
 import { account } from '@/appwrite/appwrite'
-import NotLoggedIn from '@/components/NotLoggedIn'
+import Loader from '@/components/Loader'
 import ProfileBg from '@/components/ProfileBg'
 import ProfilePage from '@/components/ProfilePage'
 import Head from 'next/head'
-import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 
 export default function Profile() {
@@ -34,7 +33,7 @@ export default function Profile() {
                     <ProfilePage />
                 </>
             ) : (
-                <NotLoggedIn />
+                <Loader />
             )}
         </>
     )
