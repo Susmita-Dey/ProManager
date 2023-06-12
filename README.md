@@ -1,21 +1,24 @@
 # ProManager
 
-![ProManager](https://github.com/Susmita-Dey/ProManager/assets/79099734/3b3b60e7-7adf-4ea8-b81e-82b3bc737696)
+![ProManager](https://github.com/Susmita-Dey/ProManager/assets/79099734/e9d8b6ca-e502-432a-8b73-e821691d6320)
 
-[ProManager](https://promanager.vercel.app/) is a powerful productivity tool designed to help developers, students, and individuals track their tasks, todos, and boost their productivity levels. It offers a user-friendly interface with features like task management, productivity tips, and ideas.
+
+[ProManager](https://promanager.vercel.app/) is a powerful productivity tool designed to help developers, students, and individuals track their tasks, todos, and boost their productivity levels. It offers a user-friendly interface with features like task management, productivity tips, ideas and much more.
 
 This repository contains the source code for ProManager. Feel free to explore and contribute to the project!
 
 **Try out Promanager via this link**:- https://promanager.vercel.app/
 
+To learn more about ProManager, check out our [detailed blog](https://susmitadey.hashnode.dev/promanager-the-only-productivity-tool-you-need) on Hashnode.
+
 ## Tech Stack
 
 The ProManager application is built using the following technologies:
 
-- Next.js: A React framework for building server-side rendered and statically generated web applications.
-- React.js: A JavaScript library for building user interfaces.
-- Tailwind CSS: A utility-first CSS framework for rapidly building custom designs.
-- Appwrite: An open-source, self-hosted backend server for building web and mobile applications.
+- **Next.js**: A React framework for building server-side rendered and statically generated web applications.
+- **React.js**: A JavaScript library for building user interfaces.
+- **Tailwind CSS**: A utility-first CSS framework for rapidly building custom designs.
+- **Appwrite**: An open-source, self-hosted backend server for building web and mobile applications.
 
 ## Getting Started
 
