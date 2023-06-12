@@ -5,6 +5,7 @@ import React, { useEffect, useState, Fragment } from "react";
 import { MdDeleteForever, MdEmail, MdLocationPin } from "react-icons/md";
 import toast from "react-hot-toast";
 import { BsBriefcaseFill } from "react-icons/bs";
+import ProductivityPercentage from "./ProductivityPercentage";
 
 function ProfilePage() {
   const router = useRouter();
@@ -88,7 +89,7 @@ function ProfilePage() {
   return (
     <>
       {userDetails && (
-        <section className="relative py-16 bg-gray-300">
+        <section className="relative py-16 bg-gray-500">
           <div className="container mx-auto px-8">
             <div className="relative flex flex-col justify-center min-w-0 break-words bg-gray-300 w-full mb-4 shadow-xl rounded-lg -mt-96 lg:-mt-64 md:-mt-64">
               <div className="px-4">
@@ -123,11 +124,11 @@ function ProfilePage() {
                     <code>{userDetails?.registration}</code>
                   </div>
                 </div>
-                <div className="mt-10 py-10 border-t border-gray-300 text-center">
+                <div className="flex flex-col flex-wrap justify-center items-center gap-4 mt-10 py-10 border-t border-gray-300 text-center">
+                  <div className="flex my-4">
+                    <ProductivityPercentage />
+                  </div>
                   <div className="flex flex-col lg:flex-row flex-wrap justify-center items-center gap-4">
-                    {/* <div className='text-gray-500'>
-                                            <p>No of Todo items: {todoCount}</p>
-                                        </div> */}
                     <button
                       className="flex flex-row gap-1 px-4 py-2 bg-pink-600 hover:bg-pink-800 text-white disabled:cursor-not-allowed disabled:bg-slate-600"
                       type="button"
@@ -150,7 +151,7 @@ function ProfilePage() {
           </div>
           <div>
             {verifySuccess && (
-              <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+              <div className="px-5 fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
                 <div className="bg-white text-gray-900 p-6 rounded-md shadow-lg">
                   <h2 className="text-2xl font-medium mb-4">
                     Check Your Email
@@ -178,7 +179,7 @@ function ProfilePage() {
         </section>
       )}
       <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={closeModal}>
+        <Dialog as="div" className="px-5 relative z-10" onClose={closeModal}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"

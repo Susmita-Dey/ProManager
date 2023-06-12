@@ -115,7 +115,7 @@ function SignupComponent() {
   // }
 
   return (
-    <section className="text-gray-900 min-h-full flex flex-col justify-center items-center py-12 sm:px-6 lg:px-8">
+    <section className="text-gray-900 min-h-full flex flex-col justify-center items-center py-12 px-6 lg:px-8">
       <div className="text-center text-2xl font-bold text-white">Sign up</div>
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-gray-300 py-8 px-4 shadow sm:rounded-lg sm:px-10">
@@ -207,11 +207,14 @@ function SignupComponent() {
                 name=""
                 id=""
                 required
-                className="text-pink-900"
+                className="accent-pink-900 w-5 h-5 mt-1"
               />
-              <label className="text-rose-900 text-xs">
+              <label className="text-rose-900 text-sm lg:text-base">
                 By signing up, I accept the ProManager{" "}
-                <Link href={"/policy"} className="text-purple-700">
+                <Link
+                  href={"/policy"}
+                  className="text-purple-700 hover:underline hover:underline-offset-2"
+                >
                   Terms of Service
                 </Link>{" "}
               </label>
@@ -232,7 +235,7 @@ function SignupComponent() {
                   href="/login"
                   className="font-medium text-pink-600 hover:text-pink-800 hover:underline hover:underline-offset-4"
                 >
-                  Already have an account, Log In
+                  Already have an account, Sign In
                 </Link>
               </div>
             </div>
