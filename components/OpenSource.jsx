@@ -6,7 +6,7 @@ function OpenSource() {
     <section className="container mx-auto my-12 md:my-4 py-10 px-5 lg:px-8 max-w-[85rem]">
       <div className="flex flex-col">
         <div className="my-2" data-aos="fade-up">
-          <h2 className="text-4xl font-bold mb-4">Open Source</h2>
+          <h2 className=" text-3xl lg:text-4xl font-bold mb-4">Open Source</h2>
           <p className="text-lg mb-6">
             ProManager is an open-source project aimed at helping individuals
             effectively manage their projects.
@@ -146,7 +146,7 @@ SOFTWARE.`}
 
         <div className="my-2" data-aos="fade-up">
           <h2 className="text-2xl font-bold mb-2">GitHub Issues</h2>
-          <p className="text-lg mb-4">
+          <div className="text-lg mb-4">
             GitHub issues are used to track bugs in ProManager. You can
             contribute by:
             <ul className="list-disc px-6 text-lg">
@@ -167,7 +167,7 @@ SOFTWARE.`}
                 and suggest possible fixes.
               </li>
             </ul>
-          </p>
+          </div>
         </div>
         <div className="my-2" data-aos="fade-up">
           <h2 className="text-2xl font-bold mb-2">

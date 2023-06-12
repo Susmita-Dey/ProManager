@@ -83,10 +83,12 @@ function DiaryNoteForm(userId) {
       className={` max-w-7xl mx-auto container lg:px-8 px-5 mt-10 text-white`}
     >
       <div className="flex flex-col gap-4 my-5 justify-center items-center">
-        <h2 className={`${montserrat.className} text-4xl font-bold`}>
+        <h2
+          className={`${montserrat.className}  text-3xl lg:text-4xl font-bold`}
+        >
           Diary Notes
         </h2>
-        <p className="text-xl font-medium">
+        <p className="md:text-xl lg:text-xl font-medium text-center">
           Effortlessly capture and organize your thoughts, ideas, and plans with
           Promanger&apos;s Diary Note Keeping feature.
         </p>

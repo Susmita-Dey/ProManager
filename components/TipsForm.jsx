@@ -43,10 +43,12 @@ function TipsForm(userId) {
       className={` max-w-7xl mx-auto container lg:px-8 px-5 mt-10 text-white`}
     >
       <div className="flex flex-col gap-4 my-5 justify-center items-center">
-        <h2 className={`${montserrat.className} text-4xl font-bold`}>
+        <h2
+          className={`${montserrat.className} text-3xl lg: text-3xl lg:text-4xl font-bold`}
+        >
           Productivity Tips
         </h2>
-        <p className="text-xl font-medium">
+        <p className="lg:text-xl text-center font-medium">
           Master your efficiency with these powerful strategies for maximum
           productivity
         </p>
@@ -56,7 +58,7 @@ function TipsForm(userId) {
         onSubmit={handleSubmit}
         className="flex flex-col lg:flex-row gap-4 justify-center mb-10"
       >
-        <div className="flex w-1/2 flex-col gap-4">
+        <div className="flex lg:w-1/2 w-full flex-col gap-4">
           {/* <label className='text-lg font-semibold'>Learnt some new productivity tips/tricks? Add them here one by one.</label> */}
           <input
             type="text"

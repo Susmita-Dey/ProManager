@@ -29,10 +29,12 @@ function Timer() {
     <section className="container mx-auto px-5">
       <div className="flex flex-col justify-center items-center gap-4">
         <div className="flex flex-col gap-4 my-5 justify-center items-center">
-          <h2 className={`${montserrat.className} text-4xl font-bold`}>
+          <h2
+            className={`${montserrat.className}  text-3xl lg:text-4xl font-bold`}
+          >
             Time Mastery Made Simple
           </h2>
-          <p className="text-xl font-medium">
+          <p className="md:text-xl font-medium">
             Unleash Your Productivity with the Stopwatch Feature in ProManager
           </p>
         </div>

@@ -9,6 +9,7 @@ import { MdDeleteForever, MdEdit } from "react-icons/md";
 import Loader from "./Loader";
 import EditDiaryModal from "./EditDiaryModal";
 import { montserrat, roboto } from "@/context/fonts";
+import NoItems from "./NoItems";
 
 function Diary(userId) {
   const [diary, setDiary] = useState([]);
@@ -74,6 +75,15 @@ function Diary(userId) {
 
   if (loader) {
     return <Loader />;
+  }
+
+  if (Object.keys(diary).length === 0) {
+    return (
+      <NoItems
+        title={"My Secret Notes"}
+        subtitle={"You haven't made any notes yet!!"}
+      />
+    );
   }
 
   return (

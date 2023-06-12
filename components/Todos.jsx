@@ -5,6 +5,8 @@ import toast from "react-hot-toast";
 import TailwindToaster from "./TailwindToaster";
 import Loader from "./Loader";
 import EditTasklistModal from "./EditTasklistModal";
+import Image from "next/image";
+import NoItems from "./NoItems";
 
 function Todos(userId) {
   const [todos, setTodos] = useState([]);
@@ -74,8 +76,17 @@ function Todos(userId) {
     return <Loader />;
   }
 
+  if (Object.keys(todos).length === 0) {
+    return (
+      <NoItems
+        title={"Todo List"}
+        subtitle={"You haven't added any new tasks yet!!"}
+      />
+    );
+  }
+
   return (
-    <div className="max-w-7xl container mx-auto lg:px-8 px-5">
+    <div className="max-w-7xl container mx-auto lg:px-8 px-5 lg:mb-0 mb-10">
       <h2 className="text-xl font-bold mb-2 text-white">Todo List</h2>
       <div>
         {todos.map((item) => (

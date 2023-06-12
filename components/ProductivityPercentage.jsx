@@ -1,73 +1,43 @@
-import { databases } from '@/appwrite/appwrite';
-import { Query } from 'appwrite';
-import React, { useEffect, useState } from 'react';
-import toast from 'react-hot-toast';
-import TailwindToaster from './TailwindToaster';
+import { databases } from "@/appwrite/appwrite";
+import getItemsCount from "@/context/getItemsCount";
+import { Query } from "appwrite";
+import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import TailwindToaster from "./TailwindToaster";
 
-const ProductivityPercentage = (userId) => {
-    const [todosCount, setTodosCount] = useState(0);
-    const [productivityPercentage, setProductivityPercentage] = useState(0);
-    const productivityGoal = 10; // Set your desired productivity goal here
+const ProductivityPercentage = ({ userId, textColor = "text-cyan-500" }) => {
+  //   const [todosCount, setTodosCount] = useState(0);
+  //   const [progressCount, setProgressCount] = useState(0);
+  const [productivityPercentage, setProductivityPercentage] = useState(0);
+  const productivityGoal = 40; // Set your desired productivity goal here
+  const {
+    todosCount,
+    progressCount,
+    kanbanCount,
+    diaryCount,
+    fetchDiary,
+    fetchKanban,
+    fetchProgress,
+    fetchTodos,
+  } = getItemsCount();
 
-    const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID
-    const collectionId = process.env.NEXT_PUBLIC_APPWRITE_TASKLIST_COLLECTION_ID
+  useEffect(() => {
+    // Calculate the productivity percentage
+    const totalItems = todosCount + progressCount;
+    const percentage = (totalItems / productivityGoal) * 100;
 
-    useEffect(() => {
-        const fetchTodos = async () => {
-            try {
-                // Make a request to the Appwrite API to fetch todos created today
-                const todosResponse = await databases.listDocuments(databaseId, collectionId, [
-                    Query.equal("created_by", [userId.userId])]);
+    // Update the productivityPercentage state
+    setProductivityPercentage(percentage);
+  }, [todosCount]);
 
-                console.log(todosResponse.total);
-                // Ensure that todosResponse.data is an array before proceeding
-                if (Array.isArray(todosResponse.documents)) {
-                    const todos = todosResponse.documents;
-
-                    // Filter todos created today based on the date property
-                    const todosCreatedToday = todos.filter(todo => {
-                        const createdDate = new Date(todo.$createdAt);
-                        const today = new Date();
-                        return (
-                            createdDate.getDate() === today.getDate() &&
-                            createdDate.getMonth() === today.getMonth() &&
-                            createdDate.getFullYear() === today.getFullYear()
-                        );
-                    });
-
-                    toast.success(`No of todos: ${todosCreatedToday.length}`)
-                    // Update the todosCount state with the count of todos created today
-                    setTodosCount(todosCreatedToday.length);
-                } else {
-                    // Handle the case when todosResponse.data is not an array
-                    toast.error('Failed to fetch todos from Appwrite.')
-                    console.error('Failed to fetch todos from Appwrite.');
-                }
-            } catch (error) {
-                // Handle any API request or error handling errors
-                toast.error(error.message)
-                console.error('Error while fetching todos:', error);
-            }
-        };
-
-        console.log(todosCount);
-        fetchTodos();
-    }, []);
-
-    useEffect(() => {
-        // Calculate the productivity percentage
-        const percentage = (todosCount / productivityGoal) * 100;
-
-        // Update the productivityPercentage state
-        setProductivityPercentage(percentage);
-    }, [todosCount]);
-
-    return (
-        <div>
-            <p className='font-bold text-base md:text-xl text-cyan-500'>Productivity Level: {productivityPercentage.toFixed(2)}%</p>
-            <TailwindToaster />
-        </div>
-    );
+  return (
+    <div>
+      <p className={`font-bold text-base md:text-xl ${textColor}`}>
+        Productivity Level: {productivityPercentage.toFixed(2)}%
+      </p>
+      <TailwindToaster />
+    </div>
+  );
 };
 
 export default ProductivityPercentage;

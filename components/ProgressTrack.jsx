@@ -6,6 +6,7 @@ import TailwindToaster from "./TailwindToaster";
 import Loader from "./Loader";
 import { MdDelete, MdEdit } from "react-icons/md";
 import EditProgressModal from "./EditProgressModal";
+import NoItems from "./NoItems";
 
 function ProgressTrack(userId) {
   const [progress, setProgress] = useState([]);
@@ -73,6 +74,15 @@ function ProgressTrack(userId) {
 
   if (loader) {
     return <Loader />;
+  }
+
+  if (Object.keys(progress).length === 0) {
+    return (
+      <NoItems
+        title={"Progress Tracking List"}
+        subtitle={"You haven't made any progress yet!!"}
+      />
+    );
   }
 
   return (

@@ -42,11 +42,11 @@ function TodoForm(userId) {
     <div className="max-w-7xl container lg:px-8 px-5 mx-auto mt-10 text-white">
       <div className="flex flex-col gap-4 my-5 justify-center items-center">
         <h2
-          className={`${montserrat.className} text-3xl lg:text-4xl font-bold`}
+          className={`${montserrat.className} text-3xl lg: text-3xl lg:text-4xl font-bold`}
         >
           Task list
         </h2>
-        <p className="text-center lg:text-xl text-lg font-medium">
+        <p className="text-center md:md:text-xl font-medium">
           Effortlessly Manage and Dominate Your Tasks with ProManager&apos;s
           Powerful Tasklist Feature
         </p>
@@ -54,7 +54,7 @@ function TodoForm(userId) {
       <form
         action="#"
         onSubmit={handleSubmit}
-        className="flex justify-center mb-10"
+        className="flex lg:flex-row flex-col gap-4 justify-center mb-10"
       >
         <input
           type="text"
@@ -62,13 +62,13 @@ function TodoForm(userId) {
           id=""
           placeholder="Enter Todo"
           required
-          className="border p-2 w-2/3 rounded-md text-black placeholder-gray-600"
+          className="border p-2 w-full lg:w-2/3 rounded-md text-black placeholder-gray-600"
           onChange={(e) => {
             setTodoItem(e.target.value);
           }}
         />
         <button
-          className="bg-pink-600 hover:bg-pink-700 p-2 text-white ml-2 rounded-md"
+          className="bg-pink-600 hover:bg-pink-700 p-2 text-white lg:ml-2 rounded-md"
           type="submit"
         >
           Add Todo

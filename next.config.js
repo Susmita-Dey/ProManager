@@ -7,7 +7,7 @@ const config = {
   // here goes your Next.js configuration
   reactStrictMode: false,
   images: {
-    domains: ["lottiefiles.com", "cdn.pixabay.com"]
+    domains: ["lottiefiles.com", "cdn.pixabay.com", "media.tenor.com", "assets4.lottiefiles.com"]
   }
 };
 

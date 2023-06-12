@@ -34,11 +34,12 @@ const DiaryCard = ({ imageFileId, diaryTitle, diaryNote }) => {
               "https://cdn.pixabay.com/photo/2016/11/22/23/09/fountain-pen-1851096_1280.jpg"
             }
             className="w-full h-full"
+            alt="Card Image"
           />
         </div>
       )}
       <div className="flex p-2 text-white">
-        <p className="text-xl font-medium">{diaryTitle}</p>
+        <p className="md:text-xl font-medium">{diaryTitle}</p>
       </div>
       <span className="border-2 border-white w-full"></span>
       <div className="flex p-2 text-white">

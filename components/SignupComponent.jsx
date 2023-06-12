@@ -9,7 +9,6 @@ import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
 
 function SignupComponent() {
   const router = useRouter();
-  const [isEmailVerified, setIsEmailVerified] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [signupSuccess, setSignupSuccess] = useState(false);
 
@@ -54,23 +53,16 @@ function SignupComponent() {
 
     // Check password strength using a regular expression
     const passwordStrengthRegex =
-      /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/;
+      /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+{};:,<.>])(?!.*\s).{8,}$/;
 
-    const strongRegex = new RegExp(
-      "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})"
-    );
-    const mediumRegex = new RegExp(
-      "^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})"
-    );
-
-    // if (!passwordStrengthRegex.test(user.password)) {
-    //   toast.error(
-    //     "Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character."
-    //   );
-    //   return;
-    // } else {
-    //   toast.success("Woah!! Your password is strong. 💪");
-    // }
+    if (!passwordStrengthRegex.test(user.password)) {
+      toast.error(
+        "Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character."
+      );
+      return;
+    } else {
+      toast.success("Woah!! Your password is strong. 💪");
+    }
 
     const promise = account.create(
       uuidv4(),
@@ -97,7 +89,6 @@ function SignupComponent() {
           await account.createVerification(
             `${window.location.origin}/verify-email`
           );
-          setIsEmailVerified(true); // Update the email verification status
         } catch (error) {
           console.log(error);
           toast.error(error.message);
@@ -110,14 +101,10 @@ function SignupComponent() {
     );
   };
 
-  // if (isEmailVerified === true) {
-  //   toast.error("Email has been already verified");
-  // }
-
   return (
     <section className="text-gray-900 min-h-full flex flex-col justify-center items-center py-12 px-6 lg:px-8">
-      <div className="text-center text-2xl font-bold text-white">Sign up</div>
-      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+      <div className="text-center text-3xl font-bold text-white">Sign Up</div>
+      <div className="mt-8 sm:mx-auto sm:w-full max-w-md">
         <div className="bg-gray-300 py-8 px-4 shadow sm:rounded-lg sm:px-10">
           <form className="space-y-6" action="#" method="POST">
             <div>
@@ -270,7 +257,7 @@ function SignupComponent() {
                   className="px-4 py-2 text-lg rounded-md bg-pink-600 text-white hover:bg-pink-700"
                   onClick={() => {
                     setSignupSuccess(false);
-                    window.close();
+                    window.location.close();
                   }}
                 >
                   Close

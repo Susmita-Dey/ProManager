@@ -8,9 +8,10 @@ import Loader from "./Loader";
 import { MdDelete, MdEdit } from "react-icons/md";
 import { montserrat } from "@/context/fonts";
 import EditIdeasModal from "./EditIdeasModal";
+import NoItems from "./NoItems";
 
 function GeneralIdeas(userId) {
-  console.info(userId.userId);
+  // console.info(userId.userId);
   // alert(userId);
   const [ideaItem, setIdeaItem] = useState("");
   const category = "general";
@@ -108,6 +109,51 @@ function GeneralIdeas(userId) {
 
   if (loader) {
     return <Loader />;
+  }
+
+  if (Object.keys(ideas).length === 0) {
+    return (
+      <>
+        <div
+          className={`max-w-[85rem] mx-auto container lg:px-8 px-5 mt-10 text-white`}
+        >
+          <form
+            action="#"
+            onSubmit={handleSubmit}
+            className="flex flex-col lg:flex-row gap-4 justify-center mb-10"
+          >
+            <div className="flex flex-col gap-4">
+              <label className="text-2xl font-semibold">
+                Got some new project idea to add to your general list? <br />
+                Add them here one by one.
+              </label>
+              <input
+                type="text"
+                name=""
+                id=""
+                required
+                placeholder="Built a scientifical robot..."
+                className="border p-3 rounded-md text-black placeholder-gray-600"
+                onChange={(e) => {
+                  setIdeaItem(e.target.value);
+                }}
+              />
+            </div>
+            <button
+              className="bg-pink-600 hover:bg-pink-700 p-3 text-white lg:mt-20 rounded-md"
+              type="submit"
+            >
+              Add New Idea
+            </button>
+          </form>
+          <TailwindToaster />
+        </div>
+        <NoItems
+          title={"My Super Cool Ideas 😎"}
+          subtitle={"You haven't listed any ideas here yet!!"}
+        />
+      </>
+    );
   }
 
   return (

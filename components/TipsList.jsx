@@ -5,9 +5,11 @@ import toast from "react-hot-toast";
 import TailwindToaster from "./TailwindToaster";
 import Loader from "./Loader";
 import EditTipsModal from "./EditTipsModal";
+import Image from "next/image";
+import NoItems from "./NoItems";
 
 function TipsList(userId) {
-  const [tipsList, setTipsList] = useState();
+  const [tipsList, setTipsList] = useState("");
   const [loader, setLoader] = useState(false);
   const [selectedTip, setSelectedTip] = useState(null);
 
@@ -73,11 +75,20 @@ function TipsList(userId) {
     return <Loader />;
   }
 
+  if (Object.keys(tipsList).length === 0) {
+    return (
+      <NoItems
+        title={"My Productivity Tips"}
+        subtitle={"You haven't discovered any new tips yet!!"}
+      />
+    );
+  }
+
   return (
     <div className="container lg:px-0 px-5 max-w-7xl mx-auto">
-      <h3 className="text-xl font-bold mb-2 text-white">
+      <h2 className="text-xl font-bold mb-2 text-white">
         My Productivity Tips
-      </h3>
+      </h2>
       <div>
         {tipsList &&
           tipsList.map((item) => (

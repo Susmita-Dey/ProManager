@@ -42,7 +42,7 @@ function DashboardComponent({ username, userId }) {
     <section className="min-h-full flex flex-col px-5 py-12 sm:px-6 lg:px-8">
       <div>
         <div className="flex flex-col lg:flex-row justify-between md:px-20 items-center gap-5">
-          <div className="flex flex-col justify-center items-center gap-4">
+          <div className="flex flex-col lg:justify-start lg:items-start justify-center items-center gap-4">
             <h2
               className={`${montserrat.className} flex flex-row font-bold text-3xl md:text-6xl text-white`}
             >

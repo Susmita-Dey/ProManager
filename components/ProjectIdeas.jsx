@@ -37,24 +37,26 @@ const ProjectIdeas = ({ userId }) => {
   return (
     <section className="min-h-full max-w-[85rem] container mx-auto py-12 px-5 sm:px-6 lg:px-8">
       <div className="flex flex-col justify-center items-center">
-        <div className="flex flex-col gap-4 my-5 justify-center items-center">
-          <h2 className={`${montserrat.className} text-4xl font-bold`}>
+        <div className="flex flex-col gap-4 my-5 justify-center items-center lg:text-justify md:text-justify text-center">
+          <h2
+            className={`${montserrat.className}  text-3xl lg:text-4xl font-bold`}
+          >
             Idea list
           </h2>
-          <p className="text-xl font-medium">
+          <p className="md:text-xl font-medium">
             Turn Dreams into Reality with Promanger&apos;s Revolutionary
             Idealist Feature
           </p>
         </div>
         <div className="flex flex-col gap-5 lg:p-[8.5rem] p-5 rounded-lg max-h-full bg-gray-950">
-          <h2 className="text-4xl font-semibold">
+          <h2 className="text-2xl lg:text-4xl font-semibold">
             Hey, before moving ahead we wanna know you.
           </h2>
-          <h3 className="text-2xl font-medium">
+          <h3 className="text-xl lg:text-2xl font-medium">
             Choose any of the following roles that you currently pursue in your
             life.
           </h3>
-          <p className="text-lg font-normal">
+          <p className="text-base lg:text-lg font-normal">
             *You may choose any one of the following and we&apos;ll provide you
             the data based on your preferences.
           </p>

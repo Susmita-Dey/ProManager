@@ -46,20 +46,19 @@ function LoginComponent() {
         emailInput,
         `${window.location.origin}/reset-password`
       );
-      toast.success("Password reset email sent!");
+      toast.success("Password reset email sent! Check your inbox 📩");
     } catch (error) {
       console.log(error);
       toast.error(error.message);
     }
-    e.target.reset();
   };
 
   return (
     <div className="text-gray-900 min-h-full flex flex-col justify-center items-center py-12 sm:px-6 lg:px-8">
-      <div className="text-center font-bold text-2xl text-white">
+      <div className="text-center font-bold text-3xl text-white">
         {showResetForm ? "Reset Password" : "Sign In"}
       </div>
-      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+      <div className="mt-8 sm:mx-auto sm:w-full max-w-md">
         <div className="bg-gray-200 py-8 px-4 shadow sm:rounded-lg sm:px-10">
           {showResetForm ? (
             <form className="space-y-6" action="#" method="POST">
@@ -175,14 +174,12 @@ function LoginComponent() {
               </div>
 
               <div className="flex items-center justify-center">
-                <div className="text-base">
-                  <Link
-                    href="/signup"
-                    className="font-medium text-pink-600 hover:text-pink-800 hover:underline hover:underline-offset-4"
-                  >
-                    Don't have an account? Sign Up
-                  </Link>
-                </div>
+                <Link
+                  href="/signup"
+                  className="text-base font-medium text-pink-600 hover:text-pink-800 hover:underline hover:underline-offset-4"
+                >
+                  Don&apos;t have an account? Sign Up
+                </Link>
               </div>
             </form>
           )}

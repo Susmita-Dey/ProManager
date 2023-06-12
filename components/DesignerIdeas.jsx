@@ -9,9 +9,10 @@ import Loader from "./Loader";
 import { montserrat, roboto } from "@/context/fonts";
 import { MdDelete, MdEdit } from "react-icons/md";
 import EditIdeasModal from "./EditIdeasModal";
+import NoItems from "./NoItems";
 
 function DesignerIdeas(userId) {
-  console.info(userId.userId);
+  // console.info(userId.userId);
   const [ideaItem, setIdeaItem] = useState("");
   const category = "designer";
   const data = {
@@ -121,6 +122,66 @@ function DesignerIdeas(userId) {
 
   if (loader) {
     return <Loader />;
+  }
+
+  if (Object.keys(ideas).length === 0) {
+    return (
+      <>
+        <div
+          className={` max-w-7xl mx-auto container lg:px-8 px-5 mt-10 text-white`}
+        >
+          <form
+            action="#"
+            onSubmit={handleSubmit}
+            className="flex flex-col lg:flex-row gap-4 justify-center mb-10"
+          >
+            <div className="flex flex-col gap-4">
+              <label className="text-2xl font-semibold">
+                Got some new project idea to add to your designer list? <br />
+                Add them here one by one.
+              </label>
+              <input
+                type="text"
+                name=""
+                id=""
+                required
+                placeholder="Built a scientifical robot..."
+                className="border p-3 rounded-md text-black placeholder-gray-600"
+                onChange={(e) => {
+                  setIdeaItem(e.target.value);
+                }}
+              />
+            </div>
+            <button
+              className="bg-pink-600 hover:bg-pink-700 p-3 text-white lg:mt-20 rounded-md"
+              type="submit"
+            >
+              Add New Idea
+            </button>
+          </form>
+          <TailwindToaster />
+        </div>
+        <NoItems
+          title={"My Ideas"}
+          subtitle={"You haven't listed any ideas here yet!!"}
+        />
+        <h2
+          className={`${montserrat.className} text-3xl font-semibold text-center my-10`}
+        >
+          List of Design Ideas
+        </h2>
+        <div className="flex lg:flex-row flex-wrap flex-col justify-center items-center gap-5">
+          {prodesigner.map((item, index) => (
+            <div
+              key={index}
+              className="max-w-7xl flex lg:flex-row flex-col justify-center items-center gap-2"
+            >
+              <IdeaCard key={item} idea={item} />
+            </div>
+          ))}
+        </div>
+      </>
+    );
   }
 
   return (

@@ -107,7 +107,7 @@ function ProfilePage() {
                 </div>
 
                 <div className="flex flex-col justify-center items-center text-center mt-12">
-                  <h3 className="text-4xl font-semibold leading-normal mb-2 text-gray-800">
+                  <h3 className=" text-3xl lg:text-4xl font-semibold leading-normal mb-2 text-gray-800">
                     {userDetails?.name}
                   </h3>
                   <div className="flex flex-row">
@@ -126,7 +126,10 @@ function ProfilePage() {
                 </div>
                 <div className="flex flex-col flex-wrap justify-center items-center gap-4 mt-10 py-10 border-t border-gray-300 text-center">
                   <div className="flex my-4">
-                    <ProductivityPercentage />
+                    <ProductivityPercentage
+                      userId={userDetails.$id}
+                      textColor="text-cyan-900"
+                    />
                   </div>
                   <div className="flex flex-col lg:flex-row flex-wrap justify-center items-center gap-4">
                     <button
@@ -166,7 +169,6 @@ function ProfilePage() {
                       className="px-4 py-2 text-lg rounded-md bg-pink-600 text-white hover:bg-pink-700"
                       onClick={() => {
                         setVerifySuccess(false);
-                        window.close();
                       }}
                     >
                       Close

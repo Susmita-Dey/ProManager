@@ -59,7 +59,9 @@ export default function Newsletter() {
       data-aos="fade-up"
     >
       <div className="flex flex-col justify-center items-center gap-6">
-        <h2 className={`${montserrat.className} md:text-4xl text-2xl`}>
+        <h2
+          className={`${montserrat.className} md: text-3xl lg:text-4xl text-2xl`}
+        >
           Subscribe to our{" "}
           <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
             Newsletter
