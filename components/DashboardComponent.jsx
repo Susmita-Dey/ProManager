@@ -77,7 +77,7 @@ function DashboardComponent({ username, userId }) {
         >
           Explore
         </h2>
-        <div className="flex lg:flex-row flex-wrap flex-col justify-center gap-8 items-center mb-10 px-5">
+        <div className="flex lg:flex-row flex-wrap justify-center items-center gap-8 mb-10 px-5 dashboardcards">
           {/* <div className="flex flex-row justify-center items-center gap-8 flex-wrap"> */}
           <FlatCard
             path="/productivity-tips"

@@ -6,6 +6,8 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --scrollbarBG: #cfd8dc;
+  --thumbBG: #ae90a4;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,7 +15,22 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 3, 7, 18;
     --background-end-rgb: 17, 24, 39;
+    --scrollbarBG: #cfd8dc;
+    --thumbBG: #ae90a4;
   }
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  border-radius: 6px;
+  border: 3px solid var(--scrollbarBG);
 }
 
 body {
@@ -25,6 +42,8 @@ body {
     )
     rgb(var(--background-start-rgb)); */
   background: #161622;
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
 }
 
 /* #1B1B27 */
@@ -33,20 +52,9 @@ body {
   height: 100%;
 }
 
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-
-  /* Center slide text vertically */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .dashboardcards {
+    flex-direction: row;
+    justify-content: space-around;
+  }
 }

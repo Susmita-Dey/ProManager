@@ -247,6 +247,8 @@ const KanbanBoardComponent = (userId) => {
                       {column.items.map((item, index) => (
                         <div key={index}>
                           <KanbanCard
+                            userId={userId}
+                            items={item}
                             columnId={column.id}
                             itemId={item.id}
                             index={index}
