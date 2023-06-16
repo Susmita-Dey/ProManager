@@ -77,44 +77,44 @@ function DashboardComponent({ username, userId }) {
         >
           Explore
         </h2>
-        <div className="flex flex-col justify-center gap-5 items-center mb-10 px-5">
-          <div className="flex flex-row justify-center items-center gap-8 flex-wrap">
-            <FlatCard
-              path="/productivity-tips"
-              title="Productivity Tips 💁‍♀️"
-              subtitle="Let's increase your productivity with some useful tips and tricks."
-            />
-            <FlatCard
-              path="/tasklist"
-              title="Tasklist 📃"
-              subtitle="Let's help you in listing out your left-over tasks of the day."
-            />
-            <FlatCard
-              path="/kanbanproject"
-              title="Kanban Board 🛹"
-              subtitle="Let's increase your productivity by organizing things in a cool board."
-            />
-            <FlatCard
-              path="/idealist"
-              title="Idealist 💡"
-              subtitle="Let's help you with some cool project ideas. If you're smarter, add some cool ones."
-            />
-            <FlatCard
-              path="/progress"
-              title="Progress Tracker 🏃"
-              subtitle="Track your daily progress by documenting your daily moves and achievements."
-            />
-            <FlatCard
-              path="/diarynote"
-              title="Your Secret Diary 📔"
-              subtitle="Make notes and keep it in one place or make the habit of writing your productivity diary."
-            />
-            <FlatCard
-              path="/stopwatch"
-              title="Tick Tock ⏱️"
-              subtitle="Let's increase your productivity with some useful tips and tricks."
-            />
-          </div>
+        <div className="flex lg:flex-row flex-wrap flex-col justify-center gap-8 items-center mb-10 px-5">
+          {/* <div className="flex flex-row justify-center items-center gap-8 flex-wrap"> */}
+          <FlatCard
+            path="/productivity-tips"
+            title="Productivity Tips 💁‍♀️"
+            subtitle="Let's increase your productivity with some useful tips and tricks."
+          />
+          <FlatCard
+            path="/tasklist"
+            title="Tasklist 📃"
+            subtitle="Let's help you in listing out your left-over tasks of the day."
+          />
+          <FlatCard
+            path="/kanbanproject"
+            title="Kanban Board 🛹"
+            subtitle="Let's increase your productivity by organizing things in a cool board."
+          />
+          <FlatCard
+            path="/idealist"
+            title="Idealist 💡"
+            subtitle="Let's help you with some cool project ideas. If you're smarter, add some cool ones."
+          />
+          <FlatCard
+            path="/progress"
+            title="Progress Tracker 🏃"
+            subtitle="Track your daily progress by documenting your daily moves and achievements."
+          />
+          <FlatCard
+            path="/diarynote"
+            title="Your Secret Diary 📔"
+            subtitle="Make notes and keep it in one place or make the habit of writing your productivity diary."
+          />
+          <FlatCard
+            path="/stopwatch"
+            title="Tick Tock ⏱️"
+            subtitle="Let's increase your productivity with some useful tips and tricks."
+          />
+          {/* </div> */}
         </div>
         <div className="flex flex-col justify-center items-center mt-10 mb-4">
           <h2 className={`${montserrat.className} text-2xl font-bold`}>

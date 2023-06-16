@@ -11,7 +11,7 @@ export default function ContactPage() {
     return (
       <div className="text-white flex flex-col mx-auto my-10 justify-center items-center">
         <Image
-          className="mb-6"
+          className="mb-6 animate-waving-hand"
           src="https://cdn.pixabay.com/photo/2018/08/02/18/58/survival-3580200_1280.png"
           alt="error"
           width={250}
@@ -44,7 +44,7 @@ export default function ContactPage() {
             data-aos-once="true"
           >
             <div className="flex mx-12">
-              <div className=" block group mt-8">
+              <div className="lg:visible md:visible hidden lg:block md:block xl:block xl:visible group mt-8">
                 <Image
                   src="https://cdn.pixabay.com/photo/2015/11/03/08/53/meeting-1019744_960_720.jpg"
                   // src="/vercel.svg"
@@ -98,6 +98,7 @@ export default function ContactPage() {
                       className="email p-3 rounded-xl bg-blue-100 text-pink-600"
                       placeholder="Your Email Address"
                       required
+                      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                     />
                     <ValidationError
                       prefix="Email"
@@ -146,7 +147,7 @@ export default function ContactPage() {
                     <button
                       type="submit"
                       disabled={state.submitting}
-                      className={`${nunito.className} bg-pink-600 font-bold hover:bg-pink-800 px-4 py-2 rounded-lg`}
+                      className={`${nunito.className} bg-pink-600 font-bold hover:bg-pink-800 px-6 py-3 rounded-lg`}
                       role="button"
                     >
                       Submit

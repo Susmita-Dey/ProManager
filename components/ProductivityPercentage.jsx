@@ -6,10 +6,8 @@ import toast from "react-hot-toast";
 import TailwindToaster from "./TailwindToaster";
 
 const ProductivityPercentage = ({ userId, textColor = "text-cyan-500" }) => {
-  //   const [todosCount, setTodosCount] = useState(0);
-  //   const [progressCount, setProgressCount] = useState(0);
   const [productivityPercentage, setProductivityPercentage] = useState(0);
-  const productivityGoal = 40; // Set your desired productivity goal here
+  const productivityGoal = 400; // Set your desired productivity goal here
   const {
     todosCount,
     progressCount,
@@ -23,7 +21,7 @@ const ProductivityPercentage = ({ userId, textColor = "text-cyan-500" }) => {
 
   useEffect(() => {
     // Calculate the productivity percentage
-    const totalItems = todosCount + progressCount;
+    const totalItems = todosCount + progressCount + kanbanCount + diaryCount;
     const percentage = (totalItems / productivityGoal) * 100;
 
     // Update the productivityPercentage state

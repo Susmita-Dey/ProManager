@@ -42,7 +42,7 @@ function TodoForm(userId) {
     <div className="max-w-7xl container lg:px-8 px-5 mx-auto mt-10 text-white">
       <div className="flex flex-col gap-4 my-5 justify-center items-center">
         <h2
-          className={`${montserrat.className} text-3xl lg: text-3xl lg:text-4xl font-bold`}
+          className={`${montserrat.className} text-3xl lg:text-4xl font-bold`}
         >
           Task list
         </h2>

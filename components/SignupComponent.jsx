@@ -45,6 +45,16 @@ function SignupComponent() {
       return;
     }
 
+    // Check email format
+    // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    // const emailRegex = /\S+@\S+\.\S+/;
+
+    if (!emailRegex.test(user.email)) {
+      toast.error("Please enter a valid email address.");
+      return;
+    }
+
     // Check password length
     if (user.password.length < 8) {
       toast.error("Password must be at least 8 characters long.");
@@ -105,7 +115,7 @@ function SignupComponent() {
     <section className="text-gray-900 min-h-full flex flex-col justify-center items-center py-12 px-6 lg:px-8">
       <div className="text-center text-3xl font-bold text-white">Sign Up</div>
       <div className="mt-8 sm:mx-auto sm:w-full max-w-md">
-        <div className="bg-gray-300 py-8 px-4 shadow sm:rounded-lg sm:px-10">
+        <div className="bg-gray-300 py-8 shadow rounded-lg px-8">
           <form className="space-y-6" action="#" method="POST">
             <div>
               <label htmlFor="name" className="block text-sm font-medium">

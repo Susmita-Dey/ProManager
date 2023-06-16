@@ -29,21 +29,21 @@ const features = [
     icon: FaCreativeCommonsSamplingPlus,
   },
   {
-    name: "Prioritization and deadlines",
+    name: "Capturing and reflecting",
     description:
-      " Set priorities, assign deadlines, and stay focused on what matters most.",
+      "Capture and organize your notes, thoughts, ideas, and reflections with Diary Note",
     icon: MdPriorityHigh,
   },
   {
-    name: "Task and to-do management",
+    name: "Kanban-powered task management",
     description:
       "Stay organized and on top of your responsibilities with our intuitive task management features.",
     icon: FaTasks,
   },
   {
-    name: "Speed Up Productivity with Stopwatch",
+    name: "Speed up productivity with timer",
     description:
-      "Discover how our Stopwatch feature in ProManager helps you track time, improve focus, and supercharge your productivity.",
+      "Discover how our Stopwatch and Pomodoro feature in ProManager helps you track time, improve focus, and supercharge your productivity.",
     icon: FaStopwatch,
   },
 ];
@@ -66,7 +66,7 @@ export default function About() {
           >
             Achieve your goals faster
           </h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight sm: text-3xl lg:text-4xl">
+          <p className="mt-2 font-bold tracking-tight text-3xl lg:text-4xl">
             Everything you need to{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">
               increase

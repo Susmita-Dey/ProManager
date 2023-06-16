@@ -15,7 +15,7 @@ function VerifyEmail() {
         account.updateVerification(userId, secret) // Assuming your Appwrite SDK supports updating verification status
             .then(() => {
                 toast.success('Email verification successful!');
-                router.push('/profile'); // Redirect to the dashboard page after successful verification
+                router.push('/dashboard'); // Redirect to the dashboard page after successful verification
                 // window.location.reload()
             })
             .catch((error) => {

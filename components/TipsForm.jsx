@@ -44,7 +44,7 @@ function TipsForm(userId) {
     >
       <div className="flex flex-col gap-4 my-5 justify-center items-center">
         <h2
-          className={`${montserrat.className} text-3xl lg: text-3xl lg:text-4xl font-bold`}
+          className={`${montserrat.className} text-3xl lg:text-4xl font-bold`}
         >
           Productivity Tips
         </h2>

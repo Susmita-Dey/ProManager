@@ -53,7 +53,7 @@ export default function FaqComponent() {
     >
       <div className="flex flex-col justify-center items-center text-center lg:text-start lg:px-24">
         <h2
-          className={`${montserrat.className} lg: text-3xl lg:text-4xl text-2xl mt-20 font-semibold text-center`}
+          className={`${montserrat.className} lg:text-4xl text-2xl mt-20 font-semibold text-center`}
         >
           Frequently Asked Questions
         </h2>

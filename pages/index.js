@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { account } from '@/appwrite/appwrite'
-import DashboardComponent from '@/components/DashboardComponent'
 import HeroSection from '@/components/HeroSection'
 import Head from 'next/head'
 import Newsletter from '@/components/Newsletter'
@@ -8,6 +7,7 @@ import About from '@/components/About'
 import Testimonials from '@/components/Testimonials'
 import FaqComponent from '@/components/FaqComponent'
 import UseCaseComponent from '@/components/UseCaseComponent'
+import Dashboard from './dashboard'
 
 export default function Home() {
   const [userDetails, setUserDetails] = useState('')
@@ -47,7 +47,7 @@ export default function Home() {
         </>
       ) : (
         <>
-          <DashboardComponent username={userDetails.name} userId={userDetails.$id} />
+          <Dashboard />
         </>
       )
         // )

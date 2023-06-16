@@ -59,7 +59,7 @@ function LoginComponent() {
         {showResetForm ? "Reset Password" : "Sign In"}
       </div>
       <div className="mt-8 sm:mx-auto sm:w-full max-w-md">
-        <div className="bg-gray-200 py-8 px-4 shadow sm:rounded-lg sm:px-10">
+        <div className="bg-gray-200 py-8 shadow rounded-lg px-10">
           {showResetForm ? (
             <form className="space-y-6" action="#" method="POST">
               <div>
