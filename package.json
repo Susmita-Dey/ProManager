@@ -17,7 +17,7 @@
     "eslint": "8.40.0",
     "eslint-config-next": "13.4.2",
     "html2canvas": "^1.4.1",
-    "next": "14.1.1",
+    "next": "14.2.12",
     "next-pwa": "^5.6.0",
     "postcss": "8.4.31",
     "react": "18.2.0",
